@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Reverse the order of lines of text</title>
+</head>
+    
+<body>
+  <div class="hcont">
+   <h2>Reverse the order of lines <br>of a text</h2> 
+  </div>
+  
+  <h4>input text:</h4>
+    <textarea id="inp" rows="6" cols="40"></textarea>
+    
+   <div class="hcont">
+    <input type="button" value="Reverse lines" onclick="onReverseLinesBtn();">
+    </div>
+    
+  <h4>output text:</h4>
+     <textarea id="out" rows="6" cols="40"></textarea>
+     <hr>
+<!-- end of html-->
+    
+<script>
+/*
+Reverse the order of lines of a text, >JavaScript version: 
+const reverseLines = (str) => str.split(/\r?\n/).reverse().join('\n'); 
+
+TypeScript version: 
+const reverseLines = (str: string): string => str.split(/\r?\n/).reverse().join('\n');
+
+//Source:https://1loc.dev/string/reverse-the-order-of-lines-of-a-text/
+*/
+const reverseLines = (str) => str.split(/\r?\n/).reverse().join('\n');
+
+const inp = document.getElementById("inp");
+const out = document.getElementById("out");
+
+const onReverseLinesBtn = function (){
+  let txt = inp.value; //innerText();
+  if (txt=="") {
+    console.log("Info: empty text on input.");
+  }
+  let trev = reverseLines(txt);
+  out.value = trev;
+}
+</script>
+  	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+/* Created by Aditya Verma */
+
+body {
+    background: #131313;
+    font-family: 'Supermercado One', cursive;
+    transition: all 0.5s;
+}
+h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-shadow: 0px 0px 10px #00BAD0,
+                 0px 0px 20px #00BAD0,
+                 0px 0px 30px #00BAD0,
+                 0px 0px 40px #00BAD0;
+}
+#clock {
+    height: 270px;
+    width: 270px;
+    position: relative
+  }
+.main {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    font-size: 22px;
+    margin-top: 35px;
+}
+#timerDiv1 {
+    flex: 0 1 100%;
+    align-self: center;
+}
+#time {
+    display: inline-block;
+    color: white;
+    text-shadow: 0px 0px 10px #00BAD0,
+                 0px 0px 20px #00BAD0,
+                 0px 0px 30px #00BAD0,
+                 0px 0px 40px #00BAD0,
+                 0px 0px 50px #00BAD0,
+                 0px 0px 60px #00BAD0,
+                 0px 0px 70px #00BAD0;
+    text-align: center;
+    position: relative;
+    top: -305px;
+    font-size: 85px;
+    width: 260px;
+}
+#min, #sec {
+    display: inline-block;
+}
+.counter {
+    /* margin-top: 100px; */
+    margin-bottom:30px; 
+    border: 2px white solid;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    color: white;
+    font-size: 20px;
+    flex: 0 0 auto;
+    justify-content: center;
+}
+#t {
+    width: 100px;
+}
+#timerDiv2{
+    width: 250px;
+    height: 250px;
+    border: 2px #00BAD0 solid;
+    box-shadow: 0px 0px 10px #00BAD0,
+                 0px 0px 20px #00BAD0,
+                 0px 0px 30px #00BAD0,
+                 0px 0px 40px #00BAD0;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+a {
+    flex: 0 1 auto;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    width: 30px;
+    height: 25px;
+    transition: all 0.7s;
+}
+.counterDisplay {
+    flex: 0 1 30%;
+    color: white;
+    text-align: center;
+    position: relative;
+    top: -20px;
+}
+.counterText {
+    flex: 1 1 100%;
+    width: 100%;
+    position: relative;
+    top: 25px;
+    font-size: 30px;
+    z-index: -1;
+}
+.counterText p {
+    text-align: center;
+}
+
+.counter:nth-of-type(2){
+    border: #FFCF02 2px solid;
+    box-shadow: 0px 0px 10px #FFCF02,
+                 0px 0px 20px #FFCF02,
+                 0px 0px 30px #FFCF02,
+                 0px 0px 40px #FFCF02;
+
+    text-shadow: 0px 0px 10px #FFCF02,
+                 0px 0px 20px #FFCF02,
+                 0px 0px 30px #FFCF02,
+                 0px 0px 40px #FFCF02;
+}
+.counter:nth-of-type(3){
+    border: #00BAD0 2px solid;
+    box-shadow: 0px 0px 10px #00BAD0,
+                 0px 0px 20px #00BAD0,
+                 0px 0px 30px #00BAD0,
+                 0px 0px 40px #00BAD0;
+
+    text-shadow: 0px 0px 10px #00BAD0,
+                 0px 0px 20px #00BAD0,
+                 0px 0px 30px #00BAD0,
+                 0px 0px 40px #00BAD0;
+}
+.line {
+    position: relative;
+    flex: 1 1 50%;
+    height: 120px;
+}
+.line:nth-of-type(1){
+    text-shadow: 0px 0px 10px #FFCF02,
+                 0px 0px 20px #FFCF02,
+                 0px 0px 30px #FFCF02,
+                 0px 0px 40px #FFCF02;
+}
+#red, #purple {
+    opacity: 0;
+}
+
+#timerDiv2 a:nth-of-type(1) {
+    position: relative;
+    top: -380px;
+    left: 85px;
+    color: #00BAD0;
+    transition: all 0.5s;
+}
+#timerDiv2 a:nth-of-type(2) {
+    position: relative;
+    top: -380px;
+    left: 120px;
+    color: #00BAD0;
+    transition: all 0.5s;
+}

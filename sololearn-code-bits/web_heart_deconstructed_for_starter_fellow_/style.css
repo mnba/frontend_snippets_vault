@@ -1,0 +1,74 @@
+/* Created by Marine Apresyan */
+
+.heart { 
+   display: inline-block;
+   position: absolute;
+   background-color: red;
+   margin: 0 10px;
+   left: 45%; 
+   top: 45%; 
+   height: 50px; 
+   width: 50px;
+   transform: rotate(-45deg); 
+} 
+
+.heart:before, .heart:after { 
+   content: '';
+   position: absolute; 
+   /*background-color: red; */
+   border-radius: 50%; 
+   height: 50px; 
+   width: 50px;
+   
+   /*border: 1px dashed orange;*/
+   background-color: pink;
+   opacity: 0.6;
+} 
+
+.heart:before { 
+  top: -25px; 
+  left: 0;
+  background-color: lightgreen;
+} 
+.heart:after { 
+  left: 25px; 
+  top: 0; 
+}
+
+/** /
+@keyframes heartbeat { 
+   0%  { transform: scale(1); } 
+   20% { transform: scale( 1.25 )
+          translateX(5%) translateY(5%); } 
+   40% { transform: scale( 1.5 ) 
+          translateX(9%) translateY(10%); }
+}
+
+.heart { 
+   animation: heartbeat 7s infinite; 
+}
+/**/
+:root{
+  /*--dir=180deg;*/
+  --dir=-360deg;
+}
+
+
+@keyframes rotateSquare { 
+  0%  { transform: scale(1.5);
+        animation-timing-function: linear;
+      } 
+  /*50% { transform: scale(1.5) rotate(calc(-1 * --dir)); 
+        animation-timing-function: linear;
+      }*/
+  100% { transform: scale(1.5) rotate(360deg); 
+        /*animation-timing-function: linear; */
+  } 
+  /*40% { transform: 
+         translateX(9%) translateY(10%); }*/
+}
+
+.heart {
+  animation: rotateSquare 2.1s infinite; 
+}
+

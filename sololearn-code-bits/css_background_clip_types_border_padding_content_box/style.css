@@ -1,0 +1,19 @@
+#zero {
+    border: 8px dotted black;
+    padding: 20px;
+    background: LightBlue;
+    background-clip: border-box;
+}
+
+#first {
+    border: 8px dotted black;
+    padding: 20px;
+    background: LightBlue;
+    background-clip: padding-box;
+}
+#second {
+    border: 8px dotted black;
+    padding: 20px;
+    background: LightBlue;
+    background-clip: content-box;
+}

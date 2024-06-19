@@ -1,0 +1,40 @@
+#btn1 {
+  background-color: #ED6663;
+  text-align: center;
+  color: white; /*-#E6E6FA;*/
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#btn1:hover{
+  background-color: #FFA372;
+}
+
+#pane1 {
+  background-color: #1B262C;
+  /*grey;*/
+  color: white;
+  padding: 0px 4px 0px 4px;
+}
+
+#pane1 pre {
+  font-style: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+
+#clear_all_snd {
+  display: inline-block;
+  //height: 20px;
+  font-style: italic;
+  font-weight: 600;
+  background-color: #dd0000; //red; //#ED6663;
+  color: white;
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+
+#easteregg {
+  background-color: white;
+  color: #f2f2f2;
+}

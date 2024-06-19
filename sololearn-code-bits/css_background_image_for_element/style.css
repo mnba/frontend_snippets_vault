@@ -1,0 +1,7 @@
+p.bg-img {
+  background-image: url("http://www.sololearn.com/images/tree.jpg");
+  
+  padding: 70px;
+  color: limegreen;
+  //border: solid thin yellow;
+}

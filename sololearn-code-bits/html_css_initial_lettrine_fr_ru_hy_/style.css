@@ -1,0 +1,44 @@
+p.para1 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  /*position: static;*/
+}
+
+p.para1:first-letter { 
+  float: left; 
+  font-weight: bold; 
+  font-size: 300%;
+  font-family: Gothic, Times;
+  position: relative; 
+  top: -8px;
+  /*font-style: italic;*/
+  /*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
+}
+
+h4{
+  font-family: Times;
+}
+
+ul.links{
+  list-style-type: none;
+}
+#x1{
+  border: 1px solid grey;
+  position: relative; 
+  top: -8px;
+}
+#x1:first-letter{
+  border: 1px solid green;    
+}
+p.para1:first-letter{
+  border: 1px solid #ff7a95; /*pink;*/
+  /* https://encycolorpedia.ru/ff7a95 */
+}
+
+/*
+To move it 45px up from wherever it currently is, you could use 
+ position: relative; top: -45px; or 
+ position: absolute; margin-top: -45px; 
+If you want it 45px from the top of the page, use 
+ position: absolute; top: 45px;
+from: https://stackoverflow.com/a/15512777 
+*/

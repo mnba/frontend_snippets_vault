@@ -1,0 +1,54 @@
+/* Created by Sophia */
+
+/* Created by Minas A. */
+
+/* Created by Sophia */
+/* Edited by M.A. */
+html{}
+
+body{
+    background-color: #ddd; /*ivory;*/
+    /*background-attachment:fixed; */
+}
+h1, h2 {
+    text-align:left;
+    color: #333; /*darkblue;*/
+    text-shadow:;
+}
+
+.arm-flag{
+  margin: 8px;
+  /*border: 5px dotted gold;*/
+  padding: 7px;
+}
+
+.rect{
+    margin:0px;
+    width:100%;
+    height:75px
+}
+.rect-red {
+    background-color:red;
+}
+
+.rect-blue {
+    background-color:blue;
+}
+
+.rect-orange {
+    background-color: orange;
+}
+
+.article-title{
+    margin-bottom: 3px;
+    text-align: left;
+    color: #333; /*crimson;*/
+}
+
+.text{
+    margin-top: 1px;
+    margin-bottom: 1px;
+    text-indent: 1.5em;
+    text-align: justify;
+}
+

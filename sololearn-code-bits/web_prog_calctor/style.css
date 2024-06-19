@@ -1,0 +1,50 @@
+body {
+}
+
+#main{ }
+
+#upper-cont{
+  display: flex;
+  height: 12rem;
+}
+
+#codehll{ 
+ background-color: pink;
+ width: 50%;
+ margin-right:1px;
+ border-radius: 3px;
+} 
+#codelll{
+  background-color: lightgreen;
+  width:50%;
+  margin-left:1px;
+  border-radius: 3px;
+}
+
+#btnpad{
+  background-color: #dddddd;
+  margin-top: 6px;
+}
+
+#console{
+  color: white;
+  background-color: black;
+  height: 4rem;
+  margin-top: 6px;
+}
+
+button{
+  font-size: 16px;
+}
+.btn{
+  display: inline-block;
+  background-color: #bbbbbb;
+  border: 1px solid #282828;
+  margin: 2px;
+  padding: 1px 3px 1px;
+  border-radius: 3px;
+}
+
+.new-var{
+
+}

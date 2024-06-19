@@ -1,0 +1,15 @@
+body {
+}
+
+.c1{
+  border: 6px solid orange;
+}
+
+.c2{
+  background-color: #297;
+  padding: 4px;
+  display: inline-block;
+  margin: 4px;
+  
+  border-radius: 9px;
+}

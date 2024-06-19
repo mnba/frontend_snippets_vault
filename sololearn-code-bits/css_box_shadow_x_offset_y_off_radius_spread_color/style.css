@@ -1,0 +1,8 @@
+div {
+  margin: 50;;
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: lightcoral; /*#c8b822;*/
+    box-shadow: 0px 0px 10px 25px #888888;
+}

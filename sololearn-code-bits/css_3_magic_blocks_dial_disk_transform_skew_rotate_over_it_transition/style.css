@@ -1,0 +1,85 @@
+.title1{
+    font-family: Times;
+    font-style: italic;
+    color: #888888;
+    text-align: center;
+}
+
+.cont1{
+    position: relative;
+    margin: 70px;
+    border: 1px dashed aquamarine;
+}
+
+.diamond-gen {
+    width: 75px;
+    height: 75px;
+    
+    transition: transform 1.2s;
+}
+
+.diamond1 {
+    background-color: #32CD32;
+    /*transition-delay: 0.3s;
+    //transition: transform 1s;
+    //transform: skew(-15deg);*/
+    
+    color:green;
+    font-size: 12px;
+    font-family: Times;
+    font-style: italic;
+    text-align: center;
+}
+.diamond1:hover {
+    transform: skew(100deg) scale(0); /* scale(0.03);*/
+}
+
+.diamond2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    background-color: #3277aa;
+    /*transform: skew(15deg); */
+    transform-origin: bottom right;
+}
+.diamond2:hover{
+    transform-origin: bottom right;
+    transform: skew(0, 20deg) rotate(180deg);
+}
+
+.diamond3 {
+    //position: absolute;
+    left:0;
+    //bottom:0;
+    
+    background-color: orange;
+    transform-origin: bottom right;
+}
+.diamond3:hover{
+    transform-origin: bottom right;
+    transform: rotate(-180deg) skew(20deg, 0);
+}
+
+/* https://www.svgrepo.com/svg/75589/dial
+*/
+.diamond4{
+    position: absolute;
+    right:0;
+    bottom:0;
+    font-size:12px;
+    /*border: 1px dashed #bbb; */
+    /*background-image: url(#dial-disk-img); //this didn't work */
+}
+
+/*.diamond4:hover{...} */
+
+#dial-disk-placeholder-img{
+  transition: transform 1.4s;
+}
+#dial-disk-placeholder-img:hover{
+    transform-origin: 50% 50%;
+    transform: rotate(165deg);
+}
+
+

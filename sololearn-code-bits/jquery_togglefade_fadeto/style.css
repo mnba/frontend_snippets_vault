@@ -1,0 +1,13 @@
+.btn1 {
+    background-color: lightgreen;
+    color:white;
+    padding:5px;
+    
+    text-align: center;
+    cursor: pointer;
+}
+
+.pane1 {
+    background-color: #555;
+    color: white;
+}

@@ -1,0 +1,55 @@
+.m, .markup{
+  border-radius: 3px;
+  font: Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  padding: 2px 4px;
+}
+
+.snow {
+  color: white;
+  background-color: #bbb;
+}
+
+.steel1 {
+  color: LightGray; /*#71797E;*/
+  background-color: #888;
+}
+.steel2 {
+  color: Silver; /*#71797E;*/
+  background-color: #888;
+}
+
+.docwrited{
+  border: 1px dashed yellow;
+}
+
+/*
+Gray
+Color Names - Gray — HTML Color Codes
+https://htmlcolorcodes.com/color-names/
+
+LightGray #D3D3D3  rgb(211, 211, 211) 
+
+Silver    #C0C0C0  rgb(192, 192, 192)
+
+--
+Steel Gray Color, 
+Codes and Facts – HTML Color Codes
+https://htmlcolorcodes.com/colors/steel-gray/
+ "Steel gray is a cool gray color with the hex code #71797E . 
+Steel gray is a metal-inspired shade very similar in color to silver, and slightly bluer than gunmetal gray."
+*/
+
+/*
+From:
+Steel Color Palette - color-hex
+https://www.color-hex.com/color-palette/9879
+
+Colors in Palette
+Color     Hex     RGB
+    #e0e5e5     (224,229,229)
+    #ced3d4     (206,211,212)
+    #c0c6c7     (192,198,199)
+    #a8b0b2     (168,176,178)
+    #99a3a3     (153,163,163)
+*/

@@ -1,0 +1,74 @@
+.container1 {
+    width: 100%;
+    position: relative;
+}
+
+/* Title */
+.text1 {
+    margin: 4px;
+    text-align: center;
+    font-family: Times;
+    font-style: italic ;
+    background: #fff;
+    color: #777;    
+}
+
+/*Sunny bg - unused now *-/
+.sunny-block1 {
+    height: 100px;
+    margin: 4px 0px 0px;
+    background: linear-gradient(#FFF205, #FEF983);
+    border-radius: 15px 15px 0 0;
+}*/
+
+/*Sky bg*/
+#sky {
+    height: 200px;
+    margin: 0px;
+    background: linear-gradient(#82B0E1, #00ACEE);
+    border-radius: 15px 15px 0 0;
+}
+
+/*green field bg*/
+.green-field {
+    height: 100px;
+    margin: 0px;
+    background: linear-gradient(#80C642, #03AD4C);
+    border-radius: 0 0 15px 15px;
+}
+
+
+.container2{
+    margin: auto 15% auto 15%;
+    margin-top: 40px;
+    width: 70%; /*330-0px;*/
+    /*? align-item: center;*/
+}
+
+/*Evening-Town colors*/
+.block4 {
+    height: 100px;
+    margin-top: 0px;
+    background: linear-gradient(#6C2990, #EF018A);
+    border-radius: 100px 100px 0 0;
+}
+
+/*Evening-Town colors*/
+.block5 {
+    height: 100px;
+    margin: 0px;
+    background: #FF7C86; /*no gradient here, 
+       its a color for windows of grey buildings, or 
+       a color of car traces on a freezed photo (=long-delay shot) */
+    border-radius: 0 0 100px 100px;
+}
+
+#sun1, .sun {
+    height: 100px;
+    width: 100px;
+    background: radial-gradient(orange 33%, yellow 35%, rgba(255,255,255,0.0) 67%);
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    /*border: 1px solid grey; */
+}

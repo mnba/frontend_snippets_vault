@@ -1,0 +1,14 @@
+p {
+    width: 350px;
+    border: 1px black solid;
+    position: fixed;
+}
+
+span {
+    position: relative;
+    top: 55px;
+    left: 0px;
+    background: green;
+    color: white;
+    padding: 1.5px;
+}

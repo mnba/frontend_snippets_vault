@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <title>Drag and Drop in middle ages</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+ <script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text/plain", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var eltId = ev.dataTransfer.getData( 
+   "text/plain"); //data 
+  // processing:
+  ev.target.appendChild(document 
+   .getElementById(eltId));
+}
+
+window.onload= () => {
+
+let obj1= document.getElementById("img-obj");
+  //"div1-obj");
+let box= document.getElementById("box");
+
+obj1.addEventListener('touchmove', function(e) {
+// grab the location of touch
+var touchLocation = e.targetTouches[0];
+
+/* // assign box new coordinates based on the touch.
+box.style.left = touchLocation.pageX + 'px';
+box.style.top = touchLocation.pageY + 'px';
+*/
+  //box.append;
+  e.target.appendChild(document 
+   .obj1);
+});
+};// end onload
+ </script>
+</head>
+
+<body>
+<h3>Drag and drop in Browser</h3>
+ /*For mobile browsers this works only on Chrome for Android 68+ ;<br/>
+&nbsp;See for more:
+ <a href="https://caniuse.com/#feat=dragndrop">
+  https://caniuse.com/dragndrop</a> <br/>
+&nbsp;*/
+ <div id="box" ondrop="drop(event)"
+   ondragover="allowDrop(event)">
+   Box
+ </div>
+ <p><p>
+
+ <img id="img-obj" src="http://www.sololearn.com/uploads/css_logo.png" 
+   draggable="true"
+   ondragstart="drag(event)" width="150" height="150" alt="img-obj" 
+   style="border:1px solid darkblue;" />
+   <p>
+  <div id="div1-obj"  
+   draggable="true"
+   ondragstart="drag(event)">
+   div1-obj: DnD drag this into the box and drop there.
+   </div>
+   
+   <hr size="1px" id="hr-footer-top"/>
+   <span class="cr">Copyright &copy Now, by  Me</span>
+
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>
+<!-- 
+https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API
+
+https://medium.com/@deepakkadarivel/drag-and-drop-dnd-for-mobile-browsers-fc9bcd1ad3c5
+-->

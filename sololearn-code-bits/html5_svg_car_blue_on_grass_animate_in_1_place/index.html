@@ -1,0 +1,80 @@
+<!-- SVG originat Created by Karine -->
+<html>
+ <head>
+   <meta charset="UTF-8"/>
+   <meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width"/>
+ </head>
+<body>
+
+<!-- SVG: 
+1. define main picture using `symbol` to reuse later.
+2) hide use of <svg> attribs width="" height="" to set it later on svg-symbol usage via viewBox attribute.
+-->
+<svg xmlns="http://www.w3.org/2000/svg">
+<!-- //width="1000" height="1000"-->
+<symbol id="car1">
+ <g id="car-as-a-whole">
+    <rect width="300" height="150" fill="blue">
+    </rect>
+    <!--wheels: back/left on picture, forward/right on pic -->
+    <circle circle cx="50" cy="170" r="50" fill="black">
+    </circle>
+    
+    <circle circle cx="250" cy="170" r="50" fill="black">
+    </circle>
+    <!--windows: right, left -->
+    <rect width="70" height="70" x="180" y="20" fill="lightgrey">
+    </rect>
+  
+    <rect width="70" height="70" x="50" y="20" fill="white">
+    </rect>
+
+     <animateMotion from="-150,0" to="590,0" dur="2.0s" repeatCount="3" fill="freeze" />
+    </g>
+    
+    <!--moved green-ground out of <g car>group</g> -->
+    <line x1="10" y1="230" x2="600" y2="230" 
+        style="stroke:green; stroke-linecap:square; 
+        stroke-width:20" />
+    <line/>
+  </symbol>     
+</svg>
+
+<div class="container">
+<div> 
+<svg viewBox="0 0 600 300" id="svg1-use1">
+ <!-- width="100vw"; 
+  viewBox="0 0 1000 1000" -->
+ <!--width="300" height="300" --> 
+  <use xlink:href="#car1"/> 
+</svg> 
+</div><!-- was ./figure ->
+<!--
+<figure> and <figcaption> tags are corrupting normal div margins and paddings
+  -->
+</div><!--container-->
+ 
+ 	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>
+<!-- 
+See also: 
+A Guide to SVG Animations (SMIL) | CSS-Tricks
+https://css-tricks.com/guide-svg-animations-smil/)
+
+How to Scale SVG | CSS-Tricks
+https://css-tricks.com/scale-svg/
+
+Best solution to move taken from here
+https://stackoverflow.com/questions/6212296/cannot-apply-animation-on-svg-g-element
+
+//alternative option for motion:
+<g transform="translate(75 75)" > 
+<ellipse </ellipse> 
+ <rect ></rect> 
+ <rect ></rect> 
+<animateTransform attributeName="transform" attributeType="XML" dur="5s" keyTimes="0;0.4;0.75;1" repeatCount="indefinite" type="rotate" values="315;90;200;315" calcMode="linear"></animateTransform> 
+</g>
+
+-->

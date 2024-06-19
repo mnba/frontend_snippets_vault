@@ -1,0 +1,74 @@
+<!-- Created by ZinC -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fireworks, multicolor</title>
+</head>
+<body>
+    
+    <canvas></canvas>
+
+    <script>
+        // `t` - time ticks: from 0 to 2π, with 5e-6 steps 
+        var t = 0;
+        var c = document.querySelector("canvas");     
+        var $ = c.getContext('2d');
+        c.width = window.innerWidth;
+        c.height = window.innerHeight;
+        $.fillStyle = 'hsla(0,0%,0%,1)';
+
+        window.addEventListener('resize', function() {
+          c.width = window.innerWidth;
+          c.height = window.innerHeight;
+        }, false);
+
+        function draw() {
+          //fill-in canvas with black:  
+          $.globalCompositeOperation = 'source-over';
+          $.fillStyle = 'hsla(0,0%,0%,.1)';
+          $.fillRect(0, 0, c.width, c.height);
+          
+          const R = 400;
+          var r; //radius-distance `r`
+          var a; //`a` angle alpha 
+          //`astep` angular step
+          var astep = Math.sin(t) *10; 
+          //1 //3 //- * 2 * Math.PI; //"foo"
+          
+          //angular density 
+          const adens =400; //180 
+          // ?
+          for (a=0; a<adens; ++a) {
+            r = R * Math.sin(a * astep);
+            // draw little round 
+            $.globalCompositeOperation = '';
+            var hue = a+12;
+            $.fillStyle = 'hsla(' + hue + ',100%, 60%,1)';
+            $.beginPath();
+            $.arc(Math.sin(a) * r + (c.width / 2), 
+                  Math.cos(a) * r + (c.height / 2), 
+                  1.5, 0, Math.PI * 2);
+            $.fill();
+
+          }
+          
+          // increment angle-tick
+          t += 0.000005;
+          t %= 2 * Math.PI;
+          return t;
+        }
+
+        function draw_main() { //"run"
+          window.requestAnimationFrame(
+            draw_main
+          );
+          draw();
+        }
+        
+        draw_main();
+    </script>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

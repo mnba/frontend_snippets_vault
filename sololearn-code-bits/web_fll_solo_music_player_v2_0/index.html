@@ -1,0 +1,755 @@
+<!-- Created by Solomoni Railoa -->
+
+<!--Created by: Solomoni Railoa-->
+<!-- 
+    Welcome to Solo Music Player v2.0.
+    Hope you'll enjoy this music app. 
+
+    New features in v2.0
+    - Change the name to Solo Music Player, in place of the previously known Funny Music Player.
+    - Added a music visualizer. You can access this by pressing/clicking/touching the album art (song's pictures) in the center/middle.
+    - Loading splash screen.
+    - Responsive Layout. Tablets and PC's now have different layout from Mobile phones. You can switch freely between Potrait and Landscape mode for Responsive layout.
+    - Playlist viewer or Music List UI updated for mobile. Click on now playing music on the bottom to go back to Music Controls UI, or optionally click the 'X' icon.
+    - Added an optimal playlist and removed the awful songs from Sathyiendra.
+  
+    Same features from v1.0: 
+    - Top left Dark/Light theme switch (Credits: academind.com/tutorials/adding-dark-mode)
+    - Top right Volume rocker/slider (Self-made). 
+    - Based on Music Player by: CodingNepal (dev.to/codingnepal/create-custom-music-player-in-javascript-2367)
+
+
+    Current Issues:
+    - Mobile: This code is currently optimized for Android devices, but may face issues with iPhone's. Still working on this issue.
+    - For Desktop, this code is optimized for Chrome browsers, and latest MS Edge. The code might have some slight issues with firefox and Opera browsers.
+
+S_R Fiji Ltd - 2022-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Solo Music Player v2.0</title>
+        <meta name="description" content="This is the second update of Solo Music Player, previously known as Funny Music Player. Enjoy v2.0, thanks!" />
+        <meta name="author" content="solomonirailoa" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://kit.fontawesome.com/7233809d50.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    </head>
+    <body>
+        <div id="loadingScreen">
+            <div id="nameo">
+                <p style="position: relative; display: inline;">Solo Music Player</p>
+            </div>
+            <div id="loadingtips">
+                <p style="margin-left: auto; margin-right: auto; width: 11em;position: relative; text-align:center; display:block;">Loading...Please wait.</p><p><br><br><br>Hope you'll enjoy this Solo Music Player</p>
+            </div>
+            <div class="loader">
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+            </div>
+        </div>
+        <div class "lista" id="lista" style="display: none;">
+                <div class="header">
+                    <div class="row">
+                    <i class= "list material-icons">queue_music</i>
+                    <span>Music list</span>
+                    </div>
+                    <i id="info" onclick="popitup(1)" class="material-icons" style="position:absolute; right: 15px; top: 22px; color: var(--lightblack);cursor: pointer;">info</i>
+                </div><!--Created by: Solomoni Railoa-->
+                <ul><!--Created by: Solomoni Railoa-->
+                </ul><!--Created by: Solomoni Railoa-->
+        </div>
+        <div class="wrapper" id="wra">
+            <div class="top-bar">
+                <label class="switch">
+                    <i id="switchh" class="fas fa-adjust"></i>
+                    <div id="switchBg">
+                    <input type="checkbox" />
+                    <span class="slider round"</span>
+                    </div>
+                </label>
+                <span style="margin-right: 11px;">Now Playing</span>
+                <div>
+                    <i id="voll" onclick="doit()" class="fa fa-volume-up" aria-hidden="true"></i>
+                    <div align="left" id="boxx" class="boxx">
+                        <input type="range" class="vertical" orient="vertical" id="vol" step="1" value="90" min="0" max="100" oninput="mainAudio.volume = this.value/100">
+                    </div>      
+                </div>
+            </div>
+            <div class="img-area">
+                    <div class="card-container" id="cogy" onclick="flipit()">
+                        <div class="card">
+                            <div class="front">
+                                <img src="" alt=""> 
+                            </div>
+                        <div class="back">
+                            <div id="viss">
+                                    <p style="position:absolute; margin: 30%; color: var(--lightblack); opacity: 0.7;">Music Visualizer</p>
+                                    <canvas id="canvas1" style="width:100%; height: 100%;">
+                                    Your browser does not support the HTML5 canvas tag.</canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="song-details">
+                <p id = "songNm" class="name"></p>
+                <p id = "songAr" class="artist"></p>
+            </div>
+            <div class="progress-area">
+                <div class="progress-bar">
+                    <audio crossorigin="anonymous" id="main-audio" style="display:none;">
+                        <source src="" type="audio/mp3">
+                    </audio>
+                </div>
+                <div class="song-timer">
+                    <span class="current-time">0:00</span>
+                    <span class="max-duration">Loading the song, please wait</span>
+                </div>
+            </div>
+            <div class="controls">
+                <i id="repeat-plist" class="material-icons" title="Playlist looped">repeat</i>
+                <i id="prev" class="material-icons">skip_previous</i>
+                <div class="play-pause">
+                    <i class="material-icons play">play_arrow</i>
+                </div>
+                <i id="next" class="material-icons">skip_next</i>
+                <i id="more-music" class="material-icons">queue_music</i>
+            </div>
+            <div class="music-list" id="small-list">
+                <div class="header">
+                    <div class="row">
+                    <i class= "list material-icons" id="listIcon">queue_music</i>
+                    <span>Music list</span>
+                    <i id="inffoo" onclick="popitup(2)" style="margin-left: 47px; cursor: pointer;" class="material-icons">info</i>
+                    <i id="likeit" onclick="popitup(3)" style="margin-left: 15px; cursor: pointer;" class="material-icons">thumb_up</i>
+                    </div>
+                    <i id="close" class="material-icons">close</i>
+                </div><!--Created by: Solomoni Railoa-->
+                <ul><!--Created by: Solomoni Railoa-->
+                </ul><!--Created by: Solomoni Railoa-->
+                <div id="isPlayingNoww" class="playTu" style="">
+                    <img id="playTuImg" src="" style="width:52px; height:52px; margin-right:5px;">
+                    <div style="width: 80%; padding:3px;">
+                        <p id="playTuSongName" style="color: var(--lightblack);">Song name: Demo</p>
+                        <p id="playTuArtist" style="color: var(--lightblack);font-size: smaller;">Artist: Sample</p>
+                    </div>
+                    <span style="position:relative; right:5px;color: var(--lightblack);">Playing</span>
+                </div>
+            </div><!--Created by: Solomoni Railoa-->
+    </div><!--Created by: Solomoni Railoa-->
+    <div id="popBkGr"><!--This is faded grey background for popup div -->
+            <div id="popup" class="poppyUp"><!-- This is the main popup -->
+                <div class="content">
+                    <div id="logoMoves"><!-- Bouncing logo -->
+                        <img id="picc" src="https://dl.dropbox.com/s/jsnok30mma3tm05/solomusiclogo.png" width="41px" height="41px">
+                    </div>
+                    <h2 id="popUpTitle" style="margin-top:0; margin-bottom:0;color: var(--lightblack);">Features</h2>
+                    <div id="detailss" style="display:none;">
+                        <br/>
+                        <p>- This new layout is available in Landscape mode, which can only be enabled in Tablets and PC's.</p>
+                        <p> Current Orientation: Landscape </p>
+                        <br/><p>- Touch the album art (or picture) to view the music visualizer.</p>
+                        <br/><p>- Volume slider is on the right side of the upper "Now Playing" heading on top.</p>
+                        <br/><p>- Dark/Light theme switcher/toggle is on the left side of the upper "Now Playing" heading.</p><br/>
+                    </div>
+                    <div id="detailss2" style="display:none;">
+                        <br/>
+                        <p>- There is a new layout available in Landscape mode, but it can only be enabled in Tablets and PC's.</p>
+                        <p> Current Orientation: Portrait </p>
+                        <br/><p>- Touch the album art (or music's picture) to view the music visualizer.</p>
+                        <br/><p>- Music List UI updated. Touch the now playing music on the bottom to go back to Music Player UI with controls, or optionally press the 'X' button. You can view Music List by pressing the bottom right List icon, or by clicking on Music name or Artist name on main screen, below Music picture.</p>
+                        <br/><p>- Volume slider is on the right side of the upper "Now Playing" heading on top.</p>
+                        <br/><p>- Dark/Light theme switcher/toggle is on the left side of the upper "Now Playing" heading.</p><br/>
+                    </div>
+                    <div id="detailss3" style="display:none;">
+                        <br/>
+                        <p>Love this app? Don't forget to leave a like for this Web Code.</p>
+                        <br/><p>You can also check out my other codes, one of them for instance is the Web Code called "HTML is fun right?"</p>
+                        <br/><p>Thank you so much for your valuable time. Hope you all have a very good coding day at Sololearn.</p>
+                        <br/><br/><br/><hr><br/><p> Solo Music Player v2.0 </p>
+                        <br/><img src="https://dl.dropbox.com/s/msj5xynd7zozuhf/editavatar.png" height="55px" width="165px" style="margin-left:auto; margin-right:auto;display: block;">
+                        <p>By: Solomoni Railoa (Lv.16)</p>
+                        <p>From: S_R Fiji Ltd, 2022</p><br/>
+                    </div>
+                </div>
+                <div id="btt">
+                    <button class="btnn" onclick="okay()">Ok</button><!-- Press this okay button to cancel popup -->
+                </div>
+            </div>
+        </div>
+    <script>//Solomoni Railoa
+        function doit(){//Solomoni Railoa
+            var x = document.getElementById("boxx");//Solomoni Railoa
+            if (x.style.display === "none") {//Solomoni Railoa
+            x.style.display = "block";//Solomoni Railoa
+            } else {//Solomoni Railoa
+            x.style.display = "none";//Solomoni Railoa
+            }//Solomoni Railoa
+        }//Solomoni Railoa
+        const themeSwitch = document.querySelector('input');//Solomoni Railoa
+        themeSwitch.addEventListener('change', () => {//Solomoni Railoa
+            document.body.classList.toggle('dark-theme');//Solomoni Railoa
+            document.body.classList.toggle('wrapper-dark');//Solomoni Railoa
+        });//Solomoni Railoa
+        //Solomoni Railoa
+        let allMusic = [
+        {//Solomoni Railoa
+        name: "So Romantic",
+        artist: "Matthew Koma",
+        img: "https://dl.dropbox.com/s/ihu17y4rqm6e0qt/mathew_koma_%20romantic.jpg",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/Matthew%20Koma%20-%20So%20Romantic.mp3"
+        },
+        {
+        name: "Get Lucky",
+        artist: "Daft Punk",
+        img: "https://dl.dropbox.com/s/cz2prbwjo9d09s5/daft_punk_get_lucky.png",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/Daft_Punk_Get_Lucky.mp3"
+        },
+        {
+        name: "Faded",
+        artist: "Alan Walker",
+        img: "https://dl.dropbox.com/s/c2kj2ibktxl8zs6/alan_walker_faded.jpg",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/Alan_Walker_Faded.mp3"
+        },
+        {
+        name: "Ma Cherie",
+        artist: "Dj Antoine",
+        img: "https://dl.dropbox.com/s/fxe1a11pn731jak/dj_antoine_macherie.jfif",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/Dj_Antoine_Ma_Cherie.mp3"
+        },
+        {
+        name: "Never Gonna Give You Up",
+        artist: "Rick Astley",
+        img: "https://dl.dropbox.com/s/2mn6ci8714d82fv/never_gonna_give_you_up.jpg",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/Rick_Astley_Never_Gonna_Give_You_Up.mp3"
+        },
+        {
+        name: "Stronger",
+        artist: "Daft Punk",
+        img: "https://dl.dropbox.com/s/4g7hfyojulp1z86/daft_punk_stronger.jpg",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/DaftPunk_Stronger_Lyrics.mp3"
+        },
+        {
+        name: "Addicted",
+        artist: "Dj Assad",
+        img: "https://dl.dropbox.com/s/93lg9nzqgrkr729/Dj_assad_addicted.jpg",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/DJ_Assad_Feat_Craig_David_M.mp3"
+        },
+        {
+        name: "Sandstorm",
+        artist: "Darude",
+        img: "https://dl.dropbox.com/s/l4zw2zu46ol5tsv/darude-sandstorm.jpg",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/Darude_Sandstorm_HQ.mp3"
+        },
+        {
+        name: "Believer",
+        artist: "Imagine Dragons",
+        img: "https://dl.dropbox.com/s/g081ochbheult6m/imagine_dragons_believer.jfif",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/Imagine_Dragons_Believer.mp3"
+        },
+        {
+        name: "Something Just Like This",
+        artist: "The Chainsmokers & Coldplay",
+        img: "https://dl.dropbox.com/s/l0u7042cm20h7s5/chainsmokers_coldplay.jfif",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/The_Chainsmokers_Coldplay_Something_Like_This.mp3"
+        },
+        {
+        name: "Blinding Lights",
+        artist: "The Weeknd",
+        img: "https://dl.dropbox.com/s/9ikntvwkohef5vj/the_weeknd_blinding_lights.jpg",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/The_Weeknd_Blinding_Lights.mp3"
+        },
+        {
+        name: "Dragostea Din Tei",
+        artist: "O-Zone",
+        img: "https://dl.dropbox.com/s/idlrtf276vj7r6n/ozone_dragostea_din_tei.jpg",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/O_Zone_Dragostea_din_tei.mp3"
+        },
+        {
+        name: "I Took a Pill in Ibiza",
+        artist: "Mike Posner",
+        img: "https://dl.dropbox.com/s/hhsg823i7eaultj/mike_posner_pill_in_ibiza.jfif",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/Mike_Posner_I_Took_A_Pill_In_Ibiza.mp3"
+        },
+        {
+        name: "Midnight City",
+        artist: "M83",
+        img: "https://dl.dropbox.com/s/mor6xc8y9fic378/m83_midnight_city.jfif",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/M83_Midnight_City.mp3"
+        },
+        {
+        name: "Lean On",
+        artist: "Major Lazer & DJ Snake",
+        img: "https://dl.dropbox.com/s/64s2eome7zv2d7t/major_lazer_dj_snake_lean_on.jfif",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/Major_Lazer_DJ_Snake_Lean_On.mp3"
+        },
+        {
+        name: "Dragula",
+        artist: "Rob Zombie",
+        img: "https://dl.dropbox.com/s/irm4c5ot9zo4ceq/rob_zombie.jpg",
+        src: "https://raw.githubusercontent.com/solomonirailoa/sololearn/main/codebits/Solo%20Music%20Player%20v2.0/musicFiles/mp3/ROB_ZOMBIE_Dragula.mp3"
+        },
+        ];//Solomoni;Railoa
+        //Solomoni`Railoa
+        const wrapper = document.querySelector(".wrapper"),
+        musicImg = wrapper.querySelector(".img-area img"),
+        musicName = wrapper.querySelector(".song-details .name"),
+        musicArtist = wrapper.querySelector(".song-details .artist"),
+        playPauseBtn = wrapper.querySelector(".play-pause"),
+        prevBtn = wrapper.querySelector("#prev"),
+        nextBtn = wrapper.querySelector("#next"),
+        mainAudio = wrapper.querySelector("#main-audio"),
+        progressArea = wrapper.querySelector(".progress-area"),
+        progressBar = progressArea.querySelector(".progress-bar"),
+        musicList = wrapper.querySelector(".music-list"),
+        moreMusicBtn = wrapper.querySelector("#more-music"),
+        closemoreMusic = musicList.querySelector("#close");//Solomoni Railoa
+        //Solomoni:Railoa
+        let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);//Solomoni Railoa
+        isMusicPaused = true;//Solomoni Railoa
+        var canMoreMusic = true;
+        //Solomoni Railoa
+        window.addEventListener("load", ()=>{//Solomoni,Railoa
+            loadMusic(musicIndex);//Solomoni_Railoa
+            playingSong(); //Solomoni-Railoa
+        });//Solomoni,Railoa
+        //Solomoni.Railoa
+        function loadMusic(indexNumb){//Solomoni Railoa
+            musicName.innerText = allMusic[indexNumb - 1].name;//Solomoni Railoa
+            musicArtist.innerText = allMusic[indexNumb - 1].artist;//Solomoni Railoa
+            musicImg.src = `${allMusic[indexNumb - 1].img}`;//Solomoni Railoa
+            mainAudio.src = `${allMusic[indexNumb - 1].src}`;//Solomoni Railoa
+        }//Solomoni. Railoa
+        //Solomoni Railoa.
+        function playMusic(){//Solomoni Railoa
+            wrapper.classList.add("paused");//Solomoni Railoa
+            playPauseBtn.querySelector("i").innerText = "pause";//Solomoni Railoa
+            mainAudio.play();//Solomoni Railoa
+            noquFunc();
+        }
+        //Solomoni Railoa
+        function pauseMusic(){//Solomoni Railoa
+            wrapper.classList.remove("paused");//Solomoni Railoa
+            playPauseBtn.querySelector("i").innerText = "play_arrow";//Solomoni Railoa
+            mainAudio.pause();//Solomoni Railoa
+        }
+        //Solomoni Railoa
+        function prevMusic(){//Solomoni Railoa
+            musicIndex--; //Solomoni Railoa
+            musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex;//Solomoni Railoa
+            loadMusic(musicIndex);//Solomoni Railoa
+            playMusic();//Solomoni Railoa
+            playingSong(); //Solomoni Railoa
+        }//Solomoni Railoa
+        //Solomoni Railoa
+        function nextMusic(){//Solomoni Railoa
+            musicIndex++; //Solomoni Railoa
+            musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;//Solomoni Railoa
+            loadMusic(musicIndex);//Solomoni Railoa
+            playMusic();//Solomoni Railoa
+            playingSong(); //Solomoni Railoa
+        }//Solomoni Railoa
+        //Solomoni Railoa
+        playPauseBtn.addEventListener("click", ()=>{//Solomoni Railoa
+            const isMusicPlay = wrapper.classList.contains("paused");//Solomoni Railoa
+            //Solomoni Railoa
+            isMusicPlay ? pauseMusic() : playMusic();//Solomoni Railoa
+            playingSong();//Solomoni Railoa
+        });//Solomoni Railoa
+        //Solomoni Railoa
+        prevBtn.addEventListener("click", ()=>{//Solomoni Railoa
+            prevMusic();//Solomoni Railoa
+        });//Solomoni Railoa
+        nextBtn.addEventListener("click", ()=>{//Solomoni Railoa
+            nextMusic();//Solomoni Railoa
+        });//Solomoni Railoa
+        //Solomoni Railoa
+        mainAudio.addEventListener("timeupdate", (e)=>{//Solomoni Railoa
+            const currentTime = e.target.currentTime; //Solomoni Railoa
+            const duration = e.target.duration; //Solomoni Railoa
+            let progressWidth = (currentTime / duration) * 100;//Solomoni Railoa
+            progressBar.style.width = `${progressWidth}%`;//Solomoni Railoa
+            //Solomoni Railoa
+            let musicCurrentTime = wrapper.querySelector(".current-time"),
+            musicDuartion = wrapper.querySelector(".max-duration");//Solomoni Railoa
+            mainAudio.addEventListener("loadeddata", ()=>{//Solomoni Railoa
+                //Solomoni Railoa
+                listaSizing();
+                let mainAdDuration = mainAudio.duration;//Solomoni Railoa
+                let totalMin = Math.floor(mainAdDuration / 60);//Solomoni Railoa
+                let totalSec = Math.floor(mainAdDuration % 60);//Solomoni Railoa
+                if(totalSec < 10){ //Solomoni Railoa
+                totalSec = `0${totalSec}`;//Solomoni Railoa
+                }//Solomoni Railoa
+                musicDuartion.innerText = `${totalMin}:${totalSec}`;//Solomoni Railoa
+            });//Solomoni Railoa
+            //Solomoni Railoa
+            let currentMin = Math.floor(currentTime / 60);//Solomoni Railoa
+            let currentSec = Math.floor(currentTime % 60);//Solomoni Railoa
+            if(currentSec < 10){ //Solomoni Railoa
+                currentSec = `0${currentSec}`;//Solomoni Railoa
+            }//Solomoni Railoa
+            musicCurrentTime.innerText = `${currentMin}:${currentSec}`;//Solomoni Railoa
+        });//Solomoni Railoa
+        //Solomoni Railoa
+        progressArea.addEventListener("click", (e)=>{//Solomoni Railoa
+            let progressWidth = progressArea.clientWidth; //Solomoni Railoa
+            let clickedOffsetX = e.offsetX; //Solomoni Railoa
+            let songDuration = mainAudio.duration; //Solomoni Railoa
+            mainAudio.currentTime = (clickedOffsetX / progressWidth) * songDuration;
+            playMusic(); //Solomoni Railoa
+            playingSong();//Solomoni Railoa
+        });//Solomoni Railoa
+        //Solomoni Railoa
+        const repeatBtn = wrapper.querySelector("#repeat-plist");//Solomoni Railoa
+        repeatBtn.addEventListener("click", ()=>{//Solomoni Railoa
+            let getText = repeatBtn.innerText; //Solomoni Railoa
+            switch(getText){//Solomoni Railoa
+                case "repeat":
+                repeatBtn.innerText = "repeat_one";//Solomoni Railoa
+                repeatBtn.setAttribute("title", "Song looped");//Solomoni Railoa
+                break;//Solomoni Railoa
+                case "repeat_one":
+                repeatBtn.innerText = "shuffle";//Solomoni Railoa
+                repeatBtn.setAttribute("title", "Playback shuffled");//Solomoni Railoa
+                break;//Solomoni Railoa
+                case "shuffle":
+                repeatBtn.innerText = "repeat";//Solomoni Railoa
+                repeatBtn.setAttribute("title", "Playlist looped");//Solomoni Railoa
+                break;//Solom0ni Railoa
+            }//S0lomoni Railoa
+        });//Solomoni Rail0a
+        //Solomoni Railoa
+        mainAudio.addEventListener("ended", ()=>{//Sol0moni Railoa
+            let getText = repeatBtn.innerText;//S0lomoni Railoa
+            switch(getText){
+                case "repeat":
+                nextMusic();//Solomoni Ra:loa
+                break;//Solomoni Railoa
+                case "repeat_one":
+                mainAudio.currentTime = 0; //Solomoni Railoa
+                loadMusic(musicIndex);//Solomoni Railoa
+                playMusic(); //Solomoni Railoa
+                break;//Solomoni Railoa
+                case "shuffle":
+                let randIndex = Math.floor((Math.random() * allMusic.length) + 1); //Solomoni Railoa
+                do{//Solomoni Railoa
+                    randIndex = Math.floor((Math.random() * allMusic.length) + 1);//Solomoni Railoa
+                }while(musicIndex == randIndex); //Solomoni Railoa
+                musicIndex = randIndex; //Solomoni Railoa
+                loadMusic(musicIndex);//Solomoni Railoa
+                playMusic();//Solomoni Railoa
+                playingSong();//Solomoni Railoa
+                break;//Solomoni Railoa
+            }//Solomoni Railoa
+        });//Solomoni Railoa
+        //Solomoni Railoa
+        var openedlistsmall = false;
+        moreMusicBtn.addEventListener("click", moreMusButton);//Solomoni Railoa
+        function moreMusButton(){
+            if(canMoreMusic==true){
+                musicList.classList.toggle("show");//Solomoni Railoa
+                openedlistsmall=true;
+            }
+            else{
+                //show popup to like this code
+                popitup(3);
+            }
+        }
+        closemoreMusic.addEventListener("click", ()=>{//Solomoni Railoa
+            moreMusicBtn.click();//Solomoni Railoa
+            openedlistsmall=false;
+        });//Solomoni Railoa
+        nowwPlaa = document.getElementById("isPlayingNoww");
+        nowwPlaa.addEventListener("click", ()=>{//Solomoni Railoa
+            moreMusicBtn.click();//Solomoni Railoa
+            openedlistsmall=false;
+            if(mainAudio.paused){
+                playPauseBtn.click();
+            }
+        });//Solomoni Railoa
+        //Solomoni Railoa
+        const ulTag = wrapper.querySelector("ul");//Solomoni Railoa
+        const ulTag2 = lista.querySelector("ul");//Solomoni Railoa
+        for (let i = 0; i < allMusic.length; i++) { //Solomoni Railoa
+            let liTag = `<li li-index="${i + 1}">
+                            <img src="${allMusic[i].img}" style="width:42px; height:42px; margin-right:5px; padding:3px;">
+                            <div class="row" style="width: 80%;">
+                                <p>${allMusic[i].name}</p>
+                                <p style="font-size: smaller;">${allMusic[i].artist}</p>
+                            </div>
+                            <span id="song${i+1}" class="audio-duration" style="position:relative; right:5px; margin:3px;">Loading</span>
+                            <audio class="song${i+1}" style="display: none;">
+                                <source src="${allMusic[i].src}" type="audio/mp3">Your browser does not support the audio tag.
+                            </audio>
+                        </li>`;//Solomoni Railoa
+            let liTag2 = `<li li-index="${i + 1}">
+                            <img src="${allMusic[i].img}" style="width:92px; height:92px; margin-right:5px;">
+                            <div class="row" style="width: 80%; padding:3px;">
+                                <p>${allMusic[i].name}</p>
+                                <p style="font-size: smaller;">${allMusic[i].artist}</p>
+                            </div>
+                            <span id="song${i+1}" class="audio-duration" style="position:relative; right:5px;">Loading</span>
+                            <audio class="song${i+1}" style="display: none;">
+                                <source src="${allMusic[i].src}" type="audio/mp3">Your browser does not support the audio tag.
+                            </audio>
+                        </li>`;//Solomoni Railoa
+            ulTag.insertAdjacentHTML("beforeend", liTag); //Solomoni Railoa
+            ulTag2.insertAdjacentHTML("beforeend", liTag2); //Solomoni Railoa
+            //Solomoni Railoa
+            let liAudioDurationTag = ulTag.querySelector(`#song${i+1}`);//Solomoni Railoa
+            let liAudioTag = ulTag.querySelector(`.song${i+1}`);//Solomoni Railoa
+            let liAudioDurationTag2 = ulTag2.querySelector(`#song${i+1}`);//Solomoni Railoa
+            let liAudioTag2 = ulTag2.querySelector(`.song${i+1}`);//Solomoni Railoa
+            liAudioTag.addEventListener("loadeddata", ()=>{//Solomoni Railoa
+                    let duration = liAudioTag.duration;//Solomoni Railoa
+                    let totalMin = Math.floor(duration / 60);//Solomoni Railoa
+                    let totalSec = Math.floor(duration % 60);//Solomoni Railoa
+                    if(totalSec < 10){ //Solomoni; Railoa
+                    totalSec = `0${totalSec}`;//Solomoni: Railoa
+                };//Solomoni Railoa;
+                liAudioDurationTag.innerText = `${totalMin}:${totalSec}`; //Solomoni Railoa
+                liAudioDurationTag.setAttribute("t-duration", `${totalMin}:${totalSec}`); //Solomoni Railoa
+            });//Solomoni Railoa:
+            liAudioTag2.addEventListener("loadeddata", ()=>{//Solomoni Railoa
+                    let duration = liAudioTag2.duration;//Solomoni Railoa
+                    let totalMin = Math.floor(duration / 60);//Solomoni Railoa
+                    let totalSec = Math.floor(duration % 60);//Solomoni Railoa
+                    if(totalSec < 10){ //Solomoni; Railoa
+                    totalSec = `0${totalSec}`;//Solomoni: Railoa
+                };//Solomoni Railoa;
+                liAudioDurationTag2.innerText = `${totalMin}:${totalSec}`; //Solomoni Railoa
+                liAudioDurationTag2.setAttribute("t-duration", `${totalMin}:${totalSec}`); //Solomoni Railoa
+            });//Solomoni Railoa:
+        }//Solomoni Railoa'
+        //Solomoni Railoa,
+        function playingSong(){//Solomoni Railoa
+            const allLiTag = ulTag.querySelectorAll("li");//Solomoni Railoa
+            const allLiTag2 = ulTag2.querySelectorAll("li");//Solomoni Railoa
+                //Solomoni,Railoa
+            for (let j = 0; j < allLiTag.length; j++) {//Solomoni Railoa
+                let audioTag = allLiTag[j].querySelector(".audio-duration");//Solomoni Railoa
+                let audioTag2 = allLiTag2[j].querySelector(".audio-duration");//Solomoni Railoa
+                //Solomoni Railoa.
+                if(allLiTag[j].classList.contains("playing")||allLiTag2[j].classList.contains("playing")){//Solomoni Railoa
+                    allLiTag[j].classList.remove("playing");//Solomoni Railoa
+                    allLiTag2[j].classList.remove("playing");//Solomoni Railoa
+                    allLiTag[j].style.background = "var(--playerBg)";
+                    allLiTag2[j].style.background = "var(----playerBg)";
+                    let adDuration = audioTag.getAttribute("t-duration");//Solomoni Railoa
+                    let adDuration2 = audioTag2.getAttribute("t-duration");//Solomoni Railoa
+                    audioTag.innerText = adDuration;//Solomoni Railoa
+                    audioTag2.innerText = adDuration2;//Solomoni Railoa
+                }//Solomoni^ Railoa
+                //Solomoni.Railoa
+                var iimg = document.getElementById("playTuImg");
+                var ssongname = document.getElementById("playTuSongName");
+                var aartist = document.getElementById("playTuArtist");
+                if(allLiTag[j].getAttribute("li-index") == musicIndex || allLiTag2[j].getAttribute("li-index") == musicIndex){//Solomoni Railoa
+                    allLiTag[j].classList.add("playing");//Solomoni Railoa
+                    allLiTag2[j].classList.add("playing");//Solomoni Railoa
+                    allLiTag[j].style.background = "var(--liBg)";
+                    allLiTag[j].style.color = "var(--black)";
+                    allLiTag2[j].style.background = "var(--liBg)";
+                    allLiTag2[j].style.color = "var(--black)";
+                    iimg.src = allMusic[musicIndex-1].img;
+                    ssongname.innerHTML = allMusic[musicIndex-1].name;
+                    aartist.innerHTML = allMusic[musicIndex-1].artist;
+                    audioTag.innerHTML = "Playing";//Solomoni Railoa
+                    audioTag2.innerHTML = "Playing";//Solomoni Railoa
+                } //Solomoni Railoa 
+                //Solomoni-Railo@
+                allLiTag[j].setAttribute("onclick", "clicked(this)");
+                allLiTag2[j].setAttribute("onclick", "clicked(this)");
+            }//Solomoni Railoa
+        }//Solomoni Railoa
+        //Solomoni Railoa
+        function clicked(element){//Solomoni_Railoa
+            let getLiIndex = element.getAttribute("li-index");//Solomoni Railoa
+            musicIndex = getLiIndex; //Solomoni.Railoa
+            loadMusic(musicIndex);//Solomoni' Railoa
+            playMusic();//Solomoni 'Railoa
+            playingSong();//Solomoni `Railoa
+        }//Solomoni* Railoa
+        window.addEventListener("resize", listaSizing);
+        window.addEventListener("load", listaSizing);
+        function listaSizing(){
+            divElement = document.getElementById("wra");
+            elemHeight = divElement.clientHeight;
+            listaDivElement = document.getElementById("lista");
+            listaDivElement.style.height = `${elemHeight}px`;
+        }//Solomoni Railoa
+        window.addEventListener("load", function(){
+            var lodscr = document.getElementById("loadingScreen");
+            var wra = document.getElementById("wra");
+            var small_list = document.getElementById("small-list");
+            var listaa = document.getElementById("lista");
+            wra.style.display="inline";
+            listaa.style.display="none";
+            small_list.style.display="inline";
+            listaSizing();
+            setTimeout(function() {
+                naDemo();
+                lodscr.style.opacity="0";    
+                setTimeout(function() {
+                    lodscr.style.display="none";
+                }, 800);
+            }, 800);//Solomoni Railoa
+            popitup(1);
+            listaSizing();
+        });
+        var cogy = document.getElementById("cogy");
+        function flipit(){
+            document.body.classList.toggle('card-container2');//Solomoni Railoa
+        }//Solomoni Railoa    
+        const canvas = document.getElementById('canvas1');
+        const ctx = canvas.getContext('2d');
+        let audioSource;
+        let analyser;
+        var flg = false;
+        function noquFunc(){//Solomoni Railoa
+            if (flg==false){//Solomoni Railoa
+                const audio1 = document.getElementById("main-audio");
+                const audioContext = new AudioContext();
+                audioSource = audioContext.createMediaElementSource(audio1);
+                analyser = audioContext.createAnalyser();
+                audioSource.connect(analyser);
+                analyser.connect(audioContext.destination);
+                analyser.fftSize = 1024;
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
+                const barWidth = 5;
+                let barHeight;
+                let x;
+                function animate(){
+                    x = 0;
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    analyser.getByteFrequencyData(dataArray);
+                    drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray);
+                    requestAnimationFrame(animate);
+                }//Solomoni Railoa
+                animate();
+                flg=true;
+            }//Solomoni Railoa
+        }//Solomoni Railoa
+        function drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray){
+            for (let i = 0; i < bufferLength; i++){
+                barHeight = dataArray[i]/1.9;
+                const red = i * barHeight/33;
+                const green = i * 3;
+                const blue = barHeight/1.1;
+                ctx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
+                ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+                x += barWidth;
+            }
+        }//Solomoni Railoa
+        window.addEventListener("resize", naDemo);
+        function naDemo(){//Solomoni Railoa
+            var listaa = document.getElementById("lista");
+            if(innerWidth>=840){
+                listaa.style.display="block";
+                moreMusicBtn.innerHTML = "thumb_up";
+                document.getElementById("songNm").removeEventListener("click", moreMusButton);
+                document.getElementById("songAr").removeEventListener("click", moreMusButton);
+                document.getElementById("songNm").style = "cursor: auto;";
+                document.getElementById("songAr").style = "cursor: auto;";
+                if(openedlistsmall==true){
+                    moreMusicBtn.click();
+                    openedlistsmall=false;
+                    canMoreMusic=false;
+                }
+                else{
+                    canMoreMusic=false;
+                }
+                if(isPopUp){
+                    document.getElementById("detailss").style.display="block";
+                    document.getElementById("detailss2").style.display="none";
+                }
+            }
+            else if(openedlistsmall < 840){
+                listaa.style.display="none";
+                moreMusicBtn.innerHTML = "queue_music";
+                canMoreMusic=true;
+                document.getElementById("songNm").addEventListener("click", moreMusButton);
+                document.getElementById("songAr").addEventListener("click", moreMusButton);
+                document.getElementById("songNm").style = "cursor: pointer;";
+                document.getElementById("songAr").style = "cursor: pointer;";
+                if(isPopUp){
+                    document.getElementById("detailss2").style.display="block";
+                    document.getElementById("detailss").style.display="none";
+                }
+            }//Solomoni Railoa
+        }
+        //Solomoni Railoa    
+        var popBkGr = document.getElementById('popBkGr'); 
+        var popup = document.getElementById('popup');  
+        var isPopUp = false;
+        function popupToggle(){ //Show the popup
+            popup.style.dipslay="flex";
+            popup.classList.toggle('active');
+            popup.style.visibility = "visible";
+            popBkGr.style.visibility = "visible";
+            popBkGr.style.opacity = "1";
+        }//Solomoni Railoa
+        function okay(){ //Hide the popup
+            popup.classList.toggle('active');
+            popBkGr.style.opacity= "0";
+            var ainterv = setTimeout(doesit, 979);
+            function doesit(){
+                popup.style.display = "none";
+                popBkGr.style.dipslay = "none";
+                popBkGr.style = "z-index:0;";
+                var dtl1 = document.getElementById("detailss");
+                var dtl2 = document.getElementById("detailss2");
+                var dtl3 = document.getElementById("detailss3");
+                dtl1.style.dipslay = "none";
+                dtl2.style.dipslay = "none";
+                dtl3.style.dipslay = "none";
+            }
+            isPopUp = false;
+        }//Solomoni Railoa
+       function popitup(option){ 
+            var bgg = document.getElementById("popBkGr");
+            isPopUp = true;
+            var idqo;
+            if (option == 1){
+                idqo = document.getElementById("detailss");
+                document.getElementById("popUpTitle").innerHTML = "Features";
+                document.getElementById("detailss2").style.display="none";
+                document.getElementById("detailss3").style.display="none";
+            }//Solomoni Railoa
+            else if (option == 2){
+                idqo = document.getElementById("detailss2");
+                document.getElementById("popUpTitle").innerHTML = "Features";
+                document.getElementById("detailss").style.display="none";
+                document.getElementById("detailss3").style.display="none";
+            }//Solomoni Railoa
+            else if (option == 3){
+                document.getElementById("popUpTitle").innerHTML = "Like it!";
+                idqo = document.getElementById("detailss3");
+                document.getElementById("detailss").style.display="none";
+                document.getElementById("detailss2").style.display="none";
+            }//Solomoni Railoa
+            idqo.style.display = "block";
+            bgg.style="z-index: 410;";
+            popup.style="z-index:411";
+            bgg.style.display = "flex";
+            setTimeout(function(){
+                popupToggle();    
+            },321);
+        } //Solomoni Railoa
+    </script>
+    	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>
+<!--Created by: Solomoni Railoa-->

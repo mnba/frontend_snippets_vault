@@ -1,0 +1,122 @@
+/* CSS: slanted bg using css
+*/
+body{
+  margin: 0;
+}
+
+.content{
+  margin: 0;
+}
+
+p{
+  margin: 5px;
+}
+
+.slR{
+  position: relative;
+  width:100%;
+  height: 130px;
+  background: rgba(255,127,80,1);/* coral; orange; yellow; crimson; */
+  //border: 1px solid limegreen;
+  margin: 0;
+  padding: 5px;
+}
+
+.slR:after{
+  position: absolute; /*!!*/
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  
+  background: inherit; /*lightyellow;*/
+  content:''; /*!!! very important for psuedo-elements*/
+  width: 100%;
+  height:100%;
+  
+  transform-origin: top right;
+  transform:  skewY(-4deg);
+  //border: 1px solid red;
+  z-index: -1;
+}
+
+
+.slR:before{
+  position: absolute; /*!!*/
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  
+  background: inherit; 
+  content:''; /*!!! very important for psuedo-elements*/
+  width: 100%;
+  height:100%;
+  
+  transform-origin: top right; //bottom left;
+  transform:  skewY(4deg);
+  z-index: -1;
+}
+
+.slW{
+  margin: 0;
+  padding: 5px;
+}
+
+/**=======================**/
+.slL{
+  position: relative;
+  width:100%;
+  height: 130px;
+  background: rgba(255,180,100, 1.0);/* orangered */
+  margin: 0;
+  padding: 5px;
+}
+
+.slL:after{
+  position: absolute; /*!!*/
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  
+  background: inherit; 
+  content:''; /*!!! very important for psuedo-elements*/
+  width: 100%;
+  height:100%;
+  
+  transform-origin: top left;
+  transform:  skewY(4deg);
+  z-index: -1;
+}
+
+.slL:before{
+  position: absolute; /*!!*/
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  
+  background: inherit; 
+  content:''; /*!!! very important for psuedo-elements*/
+  width: 100%;
+  height:100%;
+  
+  transform-origin: bottom left;
+  transform:  skewY(-4deg);
+  z-index: -1;
+}
+
+
+/*
+https://www.rapidtables.com/web/color/orange-color.html
+
+Orange color codes chart, Color HTML/CSS
+Color-Name Hex-Code #RRGGBB  Decimal-Code (R,G,B)
+coral      #FF7F50     rgb(255,127,80)
+tomato     #FF6347     rgb(255,99,71)
+orangered  #FF4500     rgb(255,69,0)
+gold       #FFD700     rgb(255,215,0)
+orange     #FFA500     rgb(255,165,0)
+darkorange #FF8C00     rgb(255,140,0)
+*/

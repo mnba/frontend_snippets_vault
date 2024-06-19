@@ -1,0 +1,64 @@
+
+table#producttable{
+  border: 1px solid black;
+}
+.title-main{
+  margin-bottom: 3px;
+}
+/*
+table props, originals taken from:
+https://code.sololearn.com/WLnPvHdaxNpz/ by Ansheeta
+*/
+
+table {
+  width: 100%; /*95%;*/
+  align: center; /*doesnt-work*/
+}
+table,tr,td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+tr,td{
+  padding: 4px;
+  text-align: left;
+}
+#producttable>thead{
+  background-color: #ddd;
+  /*color: white;*/
+}
+/*
+ #t01 tr: nth-child(even) {
+   background-color: #eee;
+ }
+ #t01 tr: nth-child(odd) {
+   background-color: #fff;
+ }
+ #t01 th:{
+   background-color: black;
+   color: white;
+ }
+//eo classes for table
+*/
+
+.explanatn{
+  ;
+}
+.expl-quote{
+  font-style: oblique;
+}
+
+.btnrow{
+  /*display: flex; */
+  text-align: right;
+  padding: 4px 0 4px;
+}
+
+.btnrow > button {
+  display: inline-block; /*inline; */
+  margin: 2px 0 2px 2px;
+  
+  border-radius: 5px;
+  height: 1.8rem;
+  font-size: 1rem;
+}
+

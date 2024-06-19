@@ -1,0 +1,21 @@
+footer>p::first-letter {
+    color: darkturquoise; /*#589432;*/
+    font-size: +300%;
+    font-style: italic;
+    initial-letter: 2;
+    /*font-variant: capitalize;
+    //top-margin: +30%;*/
+}
+
+p.text1::first-letter {
+    /*initial-letter: 2 2; //this does not
+     work! :( As the newest CSS standard is not supported by majority of browsets '20-Apr'*/
+    color: darkturquoise;
+    font-size: +250%;
+    font-style: italic;
+}
+p.text1::first-line {
+    //color: darkturquoise;
+    font-size: +120%;
+    //font-style: italic;
+}

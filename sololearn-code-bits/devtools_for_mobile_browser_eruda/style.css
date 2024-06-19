@@ -1,0 +1,18 @@
+body {
+    
+}
+.overcode{
+  border: 1px solid lightgray;
+  /*font-weight: 600; */
+}
+code{
+  font-weight: 600;
+}
+
+.minitext{
+  font-size: 9px;
+}
+
+.list-w-links > li {
+  margin-top: 8px;
+}

@@ -1,0 +1,54 @@
+body {
+}
+.toolbar {
+  border: 1px solid crimson;
+}
+.tbbutton{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 2px 3px;
+  border: 1px solid darkblue; /*black;*/
+  color: blue;
+  text-align: center; 
+    /*horizontally:center*/
+  vertical-align: middle; //text-top;
+  font-family: UnifrakturMaguntia, cursive; /* "Gothic" */
+  font-size: 28px;
+  
+  background-color: #E3F2FD; //#E8EAF6; //#C5CAE9;
+}
+.btn1{
+  /*A: ;Add, move Above*/
+  border: 1px solid darkblue;
+}
+.btn2{
+  /*'B'; make Bold, move Below*/
+  border: 1px solid darkblue;
+}
+.btn3{
+  /*'E': Expand; Edit*/
+  border: 1px solid darkblue;
+}
+.btn4{
+  /*'S': Strike-through */
+  border: 1px solid darkblue;
+}
+.btn5{
+  /*'C': ClearAll*/
+  border: 1px solid darkblue;
+}
+
+/**/
+.dotted-text{
+  font-family: 'Raleway Dots', cursive;
+  font-size: 30px;
+}
+.sans-endings-text{
+  font-family: 'Unica One', cursive;
+  font-size: 22px;
+}
+.stardos{
+  font-family: 'Stardos Stencil', cursive;
+  font-size: 20;
+}

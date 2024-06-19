@@ -1,0 +1,15 @@
+span.baseline {
+    vertical-align: baseline;
+}
+span.sub {
+    vertical-align: sub;
+}
+span.super {
+    vertical-align: super;
+}
+span.pixel10 {
+    vertical-align: -10px;
+}
+span.pixel3p5 {
+    vertical-align: -3.5px;
+}

@@ -1,0 +1,10 @@
+div {
+    height: 350px;
+    width: 400px;
+    border: 1px solid darkblue;
+    /*bg: img, repeat-x | repeat-all | no-repeat; center-x center-y */
+    background: url("http://www.sololearn.com/uploads/css_logo.png") no-repeat 
+       50% 50%;
+    /* resize: grow or shrink bg-img */
+    background-size: 350px 350px;
+}

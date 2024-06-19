@@ -1,0 +1,51 @@
+/* Created by Coder */
+
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color:black;
+    overflow:hidden;
+}
+#loaderbox{
+    width:150px;
+    height:150px;
+    position:absolute ;
+   top:100px;
+   left:180px;
+   transform:translate(-50%,50%);
+}
+.loader{
+    width:calc(100% - 16px);
+    height:calc(100% - 16px);
+    border:8px solid #162534;
+    border-top:8px solid #09f;
+    border-radius:50%;
+    animation:spin 2s linear infinite ;
+}
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+       transform:rotate(360deg); 
+    }
+}
+#b1,#b2{
+     width: 20vmin;
+    height: 8vmin;
+    margin: 0 2vmin 10vmin;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: small;
+    border-radius:5px;
+    background-color:#0099e6;
+    box-shadow: 0 8px #a12;
+    text-shadow: 0 0 2px #a12;
+    opacity: 0.8;
+}
+button:focus{
+  outline:none;
+};

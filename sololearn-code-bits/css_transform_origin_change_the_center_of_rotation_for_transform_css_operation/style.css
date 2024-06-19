@@ -1,0 +1,22 @@
+.frame1-div {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    margin: 30px;
+    //padding: 10px;
+    border: 1px solid blue;
+}
+.green-div {
+    padding: 50px;
+    position: absolute;
+    background-color: #8bc34a; /*green*/
+    border: 3px dotted darkgreen;
+    //transform: rotate(15deg);
+    //transform-origin: 25% 25%;
+    transition: transform 2s;
+}
+
+.green-div:hover {
+    transform: rotate(30deg);
+    transform-origin: 25% 75%;
+}

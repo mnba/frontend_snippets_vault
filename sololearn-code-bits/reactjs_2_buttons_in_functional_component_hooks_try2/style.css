@@ -1,0 +1,49 @@
+/*from origin:*/
+h1, p {
+  font-family: Lato;
+}
+
+/*Author: M.A.*/
+body {
+  text-align: center;
+}
+
+.panel1 {
+  display: inline-block;
+  margin-top: 22px;
+  text-align: left;
+  /*border: 1px solid red; */
+}
+
+.cnt-text{
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  
+  padding: 11px 14px;
+  /*padding-left: 14px; /*7px like with .btn1 + 7px left-offset to align the letters */
+  border-radius: 7px;
+  
+  /*background-color: #b80d57; //#d1c4e9;
+  //color: #721b65; //#7e57c2; */
+  background-color: #f8615a;//tomato;
+  color: #ffd868; //white;
+}
+
+.btn-row{
+  /*margin-top: 22px; //`span` or inline-block'ed `div` ignores `margin-top` */
+  /*border: 1px solid green;*/
+}
+
+.btn {
+  margin: 3px 7px;
+  
+  /*//-height: 22px;*/
+  border-radius: 7px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px auto;
+  
+  background-color: #721b65; 
+  color: #b80d57;
+}

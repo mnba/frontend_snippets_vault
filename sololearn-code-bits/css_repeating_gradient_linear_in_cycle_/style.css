@@ -1,0 +1,18 @@
+body{margin: 0;}
+.title{
+  margin-top: 15px;
+}
+.bg {
+    float: left;
+    width: calc(100% - 2*4px); /*- 2*margin; 300px; */
+    height: 250%; /*calc(100% - 2*4px); /* 100%;/*450px;*/
+    margin: 4px;
+    
+    color: orange; /*#daa; /*lightskyblue; /* #FFF;*/
+    text-align: center;
+    
+    background: repeating-linear-gradient(lightblue 0px, lightgreen 170px, lightblue 250px);
+    /*background: repeating-linear-gradient(lightblue 0px, lightblue 10px, lightgreen 170px);*/
+    /* original code: 
+    background: repeating-linear-gradient(lightblue 0px, lightblue 10px, lightgreen 170px);*/
+}

@@ -1,0 +1,17 @@
+p.none {
+    text-decoration: none;
+}
+p.inherit {
+    text-decoration: inherit;
+}
+p.overline {
+    text-decoration: overline;
+    margin: 0px;
+}
+p.underline {
+    text-decoration: underline;
+    margin: 0px;
+}
+p.line-through {
+    text-decoration: line-through;
+}

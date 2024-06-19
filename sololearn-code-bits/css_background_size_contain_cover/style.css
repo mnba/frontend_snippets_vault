@@ -1,0 +1,25 @@
+.bl0 {
+    height: 150px;
+    width: 150px;
+    border: 1px solid grey;
+    background: url("http://www.sololearn.com/uploads/css_logo.png") no-repeat; 
+      //50% 50%;
+    /*background-size: contain;*/
+}
+
+.bl1 {
+    height: 150px;
+    width: 200px;
+    border: 1px solid darkblue;
+    background: url("http://www.sololearn.com/uploads/css_logo.png") no-repeat 50% 50%;
+    background-size: contain;
+}
+
+.bl2 {
+    height: 150px;
+    width: 300px;
+    border: 1px solid darkgreen;
+    background: url("http://www.sololearn.com/uploads/css_logo.png") no-repeat 50% 50%;
+    background-size: cover;
+}
+

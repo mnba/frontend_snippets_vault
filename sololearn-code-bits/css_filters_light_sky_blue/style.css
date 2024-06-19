@@ -1,0 +1,7 @@
+img {
+    width: 130px;
+    height: 100px;
+}
+.dropshadow {
+    filter: drop-shadow(5px 9px 2px lightskyblue);
+}

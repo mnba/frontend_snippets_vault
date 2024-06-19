@@ -1,0 +1,5 @@
+#div-btn{
+  /* width: fit-content; /*1st option*/
+  display: inline-block;
+  border: 1px solid darkgrey;
+}

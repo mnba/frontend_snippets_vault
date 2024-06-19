@@ -1,0 +1,54 @@
+/*your CSS code here*/
+.mini-title{
+  font-size: 14px;
+  font-family: Helvetica,Arial;
+  font-style: oblique; /*=italic;*/
+}
+
+.heading{
+  font-size: 35px;
+}
+
+.icon {
+  display: inline;/*not yet inline-block; */
+  border: 1px solid red;
+}
+.data {
+  /*display: inline; */ 
+}
+
+/* 
+.fas {
+  border: 1px solid grey;
+}
+*/
+
+.subheading{
+  margin-top: 23px;
+}
+
+.skills ul li .skill_prog{
+  width: 60%;
+  height: 5px;
+  position: relative;
+  
+  border: 1px solid red; /*DBG*/
+}
+
+.skills ul li .skill_prog span{
+  position: absolute;
+  height: 100%;   
+  background: #2F5A78;
+  padding-right: 50px;
+  
+  border: 1px solid blue; /*DBG*/
+}
+
+/*L40.Coding*/
+.skill_name{
+    width: 4px;
+}
+.skill_per{
+    margin-right: 15px;
+}
+

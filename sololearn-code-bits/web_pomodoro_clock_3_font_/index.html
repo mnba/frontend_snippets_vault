@@ -1,0 +1,246 @@
+<!-- Created by Amrendra Kumar -->
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width">
+        <link href="style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <h1>Pomodoro clock</h1>
+        
+    <div class="break">
+        <p>BREAK LENGTH</p>
+            <i class="fa fa-minus" aria-hidden="true"></i><input type="button" id="breakId" value="5"> <i class="fa fa-plus" aria-hidden="true"></i>
+    </div>
+
+    <div class="session">
+        <p>SESSION LENGTH</p>
+            <i class="fa fa-minus" aria-hidden="true"></i> <input type="button" id="sessionId" value="25"> <i class="fa fa-plus" aria-hidden="true"></i>
+    </div>
+
+    <div class="clockUi">
+      <div id="rotate"></div>
+        <p id ="sesOrBreak">Session</p>
+        <p id="demo">25</p>
+
+    </div>
+
+<script>
+    function wrapper(val) {
+
+    tSec = parseInt(val*60);
+    var x = parseInt(val*60);            // making hr min sec independent to calc exact value
+
+    hr  = parseInt(x / 3600);
+    min = parseInt( (x % 3600) / 60);
+    sec = parseInt( (x % 3600) % 60);
+
+    count = function() {
+
+        sesOrBreak.textContent = "Break";
+         
+        if( tSec >= 3600 ) {
+            demo.textContent = hr  + " : " + min + " : " + sec;
+        } else {
+            demo.textContent = min + " : " + sec;
+        }
+        
+        tSec += -1;
+
+        hr  = parseInt(tSec / 3600);
+        min = parseInt( (tSec % 3600) / 60);
+        sec = parseInt( (tSec % 3600) % 60);
+
+        if(tSec < 0) {    
+            
+            clearInterval(handle);                   //5. break end
+             wrapper1(valSes)                      // 6. set sec of session  
+            handle1 = setInterval(count1,1000);   // 7.session started this time break sec: -1 
+        }
+
+    };
+
+}
+
+
+function wrapper1(valSes) {
+
+    tSecSes = parseInt(valSes*60);
+    var y = parseInt(valSes*60);     // making hr min sec independent to calc exact value
+
+    hrSes  = parseInt(y / 3600);
+    minSes = parseInt( (y % 3600) / 60);
+    secSes = parseInt( (y % 3600) % 60);
+    
+    count1 = function() {
+
+        sesOrBreak.textContent= "Session";
+
+        if( tSecSes >= 3600) {
+            demo.textContent = hrSes + " : " + minSes + " : " + secSes;
+        } else {
+            demo.textContent =minSes + " : " + secSes;
+        }
+
+        tSecSes += -1;
+
+        hrSes  = parseInt(tSecSes / 3600);
+        minSes = parseInt( (tSecSes % 3600) / 60);
+        secSes = parseInt( (tSecSes % 3600) % 60);
+
+        if(tSecSes < 0) {
+            clearInterval(handle1);                  //2. session end
+            wrapper(val);                        // 3. set sec of break             
+            handle = setInterval(count,1000);   //4. break started  this time sess sec -1 help in identifying ses dur
+        }
+
+    };
+
+}
+
+
+function pauseOrResume() {
+
+    if(flag1 === 1) {
+
+        handle1 = setInterval(count1,1000);    // 1. session started
+        flag1 = 2;
+        rotate.style.animationName="rotate1";  
+    } 
+    else if(flag1 ===2 && tSecSes >= 0) {      //checking session duration   
+
+        clearInterval(handle1);
+        flag1 = 1;
+        rotate.style.animationName="rot";
+    }
+
+     //handling break pause and resume
+
+    else if( flag ===1 && tSec >= 0 && tSecSes < 0) {     /* when break running ses sec :-1 is key concept
+                                                           in implementing break P & R feature */
+        clearInterval(handle);
+        flag = 2;
+        rotate.style.animationName="rot";
+    }
+    else if(flag === 2 && tSec >= 0 ) {
+        handle = setInterval(count,1000);
+        flag = 1;
+        rotate.style.animationName="rotate1";  
+    } 
+    else {               //handling undefine click without running any code
+
+    }
+
+        
+}
+
+
+function addPlus() {
+
+    breakId.value = parseInt(breakId.value) +1;
+    val = parseInt(breakId.value);
+    wrapper(val);
+
+}
+
+
+function addMinus() {
+
+    breakId.value = parseInt(breakId.value) - 1;
+
+    if(val<=1) {
+
+        val=1;
+        breakId.value=parseInt(val);
+    }
+
+    val = parseInt(breakId.value);
+    wrapper(val);
+
+}
+
+
+function addPlusSes() {
+
+    sessionId.value = parseInt(sessionId.value) +1;
+    valSes = parseInt(sessionId.value);
+    demo.textContent=valSes;
+    wrapper1(valSes);
+
+}
+
+
+function addMinusSes() {
+
+    sessionId.value = parseInt(sessionId.value) - 1;
+
+    if(valSes<=1) {
+
+        valSes=1;
+        sessionId.value=parseInt(valSes);
+    }
+
+    valSes = parseInt(sessionId.value);
+    demo.textContent=valSes;
+    wrapper1(valSes);
+    
+}
+
+var hr;
+var min;
+var tSec;
+var sec;
+
+var hrSes;
+var minSes;
+var tSecSes;
+var secSes;
+
+var handle;
+var handle1;
+
+var flag = 1;
+var flag1=1;
+
+var count;
+var count1;
+
+var rotate = document.getElementById("rotate");
+rotate.style.animationName="rot";
+
+
+var demo = document.getElementById("demo");
+var clockUi = document.querySelector(".clockUi");
+var sesOrBreak = document.getElementById("sesOrBreak");
+
+var plus=document.querySelectorAll('i.fa-plus');
+var minus=document.querySelectorAll('i.fa-minus');
+
+var breakId = document.getElementById("breakId");
+var val = parseInt(breakId.value);
+wrapper(val);
+
+var sessionId = document.getElementById("sessionId");
+var valSes= parseInt(sessionId.value);
+wrapper1(valSes);
+
+clockUi.addEventListener("click",pauseOrResume);
+
+plus[0].addEventListener("click",addPlus);
+minus[0].addEventListener("click",addMinus);
+
+plus[1].addEventListener("click",addPlusSes);
+minus[1].addEventListener("click",addMinusSes);
+
+    
+</script>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

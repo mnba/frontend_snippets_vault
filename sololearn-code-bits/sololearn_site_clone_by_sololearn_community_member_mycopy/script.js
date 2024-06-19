@@ -1,0 +1,87 @@
+// Created by ++༒192.168.00.000༒++
+
+
+$(function(){
+    $("#getstarted").click(function(){
+        $("#courses").show()
+        $("#home").hide()
+        $("#header90").show()
+         $("#codeplayground").hide()
+    })
+        $("#switch3").click(function(){
+        $("#switch2").toggle()
+        })
+        $("#home2").click(function(){
+            $("#home").show()
+            $("#courses").hide()
+        })
+       $("#codeplay2").click(function(){
+       $("#header90").show()
+           $("#codeplayground").show()
+           $("#courses").hide()
+            $("#discuss").hide()
+             $("#top_learner").hide()
+             $("#blog").hide()
+             $("#profile").hide()
+    })
+    $("#course3").click(function(){
+        $("#courses").show()
+        $("#header90").show()
+        $("#codeplayground").hide()
+         $("#discuss").hide()
+          $("#top_learner").hide()
+          $("#blog").hide()
+          $("#profile").hide()
+    })
+    $("#discuss2").click(function(){
+        $("#discuss").show()
+        $("#courses").hide()
+         $("#header90").show()
+         $("#codeplayground").hide()
+          $("#top_learner").hide()
+          $("#blog").hide()
+          $("#profile").hide()
+    })
+    $("#top_learner2").click(function(){
+        $("#top_learner").show()
+        $("#courses").hide()
+         $("#header90").show()
+         $("#codeplayground").hide()
+          $("#discuss").hide()
+          $("#blog").hide()
+          $("#profile").hide()
+    })
+    $("#blog_3").click(function(){
+        $("#blog").show()
+         $("#top_learner").hide()
+        $("#courses").hide()
+         $("#header90").show()
+         $("#codeplayground").hide()
+          $("#discuss").hide() 
+          $("#profile").hide()
+    })
+    $("#myprofile_").click(function(){
+        $("#profile").show()
+        $("#blog").hide()
+         $("#top_learner").hide()
+        $("#courses").hide()
+         $("#header90").show()
+         $("#codeplayground").hide()
+          $("#discuss").hide() 
+    })
+    setTimeout(function(){
+        $("#loading").hide()
+        $("#home").show()
+    },5000)
+    $("#profile").hide()
+    $("#blog").hide()
+    $("#top_learner").hide()
+    $("#discuss").hide()
+    $("#courses").hide()
+    $("#switch2").hide()
+    $("#codeplayground").hide()
+     $("#header90").hide()
+})
+
+
+

@@ -1,0 +1,180 @@
+<!-- Created by Jay -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SVG Clock</title>
+        <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            html, body{
+                margin: 0;
+                padding: 0;
+                background-color: brown;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+                font-family: 'Arimo', sans-serif;
+            }
+
+            svg{
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                left: calc(50% - 100px);
+                
+            }
+
+            .progress-ring{
+
+                transform: scale(1.5);
+
+            }
+
+            .progress-ring__circle{
+                transition: 0.35s stroke-dashoffset;
+
+                transform: rotate(-90deg);
+                transform-origin: 50% 50%;
+            }
+
+            #timeOutput{
+
+                letter-spacing: 0.15em;
+
+            }
+
+            input{
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                width: 80px;
+            }
+
+            #footer{
+                position: fixed;
+                color: white;
+                padding-top: 3px;
+                font-size: 10px;
+                text-align: right;
+                right: 0;
+                bottom: 0;
+            }
+
+            #footer > p{
+                display: inline;
+            }
+
+            a{
+
+                color: white;
+
+            }
+        </style>
+    </head>
+    <body>
+        <svg class="progress-ring" height="200" width="200">
+            <circle id="circle1" class="progress-ring__circle" stroke="white" stroke-width="4" fill="transparent" r="52" cx="130" cy="100"/>
+            <circle id="circle2" class="progress-ring__circle" stroke="white" stroke-width="4" fill="transparent" r="47" cx="130" cy="100"/>
+            <circle id="circle3" class="progress-ring__circle" stroke="white" stroke-width="4" fill="transparent" r="42" cx="130" cy="100"/>
+            <text id="timeOutput" font-size="24px" x="100" y="160" text-anchor="middle" font-weight="bold" fill="white" transform="translate(0,0)"></text>
+        </svg>
+        <div id="footer">
+            <p>&copy;<a href="https://www.sololearn.com/Profile/100073">Jay</a> 61/365</p>
+        </div>
+        <!--<input value="35" type="number" step="5" min="0" max="60" placeholder="progress">-->
+        <script>
+
+            colourArray = ["orange","gold","lime","green","violet","purple","black","blue","cyan","brown","red"];
+            var pointer = 0;
+            
+            var circle1 = document.getElementById('circle1');
+            var radius1 = circle1.r.baseVal.value;
+            var circumference1 = radius1 * 2 * Math.PI;
+
+            var circle2 = document.getElementById('circle2');
+            var radius2 = circle2.r.baseVal.value;
+            var circumference2 = radius2 * 2 * Math.PI;
+
+            var circle3 = document.getElementById('circle3');
+            var radius3 = circle3.r.baseVal.value;
+            var circumference3 = radius3 * 2 * Math.PI;
+
+
+            circle1.style.strokeDasharray = `${circumference1} ${circumference1}`;
+            circle1.style.strokeDashoffset = `${circumference1}`;
+
+            circle2.style.strokeDasharray = `${circumference2} ${circumference2}`;
+            circle2.style.strokeDashoffset = `${circumference2}`;
+
+            circle3.style.strokeDasharray = `${circumference3} ${circumference3}`;
+            circle3.style.strokeDashoffset = `${circumference3}`;
+
+            function setProgress(percent1){
+                const offset1 = circumference1 - percent1 / 60 * circumference1;
+                circle1.style.strokeDashoffset = offset1;
+            }
+
+            function setProgress2(percent2){
+                const offset2 = circumference2 - percent2 / 60 * circumference2;
+                circle2.style.strokeDashoffset = offset2;
+            }
+
+            function setProgress3(percent3){
+                const offset3 = circumference3 - (percent3%12) / 12 * circumference3;
+                circle3.style.strokeDashoffset = offset3;
+            }
+
+            function setTime(secs,mins,hrs){
+
+                if(secs%30 == 0){
+
+                    document.body.style.backgroundColor = ""+colourArray[pointer%colourArray.length];
+                    document.body.style.transition = "background-color 0.35s linear";
+                    pointer++;
+
+                }
+
+                var currTime = (hrs >= 10 ? hrs : (hrs >= 1 ? "0"+hrs : "00"))+":"+(mins >= 10 ? mins : (mins >= 1 ? "0"+mins : "00"))+":"+(secs >= 10 ? secs : (secs >= 1 ? "0"+secs : "00"));
+
+                document.getElementById("timeOutput").innerHTML = ""+currTime;
+
+            }
+
+            function startTime(){
+                var date = new Date();
+                var seconds = date.getSeconds();
+                var minutes = date.getMinutes();
+                var hours = date.getHours();
+                setTimeout(startTime, 1000);
+                setProgress(seconds);
+                setProgress2(minutes);
+                setProgress3(hours);
+                setTime(seconds,minutes,hours);
+            }
+
+            startTime();
+
+            /*
+                Svg clock using that progress wheel from css tricks
+
+                Radius = (width / 2) - (strokeWidth * 2) 
+
+                So Radius = (120 / 2) - (4 * 2) = 52
+
+                circumference = radius * 2 * PI
+
+                So circumference = 52 * 2 * PI ~= 326.7
+
+                perhaps 3 wheels for (hours, mins, secs)?
+
+            */
+        </script>
+    	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

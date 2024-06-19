@@ -1,0 +1,29 @@
+
+#box{
+/*style="border:1px solid darkblue; 
+   width:200px; height:200px" */
+  width: 300px; //calc(100vw-45px);
+  height: 200px;
+  border: 1px solid darkblue;
+}
+
+
+#img-obj{
+  border: 1px solid lime;
+}
+
+#div1-obj{
+  border: 3px solid orange;
+  width: 150px;
+  height: 80px;
+  border-radius: 6px;
+}
+
+#hr-footer-top{
+  margin-top: 23px;
+  margin-bottom: 0px;
+}
+.cr{
+  font-size: 9px;
+  margin-top: 1px;
+}

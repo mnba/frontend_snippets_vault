@@ -1,0 +1,14 @@
+.blk1 {
+    width: 100%; //350px;
+    height: 300px; 
+    background-image: url("http://www.sololearn.com/uploads/css_logo.png"), url("http://www.sololearn.com/uploads/better-code.jpg");
+    background-position: right bottom, left top;
+    background-repeat: no-repeat;
+} 
+
+.blk2 { 
+    background: url("http://www.sololearn.com/uploads/css_logo.png") right top no-repeat, 
+    url("http://www.sololearn.com/uploads/better-code.jpg") left top no-repeat; 
+    width: 100%; //400px;
+    height: 300px;
+}

@@ -1,0 +1,8 @@
+#clickme-btn{
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 11px;
+  border: 2px outset green;
+  background: #D6F9E8; /*#AEF4D2; /* #A9FFFD; lightgreen; */
+  border-radius: 4px;
+}

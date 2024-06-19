@@ -1,0 +1,151 @@
+/* Created by Richard Myatt */
+
+/* Author: Richard Myatt
+   Date: 9 March 2018
+
+   Pomodoro Clock.  A exercise.
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash|Pacifico');
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: lightgray;
+  background-color: #222;
+}
+
+.container {
+  font-family: 'Roboto Mono', monospace;
+  width: 400px;
+  height: 500px;
+  background-color: #222;
+  margin: 20px auto;
+}
+
+.container-counters {
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 400px;
+  height: 150px;
+}
+
+header {
+  color: lightgreen;
+  font-family: 'Berkshire Swash', cursive;
+  text-align: center;
+  font-size: 30px;
+  padding: 50px 0 30px 0;
+}
+
+#counter {
+  color: lightgreen;
+}
+
+.counter-title {
+  text-align: center;
+}
+
+.output {
+  height: 100px;
+  width: 120px;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2em;
+}
+
+.btns {
+  height: 50px;
+  width: 120px;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2em;
+}
+
+.dec {
+  margin-left: 10px;
+}
+
+.inc {
+  margin-right: 10px;
+}
+
+.dec:hover, .inc:hover {
+  cursor: pointer;
+}
+
+.container-progress {
+  height: 300px;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container-progress:hover {
+  cursor: pointer;
+}
+
+#display {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.timer {
+  display:block;
+  position: absolute;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  left: 0;
+  font-size: 3em;
+  color: lightgreen;
+  width: 200px;
+  height: 200px;
+}
+
+svg {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}

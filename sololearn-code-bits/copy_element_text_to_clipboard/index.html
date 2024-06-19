@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Copy text to Clipboard</title>
+</head>
+<body>
+  <div class="container">
+        <!--Sample 1-->
+        <p id="text1">Here is some text to be copied.</p>
+        <button onclick="copy_text('text1')">Copy</button> 
+
+        <!--Sample 2-->
+        <p id="text2">And here is another one.</p>
+        <button onclick="copy_text('text2')">Copy</button>
+
+        <!-- Textarea for demo: suggest to paste here -->
+        <textarea rows="3" placeholder="Use this to try pasting the copied content"></textarea>
+        
+        <!-- Copied Text Message-->
+        <p id="info-msg1"> Text (have been) Copied! </p>
+        
+        <button onclick="rdClipbd('text1')">Read Clipboard</button>
+  </div>
+    
+<script>
+let copy_text = (eltId) => {
+            /* Create a temporary input element: it will be used for copy-to-clipboard */
+            let inputElement=document.createElement('input');
+            inputElement.type='text';
+            /* Get the element whose content is to copied */
+            let text = document.getElementById(eltId).innerHTML;
+            
+            /* Set the value of Temp input to the content to copied */
+            inputElement.value = text;
+            /* Adding the Temp input as child of body */
+            document.body.appendChild(inputElement);
+            /* Select this Temp input */
+            inputElement.select();
+            /* Copy value of Temp input */
+            document.execCommand('copy');
+  /*
+    execCommand: 
+    https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand
+    deprecated -но пока работает!! 
+
+See also:     
+Element: copy event - Web APIs | MDN
+https://developer.mozilla.org/en-US/docs/Web/API/Element/copy_event
+
+Clipboard API and events
+https://w3c.github.io/clipboard-apis/#clipboard-event-copy
+  */
+            /* Remove the appended Temp input */
+            document.body.removeChild(inputElement);
+            //copy done
+            
+            /* Show the alert */
+            document.getElementById("info-msg1").style.visibility = "visible";
+
+            /* hide msg after 1 sec //Show the alert for only 1 sec */
+            setTimeout(() => {
+                document.getElementById("info-msg1").style.visibility = "hidden"; 
+            }, 1000);
+}
+ 
+let rdClipbd = async ()=>{
+  //DBG 
+  console.log("navigator[:3]=", navigator, navigator.clipboard,); 
+  //navigator.clipboard === undefined
+  //navigator.clipboard.read raises exception 
+  //); 
+  return '"'; //DBG
+  const items = await navigator.clipboard.read();
+  const textBlob = await items[0].getType("text/plain");
+  const text = await (new Response(textBlob)).text();
+  console.log("text=", text);
+  return text;
+}
+</script>
+
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

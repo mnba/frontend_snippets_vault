@@ -1,0 +1,837 @@
+<!-- Created by ‎Ashwin Maurya -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Music Player</title>
+       
+ 
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+       <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Trispace:wght@700&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=East+Sea+Dokdo&family=Kaushan+Script&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://unpkg.com/scrollreveal"></script>
+         <script src="https://unpkg.com/scrollreveal"></script>
+         <script src="https://use.fontawesome.com/bae75bb48f.js"></script>
+         
+         
+         
+          
+    
+    </head>
+    <body>
+    <div id="lo">
+        <div id="outer">
+            <div id="inner"></div>
+        </div>
+        <div id="hidder">
+            <div id="c1"></div>
+            <div id="c2"></div>
+            <div id="c3"></div>
+            <div id="c4"></div>
+            <div id="c5"></div>
+            <div id="c6"></div>
+            <div id="c7"></div>
+        </div>
+        <div id="d1"></div>
+        <div id="d2"></div>
+    
+    <div id="logo">
+        <span id="m">M</span>
+        <span id="elody">elody</span>
+        <span id="b">B</span>
+        <span id="eats">eats</span>
+        <button id="continue" onClick="f1()">
+           Let's Play
+        </button>
+        </div>
+        </div>
+        
+        
+        <div id="main">
+        <div id="header">
+           <i class="fa fa-bars" id="setting" onClick="menu()"></i>
+           <!--<img id="setting" onClick="menu()" src="https://dl.dropbox.com/s/gf7446t2pay9eo7/IMG_20201029_175933.jpg?dl=0">-->
+           
+           <svg class="search"  fill="grey" height="18" viewBox="0 0 50 50" width="18"><path d="M20 40C9 40 0 31 0 20S9 0 20 0s20 9 20 20-9 20-20 20zm0-37C10.6 3 3 10.6 3 20s7.6 17 17 17 17-7.6 17-17S29.4 3 20 3z" fill="grey"></path><path d="M46.6 48.1c-.4 0-.8-.1-1.1-.4L32 34.2c-.6-.6-.6-1.5 0-2.1s1.5-.6 2.1 0l13.5 13.5c.6.6.6 1.5 0 2.1-.2.3-.6.4-1 .4z" fill="grey"></path></svg>
+           <input type="text" id="search" placeholder="Search for artists,albums,songs,playlis..."> 
+           <p id="do4">MB</p>
+           <i class="material-icons mic">mic</i>
+            </div>
+            
+               
+        <div id="main2">
+        
+            
+            
+           <div id="iconlist">
+             <i class="material-icons  red1" onClick="red1()">queue_music</i>
+             <i class="material-icons  red2" onClick="red2()">query_builder</i>
+             <i class="material-icons  red3" onClick="red3()">favorite</i>
+             <i class="material-icons  red4" onClick="red4()">beenhere</i>
+             <p id="theirnames">
+                 <span id="yel1">Daily mix</span>
+                 <span id="yel2">Recent</span>
+                 <span id="yel3">Favourites</span>
+                 <span id="yel4">Playlists</span>
+             </p>
+            </div>
+            
+            
+            
+            <div id="shufflebox"  >
+           <div id="shuffle"><i class="fa fa-random"> </i> Shuffle playback</div>
+           <i class="material-icons" id="down" onClick="don()" >file_download</i>
+           <i class="material-icons" id="edit">border_color</i>
+               <i class="fa fa-th-large"></i>
+               </div>
+                
+           <div id="songlist">
+               Songs<hr id="hk">
+           </div>
+           
+           <div id="full">
+          <div id="list">
+              <img id="img1" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcStCFpehEpnOIKGJvXYP1sFPAjs1vKQdPnlqA&usqp=CAU">
+          <div id="info" class="info">Night Changes
+            <div id="author">One direction</div></div>
+     <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          
+          <div id="list">
+              <img id="img2" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRrjiFaODZapEC3S8FjAvOVi94uzZWc4CZ26Q&usqp=CAU">
+          <div id="info1" class="info">Live While We're Young
+            <div id="author">One direction</div></div>
+        <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          
+          
+          <div id="list">
+              <img id="img3" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQPQz7yC3TZUTUtM-5ep3ItA1WRMzwc-Dtx7A&usqp=CAU">
+          <div id="info2" class="info">Drag Me Down
+            <div id="author">One direction</div></div>
+        <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          
+          
+              <div id="list">
+              <img id="img4" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMVRE1V8BTcYVESAO5a1rS7ROWBLEnXiV4OQ&usqp=CAU">
+          <div id="info3" class="info">See You Agin
+            <div id="author">Wiz Khalifa</div></div>
+        <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          
+          <div id="list">
+              <img id="img3-4" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSsAGWrWPIi6804Ac7nZlq_LiSHppb9gdeUyw&usqp=CAU">
+          <div id="info3-4" class="info">Once In A Lifetime
+            <div id="author">One Direction</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          <div id="list">
+              <img id="img5" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7rxqUflsWDFt0W9TYQW28NugZhs6l9S3C3w&usqp=CAU">
+          <div id="info4" class="info">Little Things
+            <div id="author">Neel Adhikari , Mithila Palkar</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+      
+          
+          <div id="list">
+              <img id="img6" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7fEDoHMlBguX5XJzWR7WqiAGx-1p2xzNpQQ&usqp=CAU">
+          <div id="info5" class="info">Best Song Ever
+            <div id="author">One direction</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          
+          
+          <div id="list">
+              <img id="img7" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQn-i-8ugr-T8UIIek5zjmVNypJbqEZYX4Ztw&usqp=CAU">
+          <div id="info6" class="info">Legends Never Die
+            <div id="author">Against The Current</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+           <div id="list">
+              <img id="img8" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT-wqF_qUExCFTKyyjk298nJBzFEuV75u1fcg&usqp=CAU">
+          <div id="info7" class="info">Closer
+            <div id="author">Chainsmokers</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          
+          
+          <div id="list">
+              <img id="img9" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRvUyUR8wc6CxP-65B6bIUhb9cV4C8jlrlhOQ&usqp=CAU">
+          <div id="info8" class="info">What Is Love
+            <div id="author">Haddaway</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          
+          <div id="list">
+              <img id="img10" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJGeqxOOTpQfy0sLEbmHLk5NzwvndCPAEBow&usqp=CAU">
+          <div id="info9" class="info">Yalgaar
+            <div id="author">CarryMinati</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          
+          
+          
+          
+          
+         </div>
+        </div>
+          
+        
+          
+          
+          
+          
+          <div id="onli">
+          
+           
+          
+          <div class="onli">
+          <!-- <div id="header">
+           <i class="fa fa-bars" id="setting" onClick="menu()"></i>
+           <!--<img id="setting" onClick="menu()" src="https://dl.dropbox.com/s/gf7446t2pay9eo7/IMG_20201029_175933.jpg?dl=0">
+           </div>-->
+          
+        <p id="h3p1">Following
+       <span id="arrr1">More +</span>
+           
+       </p>
+         <div id="h">
+            <div id="h1">
+                 <div id="h3">
+                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRfYVwXPq0lF9bONl6sBNB_sTeQF2yyYU7a0w&usqp=CAU">
+                     <p>One Direction</p>
+                 </div>
+                      <div id="h3">
+                          <img src="https://hindi.cdn.zeenews.com/hindi/sites/default/files/2020/11/01/678576-bhawan.jpg">
+                          <p>Bhuvan Bam</p>
+                      </div>
+                           
+                             <div id="h3">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRtVhq1dh49es4Lihw76uGTW7ZG_LDprI2-xA&usqp=CAU">
+                          <p>The Chainsmokers</p>
+                      </div>
+                       <div id="h3">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7tIo3mA0tn9aizcx3z7V04ucRj_3ugWkhbg&usqp=CAU">
+                                <p>Neffex</p>
+                            </div>
+                            <div id="h3">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRheyVkf0SYwQ0uOl6tenXIvKVvyoLrbXIINg&usqp=CAU">
+                                <p>Bangtan Boys</p>
+                            </div>
+            </div>
+        </div>
+            
+            
+             <p id="h3p2">Recently played
+       <span id="arrr1">More +</span>
+           
+       </p>
+            <div id="h">
+            <div id="h1">
+                <div id="h2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7-RyrR5ZAJmDri8QBobjuLvt9r0NQcPxTMQ&usqp=CAU">
+                    <p>Heer Ranjha</p>
+                </div>
+                   <div id="h2">
+                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7KyRdB3HuaLxMhFlFZs2Dyy5TNd2KDxh5gQ&usqp=CAU">
+                       <p>Destiny</p>
+                   </div>
+                      <div id="h2">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQXa1oijplg72u1HYIZ7E_61_matbuLC9t2xg&usqp=CAU">
+                          <p>Melody</p>
+                      </div>
+                         <div id="h2">
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTop9mq2hhpeh2iVKBj_Aplf1MmzkiO7wcObw&usqp=CAU">
+                             <p>World's Collide</p>
+                         </div>
+                            <div id="h2">
+                               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQbIiQbMvgqp66XRv-fKMPsuXIaeWV3kFUFyw&usqp=CAU"> 
+                            <p>Rare Breed</p>
+                            </div>
+                            <div id="h2">
+                               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQx29iwh7LJhbTHCOQ57EH-ujbo-e0pyVH0Pg&usqp=CAU"> 
+                            <p>I Don't Care</p>
+                            </div>
+            </div>
+        </div>
+        
+         
+        
+        
+        <p id="h3p3">Trending Songs
+       <span id="arrr1">More +</span>
+           
+       </p>
+         <div id="h">
+            <div id="h1">
+                <div id="h2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTDqCs3Z7uyRN0JNB33HMbIFQd_dIi3uyoelg&usqp=CAU">
+                    <p>History</p>
+                </div>
+                   <div id="h2">
+                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSUJnkmGn6tWe-2uYTQmRVMW9d9wBWz0kATxA&usqp=CAU">
+                       <p>Alone</p>
+                   </div>
+                      <div id="h2">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-7a1TwCP89JjDPXSYnA10kXXm0TdzteSv3Q&usqp=CAU">
+                          <p>Castle on the..</p>
+                      </div>
+                         <div id="h2">
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ8ceR0iGiPEaObEFVy2uq7mjvkIIlFYrsqdg&usqp=CAU">
+                             <p>Cold</p>
+                         </div>
+                            <div id="h2">
+                               <img src="https://upload.wikimedia.org/wikipedia/en/7/71/One_Direction_-_Infinity.png"> 
+                               <p>Infinity</p>
+                            </div>
+                            <div id="h2">
+                               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGzvmL9eT7zYR-rWC86N1mtT_Cg97DczmNbw&usqp=CAU"> 
+                               <p>Love Yourself</p>
+                            </div>
+            </div>
+        </div>
+        
+        <p id="h3p4">Trending Artists
+       <span id="arrr1">More +</span>
+           
+       </p>
+         <div id="h">
+            <div id="h1">
+                <div id="h4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ4ypre1v9SDcpsnHg11RGlgpQk9a-CovaTGw&usqp=CAU">
+                    <p>Ed Sheeran</p>
+                </div>
+                   <div id="h4">
+                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSTxKHsCJWL3Rjz6NxsCjV60mds6t4CbPuOcQ&usqp=CAU">
+                       <p>Justin Bieber</p>
+                   </div>
+                     <div id="h4">
+                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTVmjKyFKlONFKY1WGIxOc-Q2ByihebJO1IXw&usqp=CAU">
+                       <p>Camilo Cabe..</p>
+                   </div>
+                      <div id="h4">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQAQx1uTqEwAPfrj1ynHHUC1GaHb_myVEfEOQ&usqp=CAU">
+                          <p>Bhuvan Bam</p>
+                      </div>
+                         <div id="h4">
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS8AtQA4V_XiyqIszuTLSbzOekCDTDfAAXuDA&usqp=CAU">
+                             <p>Katy Perry</p>
+                         </div>
+                            <div id="h4">
+                               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqH2lJFf-qdadQBFEx7YJX4HnPnZiQBg2Rog&usqp=CAU"> 
+                               <p>Eminem</p>
+                            </div>
+                              <div id="h4">
+                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRMN-YPtJjsbGTKYeztAgEVcnuckSitVEODmA&usqp=CAU">
+                       <p>Ellie Goulding</p>
+                   </div>
+                             <div id="h4">
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4DDOPH1a_-zy2TLDQiuQlcQFPh1RsTX9SrA&usqp=CAU">
+                             <p>Alan Walker</p>
+                         </div>
+                            <div id="h4">
+                               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRGAagPdvnvOPupAWWOXx_B6vR12D1zHoz1mQ&usqp=CAU"> 
+                               <p>Shawn Men..</p>
+                            </div>
+            </div>
+        </div>
+        
+        
+         <p id="h3p5">Trending Songs
+       <span id="arrr1">More +</span>
+           
+       </p>
+         <div id="h">
+            <div id="h1">
+                <div id="h2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAX6CrDhLFsThLgaSiYcWLrGKBf4SGNzEQFg&usqp=CAU">
+                    <p>Perfect</p>
+                </div>
+                   <div id="h2">
+                       <img src="https://upload.wikimedia.org/wikipedia/en/8/8d/Shawn_Mendes_and_Camila_Cabello_-_Se%C3%B1orita.png">
+                       <p>Senorita</p>
+                   </div>
+                      <div id="h2">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSCAsQYy_XCkfdJIYGLKaUKdqhHBrHRcLhkWg&usqp=CAU">
+                          <p>Taare Ginn</p>
+                      </div>
+                         <div id="h2">
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQk9rq9sxzC0AF1Aua30SP4N894GRgkYH9NeQ&usqp=CAU">
+                             <p>What makes You..</p>
+                         </div>
+                            <div id="h2">
+                               <img src="https://www.missmalini.com/wp-content/uploads/2016/09/Tripling.jpg"> 
+                               <p>Mada Faka</p>
+                            </div>
+                            <div id="h2">
+                               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8pWItSlS1u0FjRSm1t7lYMmpoFeTdnM16Hw&usqp=CAU"> 
+                               <p>Dynamite</p>
+                            </div>
+            </div>
+        </div>
+        </div>
+        </div>
+          
+          
+          
+          <div id="se">
+            <p id="re">Recent Searches</p>
+            <div id="g">
+            <div id="g1">
+                <div id="g2">Ajnabee</div>
+                   <div id="g2">Story Of My Life</div>
+                      <div id="g2">Little Things -1D</div>
+                         <div id="g2">Fight Back</div>
+                            <div id="g2">Rahguzar</div>
+            </div>
+        </div>
+        
+        <div id="boxes">
+         <p id="re">Top Genres</p>
+            <div id="pop" class="hip">
+            
+                Hip hop
+            </div>
+            <div id="pop" class="pop">
+                Pop
+            </div>
+            <div id="pop" class="country">
+                Country
+            </div>
+            <div id="pop" class="classical">
+                Classical
+            </div>
+            <div id="pop" class="rock">
+                Rock
+            </div>
+            <div id="pop" class="jazz">
+                 Jazz
+            </div>
+            <div id="pop" class="electro">Electro
+            </div>
+            <div id="pop" class="rb">R&B
+            </div>
+        </div>
+        
+        
+        </div>
+          
+          <!---⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪--->
+          
+          
+         <div id="li">
+            <div id="lib">
+            <div id="logo1">
+                 <span id="m1">M</span>
+        <span id="elody1">elody</span>
+        <span id="b1">B</span>
+        <span id="eats1">eats</span>
+            </div>
+            
+            <div id="r1">
+                <span id="art" onClick="art()">Artists</span>
+                <span id="alb" onClick="alb()">Albums</span>
+                <span id="play" onClick="play()">Playlists</span>
+            </div>
+            
+            <div id="arti">
+                <div id="art1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcStzRRjLVR8XQwFBy9nyJr4fbzDHgs8K6je_Q&usqp=CAU">
+                    <p id="art1p">
+                        One Direction
+                    </p>
+                </div>
+                 <div id="art1">
+                    <img src="https://yt3.ggpht.com/a/AATXAJwGaQWAIWkvIYjm-MqSXfPEHWlhGi8LlMAADtbGWA=s900-c-k-c0x00ffffff-no-rj">
+                    <p id="art1p">
+                        NEFFEX
+                    </p>
+                </div>
+                <div id="art1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWMg1FF-Vj7T-oCtlNEXNZXMACT1ItozypdQ&usqp=CAU">
+                    <p id="art1p">
+                        Bhuvan Bam 
+                    </p>
+                </div>
+                <div id="art1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT27kWvaGNPppfObHVTZPDfT7dmA9GNSaReBw&usqp=CAU">
+                    <p id="art1p">
+                       The Chainsmokers 
+                    </p>
+                </div>
+                <div id="art1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/BTS_logo_%282017%29.png/768px-BTS_logo_%282017%29.png">
+                    <p id="art1p">
+                      BTS
+                    </p>
+                </div>
+                <div id="art1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ4ypre1v9SDcpsnHg11RGlgpQk9a-CovaTGw&usqp=CAU">
+                    <p id="art1p">
+                        Ed Sheeran 
+                    </p>
+                </div>
+                 <div id="art1">
+             <div id="art2">+</div>
+                    <p id="art1p">
+                        Add Artists 
+                    </p>
+                </div>
+                
+            </div>
+            <div id="albu">
+        
+                 <div id="alb1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQKDE_yd0AOGO0ipFyp-5U2tTWjLJAulsp5Rw&usqp=CAU">
+                    <p id="alb1p">
+                      Made In The A.M.
+                    </p>
+                  </div>
+         
+            <div id="alb1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSxXGPFA8dhJkGiRWYP8EAO_maRgd6PgadQQg&usqp=CAU">
+                    <p id="alb1p">
+                      Collage
+                    </p>
+                  </div>
+                <div id="alb1">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/e/e8/One_Direction_-_Four.png">
+                    <p id="alb1p">
+                      Four
+                    </p>
+                  </div>
+            <div id="alb1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTBQKe1nGJoqXgfwoGOcFvJu57m2BeAPhP-NQ&usqp=CAU">
+                    <p id="alb1p">
+                      Faded Japan - EP
+                    </p>
+                  </div>
+                  
+                   <div id="alb1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQU5wmxqkbWVZF0sX-gALEZNq50mitS3K3hHQ&usqp=CAU">
+                    <p id="alb1p">
+                      The White Album
+                    </p>
+                  </div>
+            <div id="alb1">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/21/BTS_-_Map_of_the_Soul_7.png/220px-BTS_-_Map_of_the_Soul_7.png">
+                    <p id="alb1p">
+                      Map of the Soul
+                    </p>
+                  </div>
+                 <div id="alb1">
+                   <div id="sq">+</div>
+                    <p id="alb1p">
+                    Add More Albums 
+                    </p>
+                  </div>
+                
+                
+                
+            </div>
+            <div id="playl">
+            
+            <div id="playl1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQYaQvGrX2eoT7rOoBJUWTSQPY4hgnuZaUs0g&usqp=CAU">
+                <p>
+                 Believer
+                </p>
+            </div>
+             <div id="playl1">
+                <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/One_Direction_-_Story_of_My_Life_%28Official_Single_Cover%29.png">
+                <p>
+                Story Of My Life
+                </p>
+            </div>
+             <div id="playl1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcScVtt-iRx-Efub6Uycam40hQfcgRlZ2bZE2A&usqp=CAU">
+                <p>
+                 Firework
+                </p>
+            </div>
+             <div id="playl1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQp_imnPF0V10sWWq72rOvDi5MsqXo6Yl3m2A&usqp=CAU">
+                <p>
+                 Blank Space
+                </p>
+            </div>
+             <div id="playl1">
+                <img src="https://upload.wikimedia.org/wikipedia/en/e/ed/Love_the_Way_You_Lie_cover.png">
+                <p>
+                 Love The Way You Lie
+                </p>
+            </div>
+             <div id="playl1">
+                   <div id="round">+</div>
+                    <div id="playl1p">
+                    Add More Albums 
+                    </div>
+                  </div>
+            </div>
+            
+            
+            
+            
+            </div>
+        </div>
+        
+        <div id="footer">
+            <!--<img id="mymusic" src="https://dl.dropbox.com/s/4ce64afbhj48vk7/IMG_20201029_191949.jpg?dl=0">-->
+            <i id="mymusic" onClick="mymusic()" class="fa fa-play-circle"></i>
+    <span id="mm">My music</span>
+            <!--<img id="online" src="https://dl.dropbox.com/s/lhumxee7r1pscai/IMG_20201029_192032-01.jpeg?dl=0">-->
+            <i id="online" onClick="online()" class="fa fa-podcast"></i>
+           <span id="on">Online</span>  
+            <img id="csong" onClick="csong()"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSH5WeX6ftu34nm0jZUWc74xNaiRCE3vw8OFA&usqp=CAU">
+             <i class="material-icons" id="sea" onClick="sea()" >search</i>
+             <span id="sear">Search</span>  
+             <i class="material-icons" onClick="library()" id="library" >library_music</i>
+             <span id="chart">Library</span>  
+        </div>
+        
+         </div>
+        
+        
+           <div id="menu">
+            <span id="back" onClick="back()"></span>
+            <div id="into">
+            <img id="myprof" src="https://api.sololearn.com/Uploads/Avatars/19143437.jpg">
+             <span id="ash">Ashwin Maurya</span>  
+           
+             <hr id="hr1">
+             <span id="pro"><i class="fa fa-diamond">  PRO</i></span>  </div>
+             
+             <p id="card1" onClick="don()"><i id="icon" class="fa fa-arrow-down"></i><span id="word">Downloads</span> <span id="ar">︿</span></p>
+             <hr id="hh1">
+             <p id="card2" onClick="feed()"><i id="icon" class="fa fa-comment"></i><span id="word">Feedback</span> <span id="ar1">︿</span></p>
+              <hr id="hh2">
+             <p id="card3" onClick="settings()"><i id="icon" class="fa fa-cog"></i><span id="word">Settings</span> <span id="ar2">︿</span></p>
+              <hr id="hh3">
+             <p id="card4" onClick="language()"><i id="icon" class="fa fa-book"></i><span id="word">Languages</span> <span id="ar3">︿</span></p>
+              <hr id="hh4">
+             <p id="card5" onclick="dark()"><i id="icon" class="material-icons">wb_sunny</i><span id="word1">Light Mode</span> <span id="ar4">︿</span></p>
+             <hr id="hh5">
+              <p id="card6" onclick="light()"><i id="icon" class="material-icons">wb_sunny</i><span id="word2">Dark Mode</span> <span id="ar5">︿</span></p>
+              
+        </div>
+        
+        
+        <div id="downloads" >
+        <div id="head" >
+            <p onClick="back2()" id="back2">︿</p>
+            <p id="do">Downloads</p>
+            
+              <i class="material-icons" onClick="sett()" id="dot">more_vert</i>
+            
+        </div>
+        <div id="so">
+         <div id="list">
+              <img id="img11" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4ODHm_2BHrRd00dmIQx0GZQqTX3ug3H-hEw&usqp=CAU">
+          <div id="info10" class="info">Faded
+            <div id="author">Alan Walker</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          
+          <div id="list">
+              <img id="img12" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8pWItSlS1u0FjRSm1t7lYMmpoFeTdnM16Hw&usqp=CAU">
+          <div id="info11" class="info">Dynamite
+            <div id="author">BTS</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          
+          <hr id="shr">
+          
+          <div id="list">
+              <img id="img13" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQRZ_KmtNLM7UUKgQ5q96V8FmvgWHbIAvk2fQ&usqp=CAU">
+          <div id="info12" class="info">Galway Girl
+            <div id="author">Ed Sheeran</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          <hr id="shr">
+          
+          <div id="list">
+              <img id="img14" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTLqJ6aMwtlViP17iBtpQ9fsEsQ-XDXb8wP3Q&usqp=CAU">
+          <div id="info13" class="info">Love Me Like You Do
+            <div id="author">Ellie Goulding</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          
+          <hr id="shr">
+           <div id="list">
+              <img id="img15" class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS2kGf_wXwU1y9neLxK3377-u9rx_vu0Zt2Ag&usqp=CAU">
+          <div id="info14" class="info">What Does The Fox Say
+            <div id="author">Ylvis</div></div>
+       <i class="material-icons" id="dots">more_vert</i>
+          </div >
+          
+          <hr id="shr">
+          </div>
+     <!--  <i class="material-icons" id="bubble">bubble_chart</i>-->
+      <!--  <p id="no">No Downloads.</p>-->
+        <div id="hide" onClick="hide()">
+        <div id="set" onClick="st()">Settings</div>
+          </div>
+        <div id="plus" onClick="really()">+</div>
+        </div>
+        
+        
+      
+        
+        
+        
+        <div id="msetting">
+        <div id="head">
+               <p onClick="mset()" id="back2">︿</p>
+            <p id="do2">  Settings</p>
+          </div>
+          
+          <p id="head1">ACCOUNT</p>
+          <p id="headii">Mi Account 
+          <span id="arrr">︿</span>
+          </p>
+          <hr id="divi">
+          <p id="head2">SETTINGS</p>
+          <p id="headii">Advanced Settings
+          <span id="arrr">︿</span>
+          </p>
+          
+           
+          <p id="headii">Terms of Service
+          <span id="arrr">︿</span>
+          </p>
+          
+          <p id="headii">Privacy Policy
+          <span id="arrr">︿</span>
+          </p>
+          
+          <p id="headii">Version
+          <span id="arrr">︿</span>
+          </p>
+          
+          <p id="headii">Update automatically
+          <span id="arrr">︿</span>
+          </p>
+          
+          <p id="headii">Log Out
+          <span id="arrr">︿</span>
+          </p>
+        </div>
+        
+       
+         <div id="fmusic">
+            
+        <div id="head" >
+            <p onClick="fbmusic()" id="back2">︿</p>
+            <p id="do1">MB</p>
+            
+              <i class="material-icons" onClick="sett1()" id="dot">more_vert</i>
+                 <div id="hid" onClick="hid()">
+        <div id="set1" onClick="stt()">Settings</div>
+          </div>
+              </div>
+              <div id="nam">Night Changes - One Direction</div>
+              <div id="mimg">
+              <img id="flipoff" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSH5WeX6ftu34nm0jZUWc74xNaiRCE3vw8OFA&usqp=CAU">
+              <div id="flipon"><br>
+              <br><br>Will be completed till next update</div>
+              </div>
+              <div id="player">
+                  <i class="material-icons" id="pre">fast_rewind</i>
+                  <i class="material-icons" id="pau" onClick="play1()" >pause</i>
+                   <i class="material-icons" id="pa" onClick="pause()">play_arrow</i>
+                  <i class="material-icons" id="nex">fast_forward</i>
+              </div>
+        </div>
+        <div id="lang">
+         <div id="head">
+               <p onClick="langm()" id="back2">︿</p>
+            <p id="do2">  Languages </p>
+          </div>
+          <div id="listl">
+         <div id="b11" class="b1">Hindi</div>
+         <div id="b2" class="b1">English</div>
+         <div id="b3" class="b1">Marathi</div>
+         <div id="b4" class="b1">Bengali</div>
+         <div id="b5" class="b1">Malayalam</div>
+         <div id="b6" class="b1">Rajasthani</div>
+         <div id="b7" class="b1">Punjabi</div>
+         <div id="b8" class="b1">Tamil</div>
+        </div>
+         <i class="material-icons" id="bookm">bookmark</i>
+         <i class="material-icons" id="booke">bookmark</i>
+        </div>
+            
+ <script>
+            var sideMenu = document.getElementById("menu")
+    function menu() {
+        sideMenu.style.width = "80%"
+         
+      
+        document.getElementById("main").style.filter="opacity(50%)";
+    }
+    
+    function back() {
+        sideMenu.style.width = "0"
+        
+         
+        document.getElementById("main").style.filter="opacity(100%)";
+    }
+    document.getElementById("menu").addEventListener("click", e=>e.stopPropagation(), false)
+
+document.getElementById("setting").addEventListener("click", e=>e.stopPropagation(), false)
+    document.documentElement.addEventListener("click", function(e) {
+        back()
+       e.preventDefault() 
+    }, false)
+    
+        </script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ 
+   <script> 
+   var swiper = new Swiper('.swiper-container', { 
+   spaceBetween: 40,
+   slidesPerView: '2',
+  
+   centeredSlides:true,
+   autoplay: { delay: 2500, disableOnInteraction: false, }, 
+     
+     });
+   
+    </script>
+     <audio id="ply"controls style=" display:none;" src="https://res.cloudinary.com/dhktoeo0l/video/upload/v1604901344/One_Direction_-_Night_Changes_Pictures_uyvxtr.mp3"  >
+         </audio>  
+            
+      <script>
+          var music = document.getElementById("ply")
+    function pause(){
+document.getElementById("pa").style.display="none";     document.getElementById("pau").style.display="block";
+document.getElementById("pa").style.bottom="2px";
+document.getElementById("pau").style.bottom="2px";
+ music.play()
+}
+function play1(){
+document.getElementById("pa").style.display="block";     document.getElementById("pau").style.display="none";
+document.getElementById("pau").style.bottom="2px";
+ music.pause()
+}
+    
+      </script>
+    	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

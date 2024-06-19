@@ -1,0 +1,34 @@
+div.X {
+    animation-name: animx;
+    animation-duration: 2s;
+    animation-iteration-count: infinite; /* 2;*/
+    animation-timing-function: ease-in-out; /* ease-out; //linear; */
+    animation-direction: inverse;
+
+    width:250px;
+    height:100px;
+    color:white;
+    background-color:green;    
+}
+
+@keyframes animx{
+    from { transform: rotateX(0); }
+    50%  { transform: rotateX(180deg); }
+    to   { transform: rotateX(360deg); }
+}
+
+div.Y {
+    width:250px;
+    height:100px;
+    color:white;
+    background-color: orange;
+    transform: rotateY(150deg);
+}
+
+div.Z {
+    width:250px;
+    height:100px;
+    color:white;
+    background-color:red;
+    transform: rotateZ(25deg);
+}

@@ -1,0 +1,75 @@
+<!--
+    Author: M.A.
+    React.js Counter app
+    M.A.: date: 2020-08-26
+    added CSS decoration: layout and colors, 
+    added second counter and second row of buttons for second counter.
+Originated from: https://stackblitz.com/edit/react-simple-calc-form-example?file=index.js
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="utf-8">
+ <title>Sum App</title>
+ <!-- Script tags: include React -->
+ <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+ <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+ <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+   
+</head>
+
+<body>
+ <div id="root"></div>
+ 
+ <script type="text/babel">
+ 
+/*import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import './style.css';*/
+
+function AddForm() {
+  const [sum, setSum] = React.useState(0);
+  const [num, setNum] = React.useState(0);
+
+  function handleChange(e) {
+    setNum(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    setSum(sum + Number(num));
+    e.preventDefault();
+  }
+
+  function func2(){
+    console.log("func2()");
+    setSum(sum - Number(num));
+  }
+
+  function func1(){
+    console.log("func1()");
+  }
+
+  return <form onSubmit={handleSubmit}>
+ 
+<input type="number" value={num} onChange={handleChange} />
+
+ <input type="submit" value="Add" onClick={func1}/>
+ 
+ <br/>
+ <input type="button" value="Butt2" onClick={func2} />
+
+  <p> Sum is {sum} </p>
+  </form>;
+}
+
+  const el = <AddForm />; 
+  ReactDOM.render(
+    el, 
+    document.getElementById('root')
+  );
+ </script>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

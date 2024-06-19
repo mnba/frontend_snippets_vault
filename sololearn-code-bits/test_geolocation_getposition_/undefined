@@ -1,0 +1,9 @@
+Status: <progress min="0" max="100" value="35"> 
+</progress>
+<script>
+function showloc(xloc){
+  console.log("loc2=", xloc);
+  return xloc;
+}
+document.write("loc1=", navigator.geolocation.getCurrentPosition(showloc))
+</script>

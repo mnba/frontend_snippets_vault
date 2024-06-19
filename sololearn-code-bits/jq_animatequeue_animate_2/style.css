@@ -1,0 +1,9 @@
+/* Created by luis de la hoz */
+
+div {
+    background:orange;
+    height:80px;width:80px;
+    position:relative;
+    border-radius: 50%;
+    opacity: 0.5;
+}

@@ -1,0 +1,97 @@
+// taken from: Nasim NP
+//from: https://code.sololearn.com/cB1A31bOnuBy/
+
+/*
+https://www.sololearn.com/Discuss/2799133/?ref=app
+
+Passing in data from mongodb to html table using nodejs
+
+I've got a problem in showing data from mongodb into a table in html table, i can run it and see the data as an array but i want to put them in the table, i would be pleased if anyone can help or guid me.
+*/
+
+// Thanks for your help, I'm new too
+// this is my js code
+
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var mongo = require('mongodb');
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.post('/Inserting_Points', function (req, res) {
+    var x = req.body.x;
+    var y = req.body.y;
+    var data={};
+    var url = "mongodb://localhost:27017/";
+    mongo.connect(url, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("mydb");
+        var myobj = {x: `${x}`, y: `${y}`};
+
+
+        // inset
+
+        dbo.collection("customers").insertOne(myobj, function (err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+        });
+
+        // select
+
+
+        dbo.collection("customers").find({}).toArray(function (err, result) {
+            if (err) throw err;
+            data = result;
+            console.log(data);
+            res.render("inserting_points", {result: data});
+
+        });
+
+
+        db.close();
+
+    });
+
+});
+
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+    next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+});
+
+
+module.exports = app;
+app.listen(5000);
+
+// Inserting_Points is a page that I've created a table there and i want to show data in mongo there.
+

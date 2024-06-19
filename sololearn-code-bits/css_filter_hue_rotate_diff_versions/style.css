@@ -1,0 +1,19 @@
+img{
+    display: block;
+}
+.original {
+}
+
+
+.filtered2 {
+   filter: hue-rotate(120deg);
+}
+
+.filtered3 {
+   filter: hue-rotate(240deg);
+}
+
+.filtered {
+   filter: hue-rotate(180deg);
+}
+

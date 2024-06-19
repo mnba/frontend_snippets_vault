@@ -1,0 +1,150 @@
+<!-- Created by ChillPill 🌶 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Web Components</title>
+</head>
+<body>
+<to-do>Groceries</to-do>
+<to-do>Bills to pay</to-do>
+<to-do>At work todo</to-do>
+
+<script>
+    //test
+    console.log("v1 support:"+('customElements' in window));
+</script>
+
+
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>
+<!--
+:):):):):):):):):):):):):):):):):):):):):)
+Because the world needs more todo list makers!!!!!!!
+
+
+
+
+
+
+:):):):):):):):):):):):):):):):):):):):):)
+-->
+<template id="to-do">
+<div id="container">
+<h3 id="title">todo</h3>
+<input id="todoInput" type="text"/>
+<button id="todoAddBtn">add</button>
+<ul id="todoList"></ul>
+</div>
+
+<style>
+li{
+    height:4em;
+    font-size:0.5em;
+    padding:none;
+    margin:0;
+}
+
+li>button{
+    float:right;
+    border-radius:50%;
+    outline:none;
+}
+#container{
+    text-align:center;
+    width:150px;
+    display:inline-block;
+    user-select:none;
+    box-sizing:border-box;
+    border:1px double grey;
+    padding:1em;
+    border-radius:20px;
+    background:grey;
+    background-image:linear-gradient(to bottom right,white,lightgrey);
+    outline:none;
+}
+input{
+    width:90%;
+    border-radius:20px;
+    outline:none;
+}
+ul{
+    background:white;
+    padding:1em;
+    border-radius:20px;
+    border:1px double grey;
+}
+</style>
+</template>
+
+
+<script>
+const template = document.querySelector('#to-do');
+customElements.define('to-do',
+  class extends HTMLElement {
+    static get observedAttributes() {
+      return ["list"];
+    }
+    constructor() {
+      super();
+      const root = this.attachShadow({mode: 'open'});
+      const temp = template.content.cloneNode(true);
+      root.appendChild(temp);
+    }
+    connectedCallback() {
+      this.btn= this.shadowRoot.querySelector("#todoAddBtn");
+      this.btn.addEventListener("click", this.addListItem.bind(this));
+      this.list= this.shadowRoot.querySelector("#todoList");
+      this.input= this.shadowRoot.querySelector("#todoInput");
+      this.header=this.shadowRoot.querySelector("#title");
+      this.header.innerText=this.textContent.toLowerCase();
+    }
+    attributeChangedCallback() {
+      const list=this.getList();
+      this.refreshList(list);
+    }
+    addListItem() {
+      const item = this.input.value;
+      const oldList = this.getList();
+      if(oldList){
+        const newList = oldList+"___"+item;
+        this.setList(newList);
+      }else{
+        this.setList(item);
+      }
+    }
+    refreshList(list) {
+      this.list.innerHTML="";
+      const arr=list.split("___");
+      if(arr[0])
+      arr.forEach((item,index)=>{
+        const li=document.createElement("li");
+        const xBtn=document.createElement("button");
+        xBtn.innerText="╳";
+        xBtn.id=index;
+        li.innerText=item;
+        li.appendChild(xBtn);
+        xBtn.onclick=this.removeItem.bind(this);
+        this.list.appendChild(li);
+      });
+    }
+    removeItem(e) {
+      const list=this.getList().split("___");
+      list.splice((e.target.id),1);
+      this.setList(list.join("___")||"");
+    }
+    getList() {
+      return this.getAttribute("list");
+    }
+    setList(list) {
+      this.setAttribute("list",list);
+    }
+  }
+);
+</script>
+
+
+
+

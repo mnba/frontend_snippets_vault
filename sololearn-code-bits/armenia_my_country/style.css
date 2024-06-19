@@ -1,0 +1,22 @@
+/* Created by Sofi */
+
+* { 
+ margin: 0;
+ padding: 0;
+ box-sizing:
+ border-box; 
+} 
+
+.container { 
+ max-width: 100%; 
+} 
+
+h1 { 
+ font-weight: 50px; 
+ font-size: 40px; 
+ color: red; 
+}
+
+#video1{
+  ;
+}

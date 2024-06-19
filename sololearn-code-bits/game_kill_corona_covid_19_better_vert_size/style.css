@@ -1,0 +1,24 @@
+/* Created by ChillPill */
+
+body {
+    margin:0;
+    box-sizing:border-box ;
+    user-select: none;
+    text-align:center;
+    background-color:black;
+}
+
+button{
+    width:32%;
+    font-size:1em;
+    display:inline-block ;
+    padding:1em;
+}
+
+img{
+    display:none;
+}
+
+canvas{
+    width:100%;
+}

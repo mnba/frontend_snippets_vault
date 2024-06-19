@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>JavaScript Progress Bar</title>
+<style>
+body {
+  margin-top: 0;
+}
+
+#progress-block {
+  width: 100%;
+  background-color: white; /*#ddd;*/
+  margin: 0 0 0 0; /*auto;*/
+}
+
+#progress-bar {
+  width: 100%;
+  height: 5px;
+  background-color: #4CAF50;
+  text-align: center;
+  /*line-height: 30px;*/
+  color: white;
+  /* top-left | top-right-and-bottom-left | bottom-right */
+  border-radius: 0px 3px 3px 0px;  
+}
+</style>
+</head>
+
+<body>
+<!--h1>JavaScript Progress Bar</h1-->
+
+<div id="progress-block">
+  <div id="progress-bar"></div>
+</div>
+
+<br>
+<button onclick="runProgressLine()">Start ProgressLine</button> 
+
+<div id='logger'>___</div>
+
+<script>
+let logger = document.getElementById("logger");
+
+let pbtime= 3; //progress bar time in seconds
+let pbdone = false; //progress bar done?
+let perflog=[]
+
+function runProgressLine() {
+    if (pbdone)
+      ;//return;
+    //pbdone = true;
+    
+    let pbar = document.getElementById("progress-bar");
+    
+    //time calcs
+    let overalltime = pbtime *1000;
+    let oneframetime = 100; //25; //milliseconds
+    let ncalls = overalltime / oneframetime;
+    console.log('ncalls=', ncalls);
+    let timerId = setInterval(redraw_prbar, oneframetime);
+    
+    let width = 100; //%
+    let prevwidth= 100+1;//prev. width, to optimize 
+    let i= ncalls;
+    function redraw_prbar() {
+      if (width <=0) {
+        clearInterval(timerId);
+        pbdone = true;
+        if (onpbdone != undefined)
+          onpbdone();
+      } else {
+        i--; 
+        width = Math.round(100 * i / ncalls); 
+        pbar.style.width = width + "%";
+        {
+          if (width != prevwidth ){ //reduce html change counts
+            logger.innerHTML = Math.round(i*oneframetime/1000)+ " seconds"; //width  + "%";
+            prevwidth= width;
+          }
+        }
+      }
+      perflog.push( performance.now());
+    }//eo redraw_prbar()
+}//eo runProgressLine
+
+function onpbdone(){
+  console.log('pb done', typeof perflog );
+  console.log( perflog);
+  /*
+  let sres= perflog.reduce((sacc,n)=> sacc+= ' '+n, '@[]');
+  //let sres= perflog.reduce((sacc,n)=>{ sacc+= ' '+n; return sacc;}, '@[]');
+  // if lambda's body has {} it should return value using `return` keyword
+  console.log('perflog 2=', sres);
+  */ //works OK
+}
+
+window.addEventListener('DOMContentLoaded', runProgressLine); 
+</script>
+
+</body>
+</html>

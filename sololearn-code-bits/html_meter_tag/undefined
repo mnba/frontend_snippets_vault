@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+    <body>
+    
+     Meter tag
+        <meter value="0.6">60%</meter>
+     <br>
+     
+     Progress bar
+     <progress min='0' max='100' value='65'></progress>
+     
+    </body>
+</html>

@@ -1,0 +1,81 @@
+/* Created by Marco Maida */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Arial Narrow", sans-serif;
+}
+
+.cabecera{
+    background-color: #f44;
+    padding: 5px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom: 3px solid #b11;
+}
+
+.cabecera h1{
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+
+.form{
+    display: flex;
+    padding: 5px;
+}
+
+.form input{
+    width: 50%;
+    height: 25px;
+    padding-top: 5px;
+    font-size: 20px;
+    border: none;
+    background-color: #eee;
+    border-bottom: 2px solid #888;
+    transition: background-color, 0.3s;
+    vertical-align: text-bottom;
+    border-radius: 10px;
+}
+
+.form input:hover{
+    background-color: #ccc;
+}
+
+.form button{
+    width: 15%;
+    border: none;
+    background-color: #f44;
+    color: white;
+    margin-left: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.form button.borrar{
+    width: 25%;
+    margin-left: auto;
+}
+
+.nota{
+    border-radius: 5px;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    padding: 5px;
+    margin: 5px;
+    transition: background-color, 0.3s;
+}
+
+.nota:hover{
+    background-color: #ddd;
+}
+
+.nota h4{
+    margin-bottom: 5px;
+    font-weight: normal;
+    font-size: 25px;
+}
+
+.completada h4{
+    text-decoration: line-through;
+}

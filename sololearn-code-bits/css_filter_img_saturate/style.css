@@ -1,0 +1,15 @@
+img{
+    display: block;
+}
+.original{}
+
+.filtered {
+  filter: saturate(2.5);
+} 
+
+.filtered7 {
+  filter: saturate(7);
+} 
+.filtered0{
+  filter: saturate(0%);
+} 

@@ -1,0 +1,23 @@
+.container{
+  display:flex;
+  flex-direction: column;
+  /**/
+}
+.btn {
+  /*margin-top:20px;*/
+  /*margin: 0 auto;/*center in 4 directions*/
+  margin: 20px auto 5px; /*center horizontally*/
+  width: 200px;
+  height: 200px;
+  border-radius:100px;
+  
+  background-color: #0f0;
+  font-size: 30px;
+}
+
+.btn1{
+  font-size: 38px;
+}
+.btn2{
+  font-size: 30px;
+}

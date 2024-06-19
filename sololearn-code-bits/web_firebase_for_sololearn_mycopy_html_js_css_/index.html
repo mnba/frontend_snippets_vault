@@ -1,0 +1,314 @@
+<!-- Firebase in Sololearn - created by Zeke Williams 
+--
+Web Apps in Sololearn, using Firebase:
+
+Also: search for Firebase in Sololearn code bits.
+---
+Firebase in Sololearn - by Zeke Williams 
+https://code.sololearn.com/WCNHMC3tp6nc/
+
+---
+Name: To Do App 
+Author: Arafat Hossain Ar 
+Creation date: 10/9/2020
+https://code.sololearn.com/W1fqn2T7oKvo/
+
+--- 
+Chat App | Real Messaging | Firebase
+https://code.sololearn.com/W42a12a4A24A/
+by: Neat Coder 
+Html-Title: Firebase Chat App | Message For Real
+
+-->
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Demo</title>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <div class="flex-column h-100">
+        <div class="primary-theme header">
+            <span class="title-text">Setting up Firebase for Sololearn</span>
+        </div>
+
+        <main class="flex-grow-1 overflow-y-auto">
+            <div class="page-index">
+                <div class="accordion">Page Shortcuts Index</div>
+                <div class="panel">
+                    <a href="#database">Database</a>
+                    <br/>
+                    <a href="#image-hosting">Image Hosting</a>
+                </div>
+            </div>
+
+            <section id="setup" class="section setup">
+                <div class="secondary-theme">
+                    <span class="sub-title-1-text">Setting up Firebase</span>
+                </div>
+                <hr/>
+                <div class="normal-text section-content">
+                    <p>
+                        Welcome to my Firebase in Sololearn tutorial! I see many questions in the Q&amp;A that ask about using
+                        a database or hosting image files. By the end of this tutorial, you will be ready to use both!
+                    </p>
+                    <p>
+                        Let me preface this with something that many people may be concerned about as of right now. Firebase is
+                        completely <b>FREE</b> to use, as long as you stay within the free tier of usage. For users on Sololearn,
+                        their projects will most likely never reach into the paid tier usage amounts. For the Firestore database you
+                        get 50,000 reads per day. For image storage, you are allowed up to 1GB of bandwidth per day, which is a LOT
+                        for small images. If you reach those amounts, Firebase won't charge you; they will simply deny requests until
+                        the next day starts. Awesome, right?! Let's continue!
+                    </p>
+                    <p>
+                        Start by creating a Firebase account by going to the link <a href="https://firebase.google.com/">here</a>.
+                        Once you have set up an account, you can go to your Firebase console which may look something like the below.
+                    </p>
+                    <div class="img-container">
+                        <img id="firebaseConsole" src=""/>
+                    </div>
+                    <p>
+                        Click Add Project to start your first Firebase project and then give it name. As you can see below, I have
+                        named my project 'SLFirebase'.
+                    </p>
+                    <div class="img-container">
+                        <img id="createProject" src=""/>
+                    </div>
+                    <p>
+                        Click continue. The next page will suggest some powerful analytics tools that you can use for your project.
+                        For the purposes of this demo I will not be opting in to these analytics tools, but feel free to use them
+                        for your project. Click Create Project and your project will be automatically set up by Firebase. When you
+                        click Continue, you will be taken to your project's overview page.
+                    </p>
+                    <p>
+                        To use Firebase in a Sololearn web code, you will need to add a web app to your project. This will create
+                        a config file that your JavaScript will load to let Firebase know that the project has been set up properly.
+                        On your project's overview page, click the 'Add app' button near the top and select Web, which looks like an
+                        HTML tag icon.
+                    </p>
+                    <p>
+                        As you can see below, I have named my web app 'SLWebApps'. You also have the option to host your web app on
+                        Google's Firebase servers. This is a great option when or if you want to release a web app to the public. We
+                        are going to be using Sololearn to host our code, so I will leave my hosting checkbox unchecked.
+                    </p>
+                    <div class="img-container">
+                        <img id="nameWebapp" src=""/>
+                    </div>
+                    <p>
+                        When you click 'Register app', the following pages will walk through some helpful instructions. They include some
+                        HTML code snippets that are needed to load the Firebase JavaScript SDK's as well as how to load your app's
+                        config, which will go in the JavaScript tab of your Sololearn web code. You can see an example below.
+                    </p>
+                    <div class="img-container">
+                        <img id="webappConfig" src=""/>
+                    </div>
+                    <p>
+                        Notice in the above image that the Firebase JavaScript SDK is linked via the gstatic CDN. This tag will go
+                        in the HTML tab of your Sololearn web code. You can place it in the head tag. Placing it at the end of
+                        the body will ensure that your page loads faster, but that won't work for Sololearn. We will also need two
+                        additional tags to include the Firestore SDK and the Storage SDK. See the image below.
+                    </p>
+                    <div class="img-container">
+                        <img id="jsCdnScriptTags" src=""/>
+                    </div>
+                    <p>
+                        This concludes the setup portion. Join me in the next section to start adding a database!
+                    </p>
+                </div>
+            </section>
+
+            <section id="database" class="section primary-theme">
+                <div>
+                    <span class="sub-title-1-text">Creating a database</span>
+                </div>
+                <hr/>
+                <div class="normal-text section-content">
+                    <p>
+                        To add a database to your project, all you need to do is make a few clicks. On your project overview page, find
+                        the side navigation to the left (for mobile, just tap the menu burger at the top left) and click on Cloud
+                        Firestore. This will bring up a page that gives you a lot of information about Firestore, including a video.
+                        There is another option for a database called Realtime Database. This option will work just as well, but I
+                        choose to use Firestore because it has a much more manageable document storage for more complex, hierarchical
+                        data. To add Firestore, click the Create database button.
+                    </p>
+                    <div class="img-container">
+                        <img id="createDatabaseBtn" src=""/>
+                    </div>
+                    <p>
+                        In the image below, you will see the page after you click to create the database. I will start my database in
+                        production mode, so that read and write access is denied to every request. This allows me to take my time and
+                        implement the proper security rules before I allow anyone to access my database. Because your project config
+                        is public information, anyone who uses it can read or write to your database if you don't have good security
+                        rules in place. I'll go over those in more detail, but for now, hit next to continue.
+                    </p>
+                    <div class="img-container">
+                        <img id="createDatabasePage1" src=""/>
+                    </div>
+                    <p>
+                        Click to continue on the next page. That page just shows you the location of your storage options that you
+                        selected when creating your project. I have nam5 (us central) selected for my project, if you must know. After
+                        that, you should land on your Firestore page. Here is where we start to learn about storage and using the
+                        Firestore SDK API. I am not going to allow any writing to my database, even to authenticated users, so this page
+                        is where I will manually create documents to read from in this Sololearn code.
+                    </p>
+                    <p>
+                        Firestore has a great graphical user interface for adding data to your Firestore database, which makes creating
+                        test data extremely easy. Let's start by creating our first collection. Just click the plus icon next to
+                        'Start collection'. I'm going to be making a book collection as an example, so I'll name the collection 'books'.
+                        You have the choice to add the collection's first document, which I will do and is shown below.
+                    </p>
+                    <div class="img-container">
+                        <img id="addFirstDocument" src=""/>
+                    </div>
+                    <p>
+                        You can think of a document as JSON. Each book in our collection will have a title, author, and published
+                        timestamp. When you click save, the collection will be created and the first document will be added. I chose
+                        to use an automatically generated document id because I won't be searching books based on the id - ideally,
+                        I will be able to search and find books based on the fields within the document, like title and author.
+                    </p>
+                    <p>
+                        Now we can get into some code! You can find the documentation for the Firestore API
+                        <a href="https://firebase.google.com/docs/reference/js/firebase.firestore">here</a>. Feel free to explore that
+                        if you feel my explanations aren't enough. Before we start, you will need to update your Firestore security rules.
+                        The image below has what you need in order to read the documents from the JavaScript API. You can find the security
+                        rules for your database by clicking on the Rules tab on your Firestore page.
+                    </p>
+                    <div class="img-container">
+                        <img id="firestoreRules" src=""/>
+                    </div>
+                    <p>
+                        This rule will only allow reads on your books collection. To learn more about security rules and how to structure
+                        them for your projects, go <a href="https://firebase.google.com/docs/firestore/security/rules-structure">here</a>.
+                        <span class="code-span-in-primary">{book}</span> is like a variable that allows any book within the books collection
+                        to be matched in the rule. You can also use it like a variable in the rule block, but since we don't need to, I won't
+                        be doing that here. Once you've made those changes to the rule, click publish. Firestore will tell you that it
+                        may take some time for the rule to propagate throughout their system, so don't be alarmed if you don't see results
+                        immediately from your queries.
+                    </p>
+                    <p>
+                        Now that we have the proper rules in place, we can begin using the API to fetch our data. Below is the code I will
+                        use to fetch our first book entry, Dune.
+                    </p>
+                    <div class="code-block-secondary">
+<pre>const db = firebase.firestore();
+const booksCollection = db.collection("books");
+
+booksCollection.where("title", "==", "Dune").get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((docRef) => {
+            console.log(docRef.data().author);// Frank Herbert
+        })
+    })
+    .catch((err) => console.error(err));</pre>
+                    </div>
+                    <p>
+                        First we get the database reference with <span class="code-span-in-primary">firebase.firestore()</span>. When working
+                        with Firestore, you really only need to call this once. After that, you can pass around the variable you set it to
+                        like any other variable. Next, I get the books collection reference. Collection references have methods available to
+                        refine your database search, just like a SQL query. I am using the <span class="code-span-in-primary">where()</span>
+                        method to search on documents that have a title of 'Dune', which should only be one. After refining the fetch with
+                        where, you must then call <span class="code-span-in-primary">get()</span> to make the actual call to the database.
+                        Using <span class="code-span-in-primary">get()</span> returns what's called a
+                        <span class="code-span-in-primary">QuerySnapshot</span>. The QuerySnapshot is an iterable item that contains a list
+                        of <span class="code-span-in-primary">QueryDocumentSnapshot</span>s. To learn more, read the documentation
+                        <a href="https://firebase.google.com/docs/reference/js/firebase.firestore.QuerySnapshot">here</a>.
+                    </p>
+                    <p>
+                        As we iterate over our list of QueryDocumentSnapshots, we can read information about the document by using the
+                        <span class="code-span-in-primary">data()</span> method. This method returns the document as a JavaScript object,
+                        which is how I'm able to access the author property with the dot accessor.
+                    </p>
+                    <p>
+                        Now that you have created a database, filled it with a document, and fetched that document, you have the power to
+                        do so much more! Experiment by adding more documents to your books collection, or create an entirely new collection.
+                        When you are ready, maybe you can even try writing to the database. Just remember to keep your code private until you
+                        have implemented some proper authentication. Firebase has an authentication service that makes it really easy, so
+                        do some research in that area if you want to learn more.
+                    </p>
+                </div>
+            </section>
+
+            <section id="image-hosting" class="section secondary-theme">
+                <div>
+                    <span class="sub-title-1-text">Hosting Images</span>
+                </div>
+                <hr/>
+                <div class="normal-text section-content">
+                    <p>
+                        Have you ever wanted to save images from your computer or phone in a place where you could use them for your projects
+                        on Sololearn? If so, this is the tutorial for you. Every image on this page is hosted in my Firebase Storage database.
+                        After going through this tutorial, you will be able to do the same. It's extremely simple and takes about 10 minutes
+                        total. Just make sure to finish the <a href="#setup">setup section</a> above before you begin.
+                    </p>
+                    <p>
+                        To add storage - specifically image storage - to your Firebase project, go to your project's overview page and click
+                        'Storage' on the navigation menu to the left. Mobile friends, tab the menu button in the upper left to show
+                        the side nav. Then click the button near the top of that page to add Storage to your project. If it asks you to
+                        select your geographic location, the default option has always worked for me - nam5 (us central).
+                    </p>
+                    <p>
+                        Once you have added Storage to your Firebase project, you can begin uploading images to use in your web projects on
+                        Sololearn. Before you do that, click the 'Rules' tab on the Storage page. Below is an image of the rule that I have
+                        in place for my Storage. This will deny any requests to your Storage bucket that attempt to make any changes. What
+                        you want is for other unauthenticated users on Sololearn to see, or 'read', the images that you have uploaded.
+                    </p>
+                    <div class="img-container">
+                        <img id="storageRules" src=""/>
+                    </div>
+                    <p>
+                        If you want to learn more about security rules, go to
+                        <a href="https://firebase.google.com/docs/firestore/security/rules-structure">this</a> link. Now that your read-only
+                        rule is in place, go back to the Files tab and click 'Upload file' to select images from your computer or phone. Make
+                        sure that is has a name you like before uploading, because you won't be able to edit the name after it has been
+                        uploaded.
+                    </p>
+                    <p>
+                        After you have upload an image or two, you can use the Storage API to fetch them. The code below will show you what I've
+                        done to fetch the images for this Sololearn code. Feel free to look at the JavaScript for this code as well!
+                    </p>
+                    <div class="code-block-primary">
+<pre>const storage = firebase.storage();
+storage.ref("storageRules.png").getDownloadURL()
+    .then((url) => {
+        document.querySelector("#storageRules).src = url;
+    });</pre>
+                    </div>
+                    <p>
+                        First, we get the reference to the storage object using <span class="code-span-in-secondary">firebase.storage()</span>.
+                        I upload an image called 'storageRules.png', and I placed it in the root directory of my storage. You also have the
+                        option to create folders, which is fantastic for using in combination with your security rules. Some folders can be
+                        private and others public; you get to choose.
+                    </p>
+                    <p>
+                        After creating the reference using <span class="code-span-in-secondary">ref()</span>, you can use the
+                        <span class="code-span-in-secondary">getDownloadURL()</span> to fetch the download URL for that specifc image reference.
+                        The download URL can be used in the src property of an img tag. That is what you see when I query the HTML document for
+                        an element with an id of storageRules. That element is an image tag, and I set its src property to the url that comes
+                        back from the Storage request.
+                    </p>
+                    <p>
+                        This is all you need to know to get started! Thanks for reading and go to the link
+                        <a href="https://firebase.google.com/docs/reference/js/firebase.storage">here</a> to learn more about the Storage API.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!--script src='../src/index.js'></script-->
+    
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

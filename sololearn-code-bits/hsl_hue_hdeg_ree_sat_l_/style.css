@@ -1,0 +1,9 @@
+h1 {
+    color: #0000FF;
+}
+p.example {
+    color: rgb(255,0,0);
+}
+p.sample1 {
+    color: hsl(150deg,40%,40%);
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+<body class='bg-img'>
+ Background-* 
+   
+<pre>
+contain : To fit image into existing size of parent
+cover : To fill container over;
+will resize the parent
+</pre>
+
+this can help understand that more clearly: <br>
+Background Sizes<br>
+<a href="https://code.sololearn.com/WRX1O1oe5s1q/">
+https://code.sololearn.com/WRX1O1oe5s1q/</a>
+<br>
+---<br>
+<pre>
+Cover Explaination: 
+it will occupy all of area of the parent box, not leaving a pixel.
+
+If size of picture size will not be equal to size of box, in ratio, 
+some part of pic will be hidden/cropped.
+
+--
+you don't need to resize a pic, simply do 
+background-size: contain;
+
+--
+The difference between contain and 100%
+
+‘contain’
+Scale the image, while preserving its intrinsic aspect ratio, 
+to the largest size such that both its width and its height can fit inside the 
+background positioning area.
+
+’%’
+let's you zoom in zoom out as per your like
+     
+  If you use "background-size:100%;" the img will be scaled to fill the width.
+
+If you use "background-size:auto 100%;"  it will be scaled to fill the height.
+--
+
+</pre>  
+
+ 	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

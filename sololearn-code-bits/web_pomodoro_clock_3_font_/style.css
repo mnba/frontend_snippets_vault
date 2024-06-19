@@ -1,0 +1,215 @@
+/* Created by Amrendra Kumar */
+
+*{
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+body{
+  width:90%;
+  text-align: center;
+  margin:0px auto;
+  background-color: #333333;
+}
+
+h1{
+    display: block;
+    color:white;
+    font-family: Georgia; 
+    font-size: 400%;
+    
+    
+}
+
+.break>p, .session>p{
+ font-size: 95%;
+  color: white;
+  font-family: courier;
+  letter-spacing: 0.1em;
+}
+
+.fa-minus, .fa-plus{
+    color: white;
+    font-weight: lighter;
+    cursor: pointer;
+    font-size: 110%;
+}
+
+input{
+
+    padding-left: 15px;
+    padding-right: 15px;
+    border:none;
+    outline: none;
+    background-color: #333333;
+    color:white;
+    font-family:"Times New Roman";
+    font-size: 170%;
+}
+
+input:focus {outline:0;}
+
+.clockUi{
+
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    margin:0px 10px 10px 38%;
+    line-height: 80px;
+    font-size: 200%;
+    color:white;
+    float:left;
+    clear:both;
+    cursor: pointer;
+    position: relative;
+    
+}
+
+.break{
+    float: left;
+    width:22%;
+    padding: 10px;
+    margin:0px 0px 10px 27%;
+    
+}
+
+
+.session{
+    float:left;
+    width:22%;
+    padding: 10px;
+    margin:0px 0px 10px 0px;
+    
+}
+
+#sesOrBreak{
+    font-size: 120%;
+   
+}
+
+#demo{
+    font-size: 120%;
+    font-weight:lighter ;
+    
+}
+
+
+#rotate {
+  height: 300px;
+  width: 300px;
+  border-radius: 100%;
+  border: 2px solid #777676;
+  border-top-color: #734545;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  margin: auto;
+  
+
+  animation: rotate1 1.5s ease-in-out 0s infinite ;
+
+}
+
+@keyframes rotate1 {
+ from {
+  transform: rotate(0deg);
+ }
+ to {
+  transform: rotate(360deg);
+ }
+}
+
+
+@media (max-width: 600px){
+
+    body{
+      
+      text-align: center;
+      margin:0px auto;
+      
+    }
+
+    h1{
+        
+        font-size: 200%;
+    }
+
+
+    .break>p, .session>p{
+       font-size: 80%;
+      
+    }
+
+    .fa-minus, .fa-plus{
+        
+        font-size: 90%;
+    }
+
+    input{
+
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 120%;
+    }
+
+    .clockUi{
+
+        border-radius: 100%;
+        width: 250px;
+        height: 250px;
+        margin:30px 0px 0px 32px;
+        line-height: 70px;
+        
+        font-size: 180%;
+        
+        float:left;
+        clear:both;
+
+    }
+
+
+    #rotate {
+      height: 250px;
+      width: 250px;
+      border-radius: 100%;
+      border: 2px solid #777676;
+      border-top-color: #734545;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      right: 0%;
+      margin: auto;
+    }
+
+
+    .break{
+        float: left;
+        width:40%;
+        padding: 0px;
+        margin:20px 20px 0px 20px;
+        
+    }
+
+
+    .session{
+        float:left;
+        width:40%;
+        padding: 0px;
+        margin:20px 10px 0px 0px;
+        
+        
+    }
+
+    #sesOrBreak{
+        font-size: 120%;
+        font-weight:lighter ;
+    }
+
+    #demo{
+        font-size: 130%;
+        
+        
+    }
+
+
+}

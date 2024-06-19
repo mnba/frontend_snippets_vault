@@ -1,0 +1,17 @@
+.vanya {
+    margin-top: 75px;
+    width: 200px;
+    height: 100px;
+    background-color: skyblue;
+    border: 1px solid blue;
+    transform: rotate(45deg); /* translate(100px);*/
+    color:white;
+}
+
+.vanya:hover {
+    transform: rotate(45deg) translate(100px);
+    color:lightgrey;
+    transition: transform 0.4s;
+    transition: color 0.8s;
+}
+

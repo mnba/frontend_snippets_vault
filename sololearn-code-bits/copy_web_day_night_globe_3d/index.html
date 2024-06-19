@@ -1,0 +1,254 @@
+<!-- Created by David Dolejší -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/3.4.2/gl-matrix-min.js" integrity="sha512-eV9ExyTa3b+YHr99IBTYpwk4wbgDMDlfW8uTxhywO8dWb810fGUSKDgHhEv1fAqmJT4jyYnt1iWWMW4FRxeQOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <canvas></canvas>
+        <script id="color-vertex" type="x-shader/x-vertex">
+            attribute vec3 a_pos;
+
+            uniform mat4 u_world;
+            uniform mat4 u_view;
+            uniform mat4 u_proj;
+
+            varying vec3 v_fogDepth;
+
+            void main() {
+                mat4 worldView = u_view * u_world;
+
+                v_fogDepth = vec3(worldView * vec4(a_pos, 1.0));
+
+                gl_Position = u_proj * worldView * vec4(a_pos, 1.0);
+            }
+        </script>
+        <script id="color-fragment" type="x-shader/x-fragment">
+            precision mediump float;
+
+            varying vec3 v_fogDepth;
+
+            uniform vec3 u_ambient;
+            uniform vec3 u_ambientColor;
+            uniform float u_fogNear;
+            uniform float u_fogFar;
+            uniform vec4 u_fogColor;
+
+            void main() {
+                vec3 ambient = u_ambient * u_ambientColor;
+                float fogDistance = length(v_fogDepth);
+                float fogAmount = smoothstep(u_fogNear, u_fogFar, fogDistance);
+                vec4 color = vec4(ambient, 1.0);
+
+                gl_FragColor = mix(color, u_fogColor, fogAmount);
+            }
+        </script>
+        <script id="texture-vertex" type="x-shader/x-vertex">
+            attribute vec3 a_pos;
+            attribute vec2 a_uv;
+
+            uniform mat4 u_world;
+            uniform mat4 u_view;
+            uniform mat4 u_proj;
+
+            varying vec2 v_uv;
+            varying vec3 v_fogDepth;
+
+            void main() {
+                mat4 worldView = u_view * u_world;
+
+                v_uv = a_uv;
+                v_fogDepth = vec3(worldView * vec4(a_pos, 1.0));
+
+                gl_Position = u_proj * worldView * vec4(a_pos, 1.0);
+            }
+        </script>
+        <script id="texture-fragment" type="x-shader/x-fragment">
+            precision mediump float;
+
+            varying vec2 v_uv;
+            varying vec3 v_fogDepth;
+
+            uniform vec3 u_ambient;
+            uniform sampler2D u_ambientMap;
+            uniform float u_fogNear;
+            uniform float u_fogFar;
+            uniform vec4 u_fogColor;
+
+            void main() {
+                vec4 ambientMapColor = texture2D(u_ambientMap, v_uv);
+                vec3 effectiveAmbient = u_ambient * ambientMapColor.rgb;
+                float fogDistance = length(v_fogDepth);
+                float fogAmount = smoothstep(u_fogNear, u_fogFar, fogDistance);
+                vec4 color = vec4(effectiveAmbient, 1.0);
+
+                gl_FragColor = mix(color, u_fogColor, fogAmount);
+            }
+        </script>
+        <script id="color-light-vertex" type="x-shader/x-vertex">
+            attribute vec3 a_pos;
+            attribute vec3 a_normal;
+
+            uniform mat4 u_world;
+            uniform mat4 u_view;
+            uniform mat4 u_proj;
+            uniform mat4 u_worldInverseTranspose;
+
+            varying vec3 v_fogDepth;
+            varying vec3 v_worldPos;
+            varying vec3 v_worldNormal;
+
+            void main() {
+                mat4 worldView = u_view * u_world;
+
+                v_fogDepth = vec3(worldView * vec4(a_pos, 1.0));
+                v_worldPos = vec3(u_world * vec4(a_pos, 1.0));
+                v_worldNormal = mat3(u_worldInverseTranspose) * a_normal;
+
+                gl_Position = u_proj * worldView * vec4(a_pos, 1.0);
+            }
+        </script>
+        <script id="color-light-fragment" type="x-shader/x-fragment">
+            precision mediump float;
+
+            varying vec3 v_fogDepth;
+            varying vec3 v_worldPos;
+            varying vec3 v_worldNormal;
+
+            uniform vec3 u_ambient;
+            uniform vec3 u_ambientColor;
+            uniform float u_fogNear;
+            uniform float u_fogFar;
+            uniform vec4 u_fogColor;
+            uniform vec3 u_worldLightPos;
+            uniform vec3 u_worldCameraPos;
+            uniform vec3 u_difuse;
+            uniform vec3 u_difuseColor;
+            uniform vec3 u_specular;
+            uniform vec3 u_specularColor;
+            uniform float u_shininess;
+
+            void main() {
+                vec3 ambient = u_ambient * u_ambientColor;
+                float fogDistance = length(v_fogDepth);
+                float fogAmount = smoothstep(u_fogNear, u_fogFar, fogDistance);
+                vec3 toLight = normalize(u_worldLightPos - v_worldPos);
+                vec3 worldNormal = normalize(v_worldNormal);
+                vec3 difuse = u_difuse * clamp(dot(toLight, worldNormal), 0.0, 1.0) * u_difuseColor;
+                vec3 toCamera = normalize(u_worldCameraPos);
+                vec3 halfVector = normalize(toLight + toCamera);
+                float intensity = pow(clamp(dot(halfVector, worldNormal), 0.0, 1.0), u_shininess);
+                vec3 specular = u_specular * intensity * u_specularColor;
+                vec4 color = vec4(ambient + difuse + specular, 1.0);
+
+                gl_FragColor = mix(color, u_fogColor, fogAmount);
+            }
+        </script>
+        <script id="texture-light-vertex" type="x-shader/x-vertex">
+            attribute vec3 a_pos;
+            attribute vec3 a_normal;
+            attribute vec2 a_uv;
+
+            uniform mat4 u_world;
+            uniform mat4 u_view;
+            uniform mat4 u_proj;
+            uniform mat4 u_worldInverseTranspose;
+
+            varying vec3 v_fogDepth;
+            varying vec3 v_worldPos;
+            varying vec3 v_worldNormal;
+            varying vec2 v_uv;
+
+            void main() {
+                mat4 worldView = u_view * u_world;
+
+                v_fogDepth = vec3(worldView * vec4(a_pos, 1.0));
+                v_worldPos = vec3(u_world * vec4(a_pos, 1.0));
+                v_worldNormal = mat3(u_worldInverseTranspose) * a_normal;
+                v_uv = a_uv;
+
+                gl_Position = u_proj * worldView * vec4(a_pos, 1.0);
+            }
+        </script>
+        <script id="texture-light-fragment" type="x-shader/x-fragment">
+            precision mediump float;
+
+            varying vec3 v_fogDepth;
+            varying vec3 v_worldPos;
+            varying vec3 v_worldNormal;
+            varying vec2 v_uv;
+
+            uniform vec3 u_ambient;
+            uniform vec3 u_ambientColor;
+            uniform float u_fogNear;
+            uniform float u_fogFar;
+            uniform vec4 u_fogColor;
+            uniform vec3 u_worldLightPos;
+            uniform vec3 u_worldCameraPos;
+            uniform vec3 u_difuse;
+            uniform vec3 u_difuseColor;
+            uniform vec3 u_specular;
+            uniform vec3 u_specularColor;
+            uniform float u_shininess;
+            uniform sampler2D u_difuseMap;
+            uniform sampler2D u_specularMap;
+
+            void main() {
+                vec3 ambient = u_ambient * u_ambientColor;
+                float fogDistance = length(v_fogDepth);
+                float fogAmount = smoothstep(u_fogNear, u_fogFar, fogDistance);
+                vec3 toLight = normalize(u_worldLightPos - v_worldPos);
+                vec3 worldNormal = normalize(v_worldNormal);
+                float cosAngle = dot(toLight, worldNormal);
+                vec4 difuseMapColor = texture2D(u_difuseMap, v_uv);
+                vec3 difuse = u_difuse * cosAngle * u_difuseColor;
+                vec3 effectiveDifuse = difuse * difuseMapColor.rgb;
+                vec3 toCamera = normalize(u_worldCameraPos);
+                vec3 reflection = normalize(2.0 * cosAngle * worldNormal - toLight);
+                float intensity = pow(clamp(dot(reflection, toCamera), 0.0, 1.0), u_shininess);
+                vec4 specularMapColor = texture2D(u_specularMap, v_uv);
+                vec3 specular = u_specular * intensity * u_specularColor;
+                vec3 effectiveSpecular = specular * specularMapColor.rgb;
+                vec4 color = vec4(ambient + effectiveDifuse + effectiveSpecular, 1.0);
+
+                gl_FragColor = mix(color, u_fogColor, fogAmount);
+            }
+        </script>
+        <script id="sky-vertex" type="x-shader/x-vertex">
+            attribute vec3 a_pos;
+
+            uniform mat4 u_world;
+            uniform mat4 u_view;
+            uniform mat4 u_proj;
+
+            varying vec3 v_worldPos;
+
+            void main() {
+                v_worldPos = vec3(u_world * vec4(a_pos, 1.0));
+
+                gl_Position = u_proj * u_view * u_world * vec4(a_pos, 1.0);
+            }
+        </script>
+        <script id="sky-fragment" type="x-shader/x-fragment">
+            precision mediump float;
+
+            varying vec3 v_worldPos;
+
+            uniform vec3 u_topColor;
+            uniform vec3 u_bottomColor;
+            uniform vec3 u_offset;
+            uniform float u_exponent;
+
+            void main() {
+                float h = normalize(v_worldPos + u_offset).y;
+
+                gl_FragColor = vec4(mix(u_topColor, u_bottomColor, pow(max(h, 0.0), u_exponent)), 1.0);
+            }
+        </script>
+    	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

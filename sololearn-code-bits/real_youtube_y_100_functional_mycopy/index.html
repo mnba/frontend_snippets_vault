@@ -1,0 +1,1627 @@
+<!-- Created by 🔰 Justin 🔰 -->
+
+
+
+<!--     
+
+   So Im back with another clone in my series and thats a "Youtube Clone".
+   
+   But dont get decieved by the word "Clone". Its almost fully functional and i gave this code quite a lot of time.😌
+   
+   Guide to this code 
+   
+   🔅Fully functional main tabs(home,explore,Subscriptions & Library )
+   
+   🔅Fully functional Library tab
+   
+   🔅Almost all features in the Library tab ( History , Watch later etc...)
+   
+   🔅You can directly watch Youtube videos here 
+   
+   🔅The video page has many suggestion videos and you can watch them too 😌👍
+   
+   🔅Functional Profile page.
+   
+   🔅Search UI
+   
+   🔅Functional Notification tab
+   
+   Jai AIMU 🔥
+   
+    Hey guys , Check out Melodysheep - The best channel on Youtube (gaurenteed).
+    
+    They really make Jaw dropping videos so do check em out
+ -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       
+        
+    <!-- Icon Libraries -->
+    
+        <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
+
+
+<!--        Googke fonts.             -->
+  
+  <link href='https://fonts.googleapis.com/css?family=Aguafina Script|Akronim|Raleway' rel='stylesheet'>
+   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    </head>
+    <body id="body">
+    
+<!-- ============ Loader =============-->
+
+
+    <div id="loader">
+        <i class="fa fa-youtube-play"></i>
+    </div>
+    <div id="create_tab">
+        <div id="create">
+        <div class="cr-hd">
+            <div class="cr-text">Create</div>
+            <div class="close" onclick="close_create()">
+        <ion-icon name="close-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="icon3">
+                <div class="upload">
+                    <i class="fa fa-upload" id="upload"></i> Upload a video
+                    
+                </div>
+                <br>
+                 <div class="upload">
+                  <ion-icon name="camera-outline" id="upload"></ion-icon> Create a short
+                    
+                </div>
+                <br>
+                 <div class="upload">
+                    <ion-icon name="radio-outline" id="upload"></ion-icon> Go Live
+                    
+                </div>
+            </div>
+            <br>
+        </div>
+
+    </div>
+    
+    
+<!-- ########## Profile #############-->
+
+
+    <div id="profile">
+        <div class="ac_hedr" style="z-index:8">
+    
+              <ion-icon name="close" onclick="close_profile()"></ion-icon>
+              
+              Account
+        </div>
+        <br>
+            <div class="user_cont"> 
+            <div>
+                <img src="https://dl.dropbox.com/s/9ajxj4plt1uqzjb/images%20%2829%29.jpeg?dl=0">
+            </div>
+            
+            <div>
+                <span class="nam">Justin</span>
+                <br>
+                <span class="email">
+                    Justin2005@gmail.com
+                </span>
+                <br>
+                <span class="manage">
+                    Manage your Google account
+                </span>
+            </div>
+            
+          
+            </div>
+            
+              <hr width="99.5%" color="#e5e5e6">
+              <div class="long_icons">
+            <div>
+            <ion-icon name="person-sharp"></ion-icon>
+
+                 Your Accout
+                 </div>
+                 <div>
+                     <ion-icon name="tv-outline"></ion-icon>
+                     Youtube Studio
+                 </div>
+                 <div>
+                     <ion-icon name="bar-chart-outline"></ion-icon>
+                     Time watched
+                 </div>
+                 <div>
+                     <ion-icon name="logo-youtube"></ion-icon>
+                     Get Youtube Premium
+                 </div>
+                 <div>
+                     <ion-icon name="cash-outline"></ion-icon>
+                     Purchase and Memberships
+                 </div>
+                 <div>
+                     <ion-icon name="copy-sharp"></ion-icon>
+                     Switch Account
+                 </div>
+                 <div>
+                     <ion-icon name="eye-off-outline"></ion-icon>
+                     Turn on incognito
+                 </div>
+                  <hr width="99.5%" color="#e5e5e6">
+                  <div>
+                  <ion-icon name="settings-outline"></ion-icon>
+                  Settings
+                  </div>
+                  <div>
+                      <ion-icon name="help-circle-outline"></ion-icon>
+                      Help and Feedback
+                  </div>
+              </div>
+              <div class="policy">Privacy Policy • Terms of service</div>
+        </div>
+        
+ <!---
+ 
+ ×××××××× Profile section ends ×××××××
+ 
+ -->
+ 
+ <!-- 
+ 
+ ∆∆∆∆∆∆∆ Header section starts ∆∆∆∆∆∆∆
+ 
+ -->
+     <div id="notif_section">
+            <div class="hedar">
+            <div>
+                <ion-icon name="arrow-back-outline" class="go_back" id="back1" onclick="close_notif()"></ion-icon>
+        Notification
+                </div>
+                <div>
+                    <ion-icon name="search-outline" class="sarch"></ion-icon>
+                     <ion-icon name="ellipsis-vertical" class="history_m"></ion-icon>
+                </div>
+            </div>
+          <img src="https://dl.dropbox.com/s/0xmvczz9fvtiq7c/_20201029_104154.JPG?dl=0">
+          <img src="https://dl.dropbox.com/s/tbdy1oef7lhed8l/_20201029_110749.JPG?dl=0">
+          <br><br><br><br>
+        </div>
+               <div id="search_tab">
+            <div class="upper_h">
+                <ion-icon name="arrow-back-outline" id="bake" onclick="close_search()"></ion-icon>
+                <input type="text" placeholder=" Search Youtube">
+                <ion-icon name="mic-outline"></ion-icon>
+            </div>
+            <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  What If
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  Coding Dragone analogue clocke
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+                   </div>
+                          <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i> Flexbox
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  CSS Grid
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+            
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  The Shining
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+                   </div>
+                   
+                          <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  Kurzgesagt Mars base
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  Coding Train
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+            
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  Melodysheep
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  How to play chess
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  Js & CSS
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  How to kill boredom
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+            
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  Corona sports
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+            
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  The Infographics Show
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+            
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  10 best apps to clone 
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  What if you were dead
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+            
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  How to use a mobile
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+            
+                   <div class="search_his">
+            <div>
+                   <i class="fa fa-history"></i>  Kurzgesagt
+                   </div>
+                   <div>
+                       <ion-icon name="arrow-back-outline"></ion-icon>
+                   </div>
+            </div>
+        </div>
+        
+    <div id="full-code">
+        
+    <div id="hedr">
+       <div >
+        <img id="you"src="https://dl.dropbox.com/s/bq94nnb5zl3f6os/images%20%282%29.png?dl=0">
+           </div>
+             <div >
+               <ion-icon name="notifications" id="notifs" class="three" onclick="notifications()"> 
+                 </ion-icon>
+                   <ion-icon name="search" class="three" onclick="open_search()"> 
+                   </ion-icon>
+                     <img src="https://dl.dropbox.com/s/9ajxj4plt1uqzjb/images%20%2829%29.jpeg?dl=0" class="three" onclick="open_profile()">
+      </div>
+    </div>
+    
+
+<!-- 
+
+========= Subscriptions tab =============
+
+-->
+     <div id="subs_tab">
+    
+    <div class="chanls">
+    <div>
+        <img src="https://dl.dropbox.com/s/y0mb5kssvyxnuh3/images%20%282%29.jpeg?dl=0">
+        Bright Side
+        </div>
+        <div>
+        <img src="https://dl.dropbox.com/s/mk4c07q72ynwo63/images%20%283%29.jpeg?dl=0">
+        <br>
+        Online Tu...
+        </div>
+        <div>
+        <img src="https://dl.dropbox.com/s/tm8rofw5945tlze/unnamed.jpg?dl=0">
+        <br>
+        Melodysh...
+        </div>
+        <div>
+        <img src="https://dl.dropbox.com/s/kbsytwj5yve2172/download.png?dl=0">
+        <br>
+        Game Roo...
+        </div>
+        <div>
+        <img src="https://dl.dropbox.com/s/p3keqkbe0n3sdyz/images%20%286%29.jpeg?dl=0">
+        <br>
+        Haunting...
+        </div>
+        <div>
+        <img src="https://dl.dropbox.com/s/604rvjcnzxrf8tl/images%20%282%29.jpeg?dl=0">
+        <br>
+        Kurzgesagt
+        </div>
+        <div>
+            <img src="https://dl.dropbox.com/s/pfwsejfc01ip4zm/images%20%282%29.jpeg?dl=0">
+            <br>
+            Coding Dragon 
+        </div>
+        <div>
+            <img src="https://dl.dropbox.com/s/dannmr8wnl2rsd4/images%20%282%29.jpeg?dl=0">
+            <br>
+            Smart Ba...
+        </div>
+        <div>
+            <img src="https://dl.dropbox.com/s/oodj6wl0rnvzurg/images%20%284%29.jpeg?dl=0">
+            <br>
+            Infographics...
+        </div>
+        <div>
+            <img src="https://dl.dropbox.com/s/opga2ht01gwwwni/images%20%283%29.jpeg?dl=0">
+            <br>
+            Ghost Series 
+        </div>
+        <div style="padding-right:10vw">
+        <img src="https://dl.dropbox.com/s/o5gcpb5vgp3atje/images%20%282%29.png?dl=0">
+        <br> DIY Tyler
+        </div>
+  
+    
+       <div class="see_more" style="color:blue;font-size:15px">
+           All
+       </div>
+        </div>
+        
+    
+        
+         <div class="roll">
+    &nbsp; &nbsp; &nbsp;
+        <div style="background:#AAABAD;margin-right:3vw">All&nbsp;Videos</div>
+        <div>Today</div>
+        <div>Continue&nbsp;Watching</div>
+        <div>Unwatched</div>
+        <div>Live</div>
+        <div>Posts</div>
+        <div>Latest&nbsp;Uploaded</div>
+        <div>Latest&nbsp;Unwatched</div>
+        <div>Yesterday</div>
+        <div>Shorts</div>
+        &nbsp; &nbsp;
+    </div>
+    
+        <div class="trend_video" id="t_video_1" onclick="indian_island()"> 
+        <img src="https://dl.dropbox.com/s/tbbkm7lzjq7ql07/_20201027_080316.JPG?dl=0">
+            <div class="trend_pannel">
+                <div class="trend_vid_channel"> 
+                <img src="https://dl.dropbox.com/s/y0mb5kssvyxnuh3/images%20%282%29.jpeg?dl=0"> </div>
+                <div class="trend_vid_des">
+                    <div class="trend_vid_title">Indian Island hides something You're not supposed to see</div>
+                    <div class="trend_vid_views">Bright Side • 248k Views • 1 day ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+            </div>
+        </div>
+        <br>
+        <div class="trend_video" id="t_video2" onclick="asteroid_mining()"> 
+        <img src="https://dl.dropbox.com/s/9j7009n5h13tyth/_20201027_101539.JPG?dl=0">
+            <div class="trend_pannel">
+                <div class="trend_vid_channel"> 
+                <img src="https://dl.dropbox.com/s/604rvjcnzxrf8tl/images%20%282%29.jpeg?dl=0"> </div>
+                <div class="trend_vid_des">
+                    <div class="trend_vid_title"> Unlimited Resources from Space - Asteroid Mining</div>
+                    <div class="trend_vid_views">Kurzgesagt - In a nutshell • 33M views • 1 day ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+            </div>
+        </div>
+        <br>
+        <div class="trend_video" id="t_video2" onclick="black_magic()">
+         <img src="https://dl.dropbox.com/s/86gpwyz5ua7871x/_20201027_102424.JPG?dl=0">
+            <div class="trend_pannel">
+                <div class="trend_vid_channel">
+                    
+                <img src="https://dl.dropbox.com/s/p3keqkbe0n3sdyz/images%20%286%29.jpeg?dl=0"> </div>
+                <div class="trend_vid_des">
+                    <div class="trend_vid_title">Indonesian Black Magic Explained | Late Night Show</div>
+                    <div class="trend_vid_views">Haunting Tube• 9M Views • 2 day ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+            </div>
+        </div>
+        <br>
+        <div class="trend_video" id="t_video2" onclick="discoveries()"> <img src="https://dl.dropbox.com/s/2dqniv4186zlrfk/_20201027_080404.JPG?dl=0">
+            <div class="trend_pannel">
+                <div class="trend_vid_channel"> <img src="https://dl.dropbox.com/s/y0mb5kssvyxnuh3/images%20%282%29.jpeg?dl=0"> </div>
+                <div class="trend_vid_des">
+                    <div class="trend_vid_title"> 11 Discoveries nearly stopped Diver's hearts </div>
+                    <div class="trend_vid_views">Bright Side • 4M Views • 2 days ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+            </div>
+        </div>
+        <br>
+        <div class="trend_video" id="t_video2" onclick="audio_player()"> <img src="https://dl.dropbox.com/s/zu0trfqyf9t8szm/_20201027_080342.JPG?dl=0">
+            <div class="trend_pannel">
+                <div class="trend_vid_channel"> <img src="https://dl.dropbox.com/s/mk4c07q72ynwo63/images%20%283%29.jpeg?dl=0"> </div>
+                <div class="trend_vid_des">
+                    <div class="trend_vid_title">HTML & CSS Only Audio player | HTML Audio  </div>
+                    <div class="trend_vid_views">Online Tutorials • 5.7M Views • 3 days ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+            </div>
+            <br> </div>
+            
+            <br><br>
+            
+   
+    </div>
+    
+    
+    
+    
+    
+    <!--- 
+    
+=========== Trending Tab ==============
+
+    --->
+    
+    
+     <div id="trending_tab">
+        <div class="types"> <img src="https://dl.dropbox.com/s/9zo7xfp7rk5if5r/_20201025_114155.JPG?dl=0"> </div>
+        <div class="trend_video" id="t_video_1" onclick="entire_future2()"> <img src="https://dl.dropbox.com/s/t1956zc02abf8vu/_20201025_114937.JPG?dl=0">
+            <div class="trend_pannel">
+                <div class="trend_vid_channel"> <img src="https://dl.dropbox.com/s/tm8rofw5945tlze/unnamed.jpg?dl=0"> </div>
+                <div class="trend_vid_des">
+                    <div class="trend_vid_title">TIMELAPSE OF THE ENTIRE UNIVERSE : A Journey to the start of time (4k)</div>
+                    <div class="trend_vid_views">MelodySheep • 48M Views • 1 year ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+            </div>
+        </div>
+        <br>
+        <div class="trend_video" id="t_video2" onclick="t_series()"> <img src="https://dl.dropbox.com/s/kb801ckae287r1a/_20201025_121209.JPG?dl=0">
+            <div class="trend_pannel">
+                <div class="trend_vid_channel"> <img src="https://dl.dropbox.com/s/altj8pn04migwsp/images%20%281%29.png?dl=0"> </div>
+                <div class="trend_vid_des">
+                    <div class="trend_vid_title">Nach Meri Rani : Guru Randhawa Feat. Nora Fatehi | Tanishk Bagchi | Nikhita Gu...</div>
+                    <div class="trend_vid_views">T Series • 1M views • 1 day ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+            </div>
+        </div>
+        <br>
+        <div class="trend_video" id="t_video2" onclick="light()"> <img src="https://dl.dropbox.com/s/eef2sfexrg6slxb/_20201025_153705.JPG?dl=0">
+            <div class="trend_pannel">
+                <div class="trend_vid_channel"> <img src="https://dl.dropbox.com/s/mk4c07q72ynwo63/images%20%283%29.jpeg?dl=0"> </div>
+                <div class="trend_vid_des">
+                    <div class="trend_vid_title">CSS Tubelight Animation Glowing Effect | Text Animation Effects </div>
+                    <div class="trend_vid_views">Online Tutorials • 4M Views • 5 days ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+            </div>
+        </div>
+        <br>
+        <div class="trend_video" id="t_video2" onclick="clock()"> <img src="https://dl.dropbox.com/s/zs19u16xvgd8e0a/_20201028_225927.JPG?dl=0">
+            <div class="trend_pannel">
+                <div class="trend_vid_channel"> <img src="https://dl.dropbox.com/s/pfwsejfc01ip4zm/images%20%282%29.jpeg?dl=0"> </div>
+                <div class="trend_vid_des">
+                    <div class="trend_vid_title">Dark Analog Clock UI HTML Tutorial</div>
+                    <div class="trend_vid_views">Coding Dragon • 1.2k Views • 5 months ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+            </div>
+        </div>
+        <br>
+        <div class="trend_video" id="t_video2" onclick="top_20()"> <img src="https://dl.dropbox.com/s/ofpmp3yu2nyyf7f/_20201025_153635.JPG?dl=0">
+            <div class="trend_pannel">
+                <div class="trend_vid_channel"> <img src="https://dl.dropbox.com/s/mk4c07q72ynwo63/images%20%283%29.jpeg?dl=0"> </div>
+                <div class="trend_vid_des">
+                    <div class="trend_vid_title">Top 20 CSS and Js effects of July 2020 </div>
+                    <div class="trend_vid_views">Online Tutorials • 5M Views • 3 months ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+            </div>
+            <br> <br><br></div>
+    </div>
+      
+      <div id="library-tab">
+        <div class="recent">Recent</div>
+            <div class="history_f">
+                <div class="one-vid" id="first-">
+                    <img src="https://dl.dropbox.com/s/79veh8i27zzgl9a/_20201027_150955.JPG?dl=0" >
+                    <br>
+                    <div class="aone"> 
+                    <div class="his_title">
+                    Unlimited Resources From...
+                    </div>
+                    <div>
+                        <ion-icon name="ellipsis-vertical"></ion-icon>
+                    </div>
+                    </div>
+                    <div class="his_des">
+                        Kurzgesagt - In a Nutshell
+                    </div>
+                </div>
+                
+                 <div class="one-vid">
+                    <img src="https://dl.dropbox.com/s/f3gwwyjsa4tpr6a/_20201027_150929.JPG?dl=0">
+                    <br>
+                    <div class="aone"> 
+                    <div class="his_title">
+                    What if there was a Mega Earthquake...
+                    </div>
+                    <div>
+                        <ion-icon name="ellipsis-vertical"></ion-icon>
+                    </div>
+                    </div>
+                    <div class="his_des">
+                        What If
+                    </div>
+                </div>
+                
+                
+                 <div class="one-vid">
+                    <img src="https://dl.dropbox.com/s/71xi52ilv75tjh4/_20201027_193319.JPG?dl=0">
+                    <br>
+                    <div class="aone"> 
+                    <div class="his_title">
+                    HTML & CSS Audio Player | HTML Au...
+                    </div>
+                    <div>
+                        <ion-icon name="ellipsis-vertical"></ion-icon>
+                    </div>
+                    </div>
+                    <div class="his_des">
+                        Online Tutorials
+                    </div>
+                </div>
+                
+                 <div class="one-vid">
+                    <img src="https://dl.dropbox.com/s/joj73q592mdsoj4/_20201027_193247.JPG?dl=0">
+                    <br>
+                    <div class="aone"> 
+                    <div class="his_title">
+                    Matter VS Anti Matter - What if Discussed
+                    </div>
+                    <div>
+                        <ion-icon name="ellipsis-vertical"></ion-icon>
+                    </div>
+                    </div>
+                    <div class="his_des">
+                        What If
+                    </div>
+                </div>
+                
+                 <div class="one-vid">
+                    <img src="https://dl.dropbox.com/s/awnzifwwfcejh1z/_20201027_204316.JPG?dl=0">
+                    <br>
+                    <div class="aone"> 
+                    <div class="his_title">
+                    GeoEngineering : A horrible Idea We...
+                    </div>
+                    <div>
+                        <ion-icon name="ellipsis-vertical"></ion-icon>
+                    </div>
+                    </div>
+                    <div class="his_des">
+                        Kurzgesagt - In a Nutshell
+                    </div>
+                </div>
+                
+                 <div class="one-vid">
+                    <img src="https://dl.dropbox.com/s/qvo41et3a05uk22/_20201027_204240.JPG?dl=0">
+                    <br>
+                    <div class="aone"> 
+                    <div class="his_title">
+                    The Rental | Ending Explained in Hindi
+                    </div>
+                    <div>
+                        <ion-icon name="ellipsis-vertical"></ion-icon>
+                    </div>
+                    </div>
+                    <div class="his_des">
+                        Haunting Tube
+                    </div>
+            
+                </div>
+                 <div class="one-vid">
+                    <img src="https://dl.dropbox.com/s/nfssqwmc3r7vbn3/_20201027_212817.JPG?dl=0">
+                    <br>
+                    <div class="aone"> 
+                    <div class="his_title">
+                British Intelligence Cam...
+                    </div>
+                    <div>
+                        <ion-icon name="ellipsis-vertical"></ion-icon>
+                    </div>
+                    </div>
+                    <div class="his_des">
+                        The Infographics Show
+                    </div>
+                </div>
+                
+                 <div class="one-vid">
+                    <img src="https://dl.dropbox.com/s/npa5o7yco8edsky/_20201027_212750.JPG?dl=0">
+                    <br>
+                    <div class="aone"> 
+                    <div class="his_title">
+                50+ Survival Skills that might save your life...
+                    </div>
+                    <div>
+                        <ion-icon name="ellipsis-vertical"></ion-icon>
+                    </div>
+                    </div>
+                    <div class="his_des">
+                        Bright Side
+                    </div>
+                </div>
+        </div>
+            
+            <hr width="99.5%" color="#e5e5e6" class="doun">
+                <div class="category1" onclick="history()">
+                    <i class="fa fa-history"></i>
+                    <span>History</span>
+                </div>
+    
+                 <div class="category1" onclick="download()">
+                    <i class="fa fa-download"></i>
+                    <span>Downloads</span>
+                </div>
+                <div class="category1" onclick="mine()">
+                    <i class="fa fa-play-circle"></i>
+                    <span>Your Videos</span>
+                </div>
+        
+            <div class="category1" onclick="movies()">
+                    <i class="fa fa-film"></i>
+                    <span>Your Movies</span>
+                </div>
+                
+                <div class="category1" onclick="watch_l()">
+                    <i class="material-icons">schedule</i>
+                    <span>Watch Later</span>
+                </div>
+                <hr width="99.5%" class="doun" color="#e5e5e6">
+                <div class="play-list">
+                    <div class="play_text">
+                        Playlist
+                    </div>
+                    <div class="played">
+                        Recently Played &nbsp; <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+                 <div class="category1" style="color:#0099ff">
+                    <ion-icon name="add-outline" class="ade"></ion-icon>
+                    <span>Add playlist</span>
+                </div>
+                
+                 <div class="category1" onclick="liked()">
+                    <i class="material-icons">thumb_up_alt</i>
+                    <span class="num-txt">Liked Videos <span class="number">4 videos</span></span>
+                </div>
+            </div>
+            
+             <div id="later_section">
+            <div class="hedar">
+            <div>
+                <ion-icon name="arrow-back-outline" class="go_back" id="back1" onclick="back6()"></ion-icon>
+                Watch later
+                </div>
+                <div>
+                    <ion-icon name="search-outline" class="sarch"></ion-icon>
+                     <ion-icon name="ellipsis-vertical" class="history_m"></ion-icon>
+                </div>
+                
+            </div>
+        <div class="later">You dont have any Watch later Videos</div>
+        </div>
+        
+        
+        <!-- #########################################
+                PAGE 2
+#########################################
+-->
+        <div id="tr_page">
+         <div onclick="close_vid2()">
+       <i class="fa fa-angle-left" id="cls"></i>
+   </div>
+       <div class="cont">
+           <iframe src="https://www.youtube.com/embed/uD4izuDMUQA" id="tr-video"></iframe>
+           </div>
+           <div class="video-d">
+           <div class="video_title" id="video_title1">TimeLapse of the entire Future</div>
+           <div>
+               <i class="fa fa-angle-down"></i>           </div>
+           </div>
+           
+           <div class="reviews" id="viws1">49M views • 1 year</div>
+           <div class="strip">
+               <div id="likes" ><i class="material-icons" id="strip_i">thumb_up_alt</i>
+               <br>
+               1.1k
+               </div>
+               <div id="dislikes">
+                <i class="material-icons"  id="strip_i">thumb_down_alt</i>
+                <br>
+                125
+                </div>
+                <div id="share">
+                    <i class="fa fa-share" id="strip_i"></i>
+                    <br> Share
+                </div>
+                <div id="download">
+                    <i class="fa fa-download" id="strip_i"></i>
+                    <br>
+                    Download
+                </div>
+                <div id="save">
+                    <ion-icon name="duplicate" id="strip_io"></ion-icon>
+                    <br>
+                    Save
+                </div>
+           </div>
+           <hr width="99.5%" color="#AAABAD" style="opacity:0.5" >
+           <div class="video_channel">
+              <div ><img src="https://dl.dropbox.com/s/tm8rofw5945tlze/unnamed.jpg?dl=0" id="video_chanl1">
+              </div>
+              <div class="channel_cont">
+                  <div class="chanl_name" id="chanl_name1">
+                      MelodySheep
+                  </div>
+                  <div class="join">
+                      SUBSCRIBE
+                  </div>
+              </div>
+              <ion-icon name="notifications-outline" class="bell"></ion-icon>
+           </div>
+           <hr width="99.5%" color="#AAABAD" style="opacity:0.5" >
+           
+           <div class="comments">
+               <div class="com-pannel">
+                  <div class="count"id="count1">
+                  Comments &nbsp;&nbsp;<b>983 </b>
+                  </div>
+                  <div class="arrow">
+                      <ion-icon name="code-outline"></ion-icon>
+                  </div>
+                  
+               </div>
+               <div class="admi" id="admi_com1">
+                   <img src="https://dl.dropbox.com/s/dwkhtcb9gk4t866/a57e0ba3-2f8c-474e-8eff-f0482d33bdaa.jpg?dl=0">  I feel like I should pay for watching This 🤐
+               </div>
+           </div>
+           <hr width="99.5%" color="#AAABAD" style="opacity:0.5" >
+           <div class="suggestions">
+               <div class="autoplay-pannel">
+                   <div class="autoplay">Up Next</div>
+                   <div class="noo">
+                   Autoplay &nbsp; &nbsp;
+                   <div class="no">
+                       <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" tabindex="0" checked>
+    <label class="onoffswitch-label" for="myonoffswitch1"></label>
+</div>
+                   </div>
+               </div>
+           </div>
+        </div>
+          <br>
+           <div  id="video3" onclick="entire_future1()"> 
+           <div class="vid_img2">
+           <img src="https://dl.dropbox.com/s/t1956zc02abf8vu/_20201025_114937.JPG?dl=0" > </div>
+            <div class="pannel2">
+                <div class="vid_channel2"> <img src="https://dl.dropbox.com/s/tm8rofw5945tlze/unnamed.jpg?dl=0"> </div>
+                <div class="vid_des2">
+                    <div class="vid_title2">TIMELAPSE OF THE ENTIRE UNIVERSE : A Journey to the end of time (4k)</div>
+                    <div class="vid_views2">MelodySheep • 48M Views • 1 year ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more2"></ion-icon>
+            </div>
+        </div>
+        <br>
+    <div id="video3" onclick="terror_crocs1()">
+        <div class="vid_img2">
+            <img src="https://dl.dropbox.com/s/n20kezfd5lu4pnr/_20201024_131311.JPG?dl=0">
+        </div>
+        <div class="pannel2">
+        <div class="vid_channel2">
+            <img src="https://dl.dropbox.com/s/jb8aouokdfc7apa/download.png?dl=0">
+            </div>
+            
+            <div class="vid_des2">
+                <div class="vid_title2">What If Terror Crocs were still alive and not extinct?</div>
+                
+                <div class="vid_views2">What If • 7.3k Views • 3 days  ago</div>
+            </div>
+            <ion-icon name="ellipsis-vertical" class="more2"></ion-icon>
+        </div>
+        <br>
+    </div>
+     <div id="video3" onclick="minecraft1()">
+        <div class="vid_img2">
+            <img src="https://dl.dropbox.com/s/1cswvxjwx2dnge9/_20201025_162937.JPG?dl=0">
+        </div>
+            <div class="pannel2">
+               <div class="vid_channel2">
+                   <img src="https://dl.dropbox.com/s/y0mb5kssvyxnuh3/images%20%282%29.jpeg?dl=0">
+               </div>
+                   <div class="vid_des2">
+                      <div class="vid_title2">MineCraft 360° VR Roller Coaster Ride Illusions Will bend your Mind
+                </div>
+                <div class="vid_views2">Bright Side • 13.7k Views • 2 days ago
+                </div>
+             </div>
+          <ion-icon name="ellipsis-vertical" class="more2">
+      </ion-icon>
+    </div>
+  <br>
+</div>
+
+    <div id="video3" onclick="loader_OT1()">
+        <div class="vid_img2">
+            <img src="https://dl.dropbox.com/s/l76i0pwm85byewl/_20201025_100749.JPG?dl=0">
+        </div>
+            <div class="pannel2">
+               <div class="vid_channel2">
+                   <img src="https://dl.dropbox.com/s/mk4c07q72ynwo63/images%20%283%29.jpeg?dl=0">
+               </div>
+                   <div class="vid_des2">
+                      <div class="vid_title2">CSS gradient Shadow Loader Animation Effects | HTML Animation Effects 
+                </div>
+                <div class="vid_views2">Online Tutorials  • 8.4k Views • 3 days ago
+                </div>
+             </div>
+          <ion-icon name="ellipsis-vertical" class="more2">
+      </ion-icon>
+    </div>
+  <br>
+</div>
+    
+    
+    <div class="cls_txt" onclick="close_vid2()"><i class="fa fa-angle-left"></i> &nbsp; Back</div>
+    </div>
+    <script>
+        var video1=document.getElementById("tr_video");
+        var title1=document.getElementById("video_title1");
+        var channel1=document.getElementById("video_chanl1");
+        var namee1=document.getElementById("chanl_name1");
+        var views1=document.getElementById("viws1");
+        var comment1=document.getElementById("admi_com1");
+        var count1=document.getElementById("count1");
+    </script>
+    
+    <!--
+     Video page of Subscriptions  tab
+-->
+<div id="sub_page">
+       <div class="cont">
+           <iframe src="https://www.youtube.com/embed/uD4izuDMUQA" id="sub-video"></iframe>
+           </div>
+           <div class="video-d">
+           <div class="video_title" id="video_title2">TimeLapse of the entire Future</div>
+           <div>
+               <i class="fa fa-angle-down"></i>           </div>
+           </div>
+           
+           <div class="reviews" id="viws2">49M views • 1 year</div>
+           <div class="strip">
+               <div id="likes" ><i class="material-icons" id="strip_i">thumb_up_alt</i>
+               <br>
+               1.1k
+               </div>
+               <div id="dislikes">
+                <i class="material-icons"  id="strip_i">thumb_down_alt</i>
+                <br>
+                125
+                </div>
+                <div id="share">
+                    <i class="fa fa-share" id="strip_i"></i>
+                    <br> Share
+                </div>
+                <div id="download">
+                    <i class="fa fa-download" id="strip_i"></i>
+                    <br>
+                    Download
+                </div>
+                <div id="save">
+                    <ion-icon name="duplicate" id="strip_io"></ion-icon>
+                    <br>
+                    Save
+                </div>
+           </div>
+           <hr width="99.5%" color="#AAABAD" style="opacity:0.5" >
+           <div class="video_channel">
+              <div ><img src="https://dl.dropbox.com/s/tm8rofw5945tlze/unnamed.jpg?dl=0" id="video_chanl2">
+              </div>
+              <div class="channel_cont">
+                  <div class="chanl_name1" id="chanl_name2">
+                      MelodySheep
+                  </div>
+                  <div class="join">
+                      SUBSCRIBE
+                  </div>
+              </div>
+              <ion-icon name="notifications-outline" class="bell"></ion-icon>
+           </div>
+           <hr width="99.5%" color="#AAABAD" style="opacity:0.5" >
+           
+           <div class="comments">
+               <div class="com-pannel">
+                  <div class="count"id="count2">
+                  Comments &nbsp;&nbsp;<b>983 </b>
+                  </div>
+                  <div class="arrow">
+                      <ion-icon name="code-outline"></ion-icon>
+                  </div>
+                  
+               </div>
+               <div class="admi" id="admi_com2">
+                   <img src="https://dl.dropbox.com/s/dwkhtcb9gk4t866/a57e0ba3-2f8c-474e-8eff-f0482d33bdaa.jpg?dl=0">  I feel like I should pay for watching This 🤐
+               </div>
+           </div>
+           <hr width="99.5%" color="#AAABAD" style="opacity:0.5" >
+           <div class="suggestions">
+               <div class="autoplay-pannel">
+                   <div class="autoplay">Up Next</div>
+                   <div class="noo">
+                   Autoplay &nbsp; &nbsp;
+                   <div class="no">
+                       <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" tabindex="0" checked>
+    <label class="onoffswitch-label" for="myonoffswitch2"></label>
+</div>
+                   </div>
+               </div>
+           </div>
+        </div>
+          <br>
+           <div  id="video3" onclick="entire_future2a()"> 
+           <div class="vid_img2">
+           <img src="https://dl.dropbox.com/s/t1956zc02abf8vu/_20201025_114937.JPG?dl=0" > </div>
+            <div class="pannel2">
+                <div class="vid_channel2"> <img src="https://dl.dropbox.com/s/tm8rofw5945tlze/unnamed.jpg?dl=0"> </div>
+                <div class="vid_des2">
+                    <div class="vid_title2">TIMELAPSE OF THE ENTIRE UNIVERSE : A Journey to the end of time (4k)</div>
+                    <div class="vid_views2">MelodySheep • 48M Views • 1 year ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more2"></ion-icon>
+            </div>
+        </div>
+        <br>
+    <div id="video3" onclick="terror_crocs2()">
+        <div class="vid_img2">
+            <img src="https://dl.dropbox.com/s/n20kezfd5lu4pnr/_20201024_131311.JPG?dl=0">
+        </div>
+        <div class="pannel2">
+        <div class="vid_channel2">
+            <img src="https://dl.dropbox.com/s/jb8aouokdfc7apa/download.png?dl=0">
+            </div>
+            
+            <div class="vid_des2">
+                <div class="vid_title2">What If Terror Crocs were still alive and not extinct?</div>
+                
+                <div class="vid_views2">What If • 7.3k Views • 3 days  ago</div>
+            </div>
+            <ion-icon name="ellipsis-vertical" class="more2"></ion-icon>
+        </div>
+        <br>
+    </div>
+     <div id="video3" onclick="minecraft2()">
+        <div class="vid_img2">
+            <img src="https://dl.dropbox.com/s/1cswvxjwx2dnge9/_20201025_162937.JPG?dl=0">
+        </div>
+            <div class="pannel2">
+               <div class="vid_channel2">
+                   <img src="https://dl.dropbox.com/s/y0mb5kssvyxnuh3/images%20%282%29.jpeg?dl=0">
+               </div>
+                   <div class="vid_des2">
+                      <div class="vid_title2">MineCraft 360° VR Roller Coaster Ride Illusions Will bend your Mind
+                </div>
+                <div class="vid_views2">Bright Side • 13.7k Views • 2 days ago
+                </div>
+             </div>
+          <ion-icon name="ellipsis-vertical" class="more2">
+      </ion-icon>
+    </div>
+  <br>
+</div>
+
+    <div id="video3" onclick="loader_OT2()">
+        <div class="vid_img2">
+            <img src="https://dl.dropbox.com/s/l76i0pwm85byewl/_20201025_100749.JPG?dl=0">
+        </div>
+            <div class="pannel2">
+               <div class="vid_channel2">
+                   <img src="https://dl.dropbox.com/s/mk4c07q72ynwo63/images%20%283%29.jpeg?dl=0">
+               </div>
+                   <div class="vid_des2">
+                      <div class="vid_title2">CSS gradient Shadow Loader Animation Effects | HTML Animation Effects 
+                </div>
+                <div class="vid_views2">Online Tutorials  • 8.4k Views • 3 days ago
+                </div>
+             </div>
+          <ion-icon name="ellipsis-vertical" class="more2">
+      </ion-icon>
+    </div>
+  <br>
+</div>
+   
+   <div onclick="close_vid3()">
+       <i class="fa fa-angle-left" id="cls"></i>
+   </div>  
+   <div class="cls_txt" onclick="close_vid3()"><i class="fa fa-angle-left"></i> &nbsp; Back</div> </div>
+    <script>
+        var video2=document.getElementById("sub-video");
+        var title2=document.getElementById("video_title2");
+        var channel2=document.getElementById("video_chanl2");
+        var namee2=document.getElementById("chanl_name2");
+        var views2=document.getElementById("viws2");
+        var comment2=document.getElementById("admi_com2");
+        var count2=document.getElementById("count2");
+        
+        var page2=document.getElementById("sub_page")
+    </script>
+        <!----- 
+
+=========================================
+       Video page of explore tab
+=========================================
+ 
+ -->
+ 
+   <div id="page">
+   <div onclick="close_vid()">
+       <i class="fa fa-angle-left" id="cls"></i>
+   </div>
+       <div class="cont">
+           <iframe src="https://www.youtube.com/embed/uD4izuDMUQA" id="main-video"></iframe>
+           </div>
+           <div class="video-d">
+           <div class="video_title" id="video_title">TimeLapse of the entire Future</div>
+           <div>
+               <i class="fa fa-angle-down"></i>           </div>
+           </div>
+           
+           <div class="reviews" id="viws">49M views • 1 year</div>
+           <div class="strip">
+               <div id="likes" ><i class="material-icons" id="strip_i">thumb_up_alt</i>
+               <br>
+               1.1k
+               </div>
+               <div id="dislikes">
+                <i class="material-icons"  id="strip_i">thumb_down_alt</i>
+                <br>
+                125
+                </div>
+                <div id="share">
+                    <i class="fa fa-share" id="strip_i"></i>
+                    <br> Share
+                </div>
+                <div id="download">
+                    <i class="fa fa-download" id="strip_i"></i>
+                    <br>
+                    Download
+                </div>
+                <div id="save">
+                    <ion-icon name="duplicate" id="strip_io"></ion-icon>
+                    <br>
+                    Save
+                </div>
+           </div>
+           <hr width="99.5%" color="#AAABAD" style="opacity:0.5" >
+           <div class="video_channel">
+              <div ><img src="https://dl.dropbox.com/s/tm8rofw5945tlze/unnamed.jpg?dl=0" id="video_chanl">
+              </div>
+              <div class="channel_cont">
+                  <div class="chanl_name" id="chanl_name">
+                      MelodySheep
+                  </div>
+                  <div class="join">
+                      SUBSCRIBE
+                  </div>
+              </div>
+              <ion-icon name="notifications-outline" class="bell"></ion-icon>
+           </div>
+           <hr width="99.5%" color="#AAABAD" style="opacity:0.5" >
+           
+           <div class="comments">
+               <div class="com-pannel">
+                  <div class="count"id="count">
+                  Comments &nbsp;&nbsp;<b>983 </b>
+                  </div>
+                  <div class="arrow">
+                      <ion-icon name="code-outline"></ion-icon>
+                  </div>
+                  
+               </div>
+               <div class="admi" id="admi_com">
+                   <img src="https://dl.dropbox.com/s/dwkhtcb9gk4t866/a57e0ba3-2f8c-474e-8eff-f0482d33bdaa.jpg?dl=0">  I feel like I should pay for watching This 🤐
+               </div>
+           </div>
+           <hr width="99.5%" color="#AAABAD" style="opacity:0.5" >
+           <div class="suggestions">
+               <div class="autoplay-pannel">
+                   <div class="autoplay">Up Next</div>
+                   <div class="noo">
+                   Autoplay &nbsp; &nbsp;
+                   <div class="no">
+                       <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
+    <label class="onoffswitch-label" for="myonoffswitch"></label>
+</div>
+                   </div>
+               </div>
+           </div>
+        </div>
+          <br>
+           <div  id="video3" onclick="entire_future()"> 
+           <div class="vid_img2">
+           <img src="https://dl.dropbox.com/s/t1956zc02abf8vu/_20201025_114937.JPG?dl=0" > </div>
+            <div class="pannel2">
+                <div class="vid_channel2"> <img src="https://dl.dropbox.com/s/tm8rofw5945tlze/unnamed.jpg?dl=0"> </div>
+                <div class="vid_des2">
+                    <div class="vid_title2">TIMELAPSE OF THE ENTIRE UNIVERSE : A Journey to the end of time (4k)</div>
+                    <div class="vid_views2">MelodySheep • 48M Views • 1 year ago</div>
+                </div>
+                <ion-icon name="ellipsis-vertical" class="more2"></ion-icon>
+            </div>
+        </div>
+        <br>
+    <div id="video3" onclick="terror_crocs()">
+        <div class="vid_img2">
+            <img src="https://dl.dropbox.com/s/n20kezfd5lu4pnr/_20201024_131311.JPG?dl=0">
+        </div>
+        <div class="pannel2">
+        <div class="vid_channel2">
+            <img src="https://dl.dropbox.com/s/jb8aouokdfc7apa/download.png?dl=0">
+            </div>
+            
+            <div class="vid_des2">
+                <div class="vid_title2">What If Terror Crocs were still alive and not extinct?</div>
+                
+                <div class="vid_views2">What If • 7.3k Views • 3 days  ago</div>
+            </div>
+            <ion-icon name="ellipsis-vertical" class="more2"></ion-icon>
+        </div>
+        <br>
+    </div>
+     <div id="video3" onclick="minecraft()">
+        <div class="vid_img2">
+            <img src="https://dl.dropbox.com/s/1cswvxjwx2dnge9/_20201025_162937.JPG?dl=0">
+        </div>
+            <div class="pannel2">
+               <div class="vid_channel2">
+                   <img src="https://dl.dropbox.com/s/y0mb5kssvyxnuh3/images%20%282%29.jpeg?dl=0">
+               </div>
+                   <div class="vid_des2">
+                      <div class="vid_title2">MineCraft 360° VR Roller Coaster Ride Illusions Will bend your Mind
+                </div>
+                <div class="vid_views2">Bright Side • 13.7k Views • 2 days ago
+                </div>
+             </div>
+          <ion-icon name="ellipsis-vertical" class="more2">
+      </ion-icon>
+    </div>
+  <br>
+</div>
+
+    <div id="video3" onclick="loader_OT()">
+        <div class="vid_img2">
+            <img src="https://dl.dropbox.com/s/l76i0pwm85byewl/_20201025_100749.JPG?dl=0">
+        </div>
+            <div class="pannel2">
+               <div class="vid_channel2">
+                   <img src="https://dl.dropbox.com/s/mk4c07q72ynwo63/images%20%283%29.jpeg?dl=0">
+               </div>
+                   <div class="vid_des2">
+                      <div class="vid_title2">CSS gradient Shadow Loader Animation Effects | HTML Animation Effects 
+                </div>
+                <div class="vid_views2">Online Tutorials  • 8.4k Views • 3 days ago
+                </div>
+             </div>
+          <ion-icon name="ellipsis-vertical" class="more2">
+      </ion-icon>
+    </div>
+  <br>
+</div>
+    <div class="cls_txt" onclick="close_vid()"><i class="fa fa-angle-left"></i> &nbsp; Back</div>
+    </div>
+    <script>
+        var video=document.getElementById("main-video");
+        var title=document.getElementById("video_title");
+        var channel=document.getElementById("video_chanl");
+        var namee=document.getElementById("chanl_name");
+        var views=document.getElementById("viws");
+        var comment=document.getElementById("admi_com");
+        var count=document.getElementById("count");
+    </script>
+    
+            <div id="his_section">
+            <div class="hedar">
+            <div>
+                <ion-icon name="arrow-back-outline" class="go_back" id="back1" onclick="back1()"></ion-icon>
+                History 
+                </div>
+                <div>
+                    <ion-icon name="search-outline" class="sarch"></ion-icon>
+                     <ion-icon name="ellipsis-vertical" class="history_m"></ion-icon>
+                </div>
+            </div>
+            <div class="searche">
+                <ion-icon name="search-outline"></ion-icon><input type="text" placeholder="Search Your History">
+            </div>
+            <br>
+            <div class="Today">
+                Today
+            </div>
+            <br>
+            
+            <img src="https://dl.dropbox.com/s/uyflko1xb0obczl/_20201028_081014.JPG?dl=0">
+        </div>
+         
+         
+          <div id="movie_section">
+            <div class="hedar">
+            <div>
+                <ion-icon name="arrow-back-outline" class="go_back"  onclick="back7()"></ion-icon>
+            Your Movies 
+                </div>
+                <div>
+                    <ion-icon name="search-outline" class="sarch"></ion-icon>
+                     <ion-icon name="ellipsis-vertical" class="history_m"></ion-icon>
+                </div>
+                
+            </div>
+        <div class="later">You dont have any Purchased Movies </div>
+        </div>
+    
+        <div id="down_section">
+            <div class="hedar">
+            <div>
+                <ion-icon name="arrow-back-outline" class="go_back" id="back2" onclick="back2()"></ion-icon>
+                Downloads
+                </div>
+                <div>
+                    <ion-icon name="search-outline" class="sarch"></ion-icon>
+                     <ion-icon name="ellipsis-vertical" class="history_m"></ion-icon>
+                </div>
+            </div>
+          <img src="https://dl.dropbox.com/s/acv5n2crgkd9qme/_20201028_084446.JPG?dl=0">
+        </div>
+        
+        
+        <div id="Your-videos">
+            <div class="hedar">
+            <div>
+                <ion-icon name="arrow-back-outline" class="go_back" id="back3" onclick="back3()"></ion-icon>
+                Your Videos
+                </div>
+                <div>
+                    <ion-icon name="search-outline" class="sarch"></ion-icon>
+                     <ion-icon name="ellipsis-vertical" class="history_m"></ion-icon>
+                </div>
+            </div>
+          <img src="https://dl.dropbox.com/s/jc3p1m966qh94i5/_20201028_100748.JPG?dl=0">
+          <div class="cap">Share Your videos with anyone, or everyone</div>
+          <div class="v-up">Upload Video</div>
+        </div>
+        
+         <div id="liked_section">
+            <div class="hedar">
+            <div>
+                <ion-icon name="arrow-back-outline" class="go_back" id="back1" onclick="back4()"></ion-icon>
+                Downloads
+                </div>
+                <div>
+                    <ion-icon name="search-outline" class="sarch"></ion-icon>
+                     <ion-icon name="ellipsis-vertical" class="history_m"></ion-icon>
+                </div>
+            </div>
+          <img src="https://dl.dropbox.com/s/55uq2mo6b3shw6g/_20201028_103649.JPG?dl=0">
+          <img src="https://dl.dropbox.com/s/wuct00mt8ezsgyn/_20201028_103501.JPG?dl=0">
+        </div>
+        
+     <div id="home-f">
+  <div id="roll">
+    <div style="background:none;border:none;
+    display:;margin-right:0vw">
+        <img src="https://dl.dropbox.com/s/68k2d9tag89gy5d/_20201023_162502.JPG?dl=0" id="shorts"></div>
+        <div style="background:#AAABAD;margin-right:3vw">All</div>
+        <div>JS</div>
+        <div>CSS</div>
+        <div>Horror</div>
+        <div>movies</div>
+        <div>Universe</div>
+        <div> Cosmic</div>
+        <div>Haunting</div>
+        <div>Anime</div>
+    </div>
+    <img src="https://dl.dropbox.com/s/7b877z7mgaw4an1/_20201027_215442.JPG?dl=0" class="ads">
+      <div id="video1" onclick="future()">
+        <div class="vid_img">
+          <img src="https://dl.dropbox.com/s/fw1qup2o2mfrfoo/_20201024_072139.JPG?dl=0">
+        </div>
+           <div class="pannel">
+            <div class="vid_channel">
+             <img src="https://dl.dropbox.com/s/tm8rofw5945tlze/unnamed.jpg?dl=0">
+            </div>
+            
+            <div class="vid_des">
+                <div class="vid_title">TIMELAPSE OF THE ENTIRE FUTURE : A Journey to the end of time (4k)</div>
+                
+                <div class="vid_views">MelodySheep • 48M Views • 1 year ago</div>
+            </div>
+            <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+        </div>
+        <br>
+    </div>
+    
+    <div id="video1" onclick="terror_crocs()">
+        <div class="vid_img">
+            <img src="https://dl.dropbox.com/s/n20kezfd5lu4pnr/_20201024_131311.JPG?dl=0">
+        </div>
+        <div class="pannel">
+        <div class="vid_channel">
+            <img src="https://dl.dropbox.com/s/jb8aouokdfc7apa/download.png?dl=0">
+            </div>
+            
+            <div class="vid_des">
+                <div class="vid_title" >If Terror Crocs were still alive and not extinct?</div>
+                
+                <div class="vid_views">What If • 7.3k Views • 3 days  ago</div>
+            </div>
+            <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+        </div>
+        <br>
+    </div>
+    
+    
+      <div id="video1" onclick="life_beyond()">
+        <div class="vid_img">
+            <img src="https://dl.dropbox.com/s/5t6bpdvucg56sz0/_20201024_072050.JPG?dl=0">
+        </div>
+        <div class="pannel">
+        <div class="vid_channel">
+            <img src="https://dl.dropbox.com/s/tm8rofw5945tlze/unnamed.jpg?dl=0">
+            </div>
+            
+            <div class="vid_des">
+                <div class="vid_title"> LIFE BEYOND II : The Museum of Alien Life (4k)</div>
+                
+                <div class="vid_views">MelodySheep • 29.8M Views • 14 days ago</div>
+            </div>
+            <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+        </div>
+        <br>
+    </div>
+        
+         <div id="video1" onclick="minecraft()">
+        <div class="vid_img">
+            <img src="https://dl.dropbox.com/s/1cswvxjwx2dnge9/_20201025_162937.JPG?dl=0">
+        </div>
+            <div class="pannel">
+               <div class="vid_channel">
+                   <img src="https://dl.dropbox.com/s/y0mb5kssvyxnuh3/images%20%282%29.jpeg?dl=0">
+               </div>
+                   <div class="vid_des">
+                      <div class="vid_title">MineCraft 360° VR Roller Coaster Ride <br>Illusions Will bend your Mind
+                </div>
+                <div class="vid_views">Bright Side • 13.7k Views • 2 days ago
+                </div>
+             </div>
+          <ion-icon name="ellipsis-vertical" class="more">
+      </ion-icon>
+    </div>
+  <br>
+</div>
+
+<img src="https://dl.dropbox.com/s/idezvsm827dprh7/_20201027_220245.JPG?dl=0" class="ads">
+      <div id="video1" onclick="loader_OT()">
+        <div class="vid_img">
+            <img src="https://dl.dropbox.com/s/l76i0pwm85byewl/_20201025_100749.JPG?dl=0">
+        </div>
+            <div class="pannel">
+               <div class="vid_channel">
+                   <img src="https://dl.dropbox.com/s/mk4c07q72ynwo63/images%20%283%29.jpeg?dl=0">
+               </div>
+                   <div class="vid_des">
+                      <div class="vid_title">CSS gradient Shadow Loader Animation Effects | HTML Animation Effects 
+                </div>
+                <div class="vid_views">Online Tutorials  • 8.4k Views • 3 days ago
+                </div>
+             </div>
+          <ion-icon name="ellipsis-vertical" class="more">
+      </ion-icon>
+    </div>
+  <br>
+</div>
+    
+      <div id="video1" onclick="mars_base()">
+        <div class="vid_img">
+            <img src="https://dl.dropbox.com/s/f6yol2ir2tgvz27/_20201023_185539.JPG?dl=0">
+        </div>
+            <div class="pannel">
+               <div class="vid_channel">
+                   <img src="https://dl.dropbox.com/s/604rvjcnzxrf8tl/images%20%282%29.jpeg?dl=0">
+               </div>
+            
+            <div class="vid_des">
+                <div class="vid_title">Building a Mars Base is a horrible idea: Lets do it
+                </div>
+                
+                <div class="vid_views">Kurzgesagt - In a Nutshell • 11k Views • 1 year ago
+                </div>
+             </div>
+          <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+       </div>
+      <br>
+   </div>
+    
+     <div id="video1" onclick="binod()">
+        <div class="vid_img">
+            <img src="https://dl.dropbox.com/s/nmynz597cdwudej/_20201024_153327.JPG?dl=0">
+        </div>
+        <div class="pannel">
+        <div class="vid_channel">
+            <img src="https://dl.dropbox.com/s/cy7dzvrvsi0wgyr/images%20%281%29.png?dl=0">
+            </div>
+            
+            <div class="vid_des">
+                <div class="vid_title">Who Is BINOD ?&nbsp;  How we created a VIRAL Meme</div>
+                
+                <div class="vid_views">Slay Point • 15M Views • 2 months ago</div>
+            </div>
+            <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+        </div>
+        <br>
+    </div>
+    
+    <div id="video1" onclick="egypt()">
+        <div class="vid_img">
+            <img src="https://dl.dropbox.com/s/dm8dbua7lxv8eft/_20201025_100125.JPG?dl=0">
+        </div>
+        <div class="pannel">
+        <div class="vid_channel">
+            <img src="https://dl.dropbox.com/s/jb8aouokdfc7apa/download.png?dl=0">
+            </div>
+            
+            <div class="vid_des">
+                <div class="vid_title">What if YOU were Alive in ancient Egypt ? </div>
+                
+                <div class="vid_views">What If • 6.7k Views • 1 months ago</div>
+            </div>
+            <ion-icon name="ellipsis-vertical" class="more"></ion-icon>
+        </div>
+        <br>
+    </div>
+    
+    <br><br>
+    </div></div>
+        <div id="bottom">
+            <div id="home" onclick="home()">
+                 <i class="material-icons" id="b-icon">home</i>
+          <br>Home
+            </div>
+            <div class="explore" style="font-size:9px" id="ex" onclick="explore()">
+                <ion-icon name="compass" id="b-icon" style="font-size:24px"></ion-icon><br>Explore
+            </div>
+            <div id="add" onclick="add()">
+                <ion-icon name="add-circle-outline" id="add"></ion-icon>
+            </div>
+            <div id="subs" onclick="subs()">
+                 <i class="material-icons" id="b-icon">subscriptions</i><br>Subscriptions
+            </div>
+            
+            <div id="library" onclick="library()">
+                <i class="material-icons">video_library</i><br>Library
+            </div>
+            
+            
+            <!-- Trending Tab -->
+            
+             
+            <script>
+                var home_icon=document.getElementById("home");
+ var explore_icon=document.getElementById("ex");
+ var add_icon=document.getElementById("add");
+ var subs_icon=document.getElementById("subs");
+ var library_icon=document.getElementById("library");
+ var explore_t=document.getElementById("trending_tab");
+
+var home_t=document.getElementById("home-f");
+
+var create=document.getElementById("create");
+var full=document.getElementById("full-code");
+
+var subs_t=document.getElementById("subs_tab");
+var library_t=document.getElementById("library-tab");
+
+var history_t=document.getElementById("his_section");
+var headr=document.getElementById("hedr");
+
+var down_t=document.getElementById("down_section");
+var my_vid=document.getElementById("Your-videos");
+var liked_v=document.getElementById("liked_section");
+
+var later=document.getElementById("later_section");
+
+var movies_t=document.getElementById("movie_section");
+
+var vid_p=document.getElementById("page");
+
+var bottom=document.getElementById("bottom");
+
+var page1=document.getElementById("tr_page");
+
+var video1=document.getElementById("tr-video")
+
+var notif_t=document.getElementById("notif_section");
+var profile_t=document.getElementById("profile");
+
+var bottom=document.getElementById("bottom")
+
+var search_t=document.getElementById("search_tab");
+
+var load=document.getElementById("loader");
+            </script>
+        </div>
+    	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

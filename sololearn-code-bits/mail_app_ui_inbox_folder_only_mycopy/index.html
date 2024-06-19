@@ -1,0 +1,89 @@
+<!-- Created by VEDANG -->
+
+<!--
+
+    Made By: VEDANG
+    Do Not Copy This Code 
+
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <meta name="color-scheme" content="dark light">
+        <title>Mail App UI</title>
+    </head>
+    <body onload="load()">
+    <div id="ctnt"></div>
+    <div id="ctnt1">
+        <div id="jdb">
+               <i class="fas fa-envelope"></i><br>
+               Mail App
+        </div>
+        <div id="uyg" onclick='window.open("https://www.sololearn.com/Profile/6426776")'>
+          &copy;&nbsp; VEDANG &nbsp;2020 <br>
+        </div>
+    </div>
+     <div id="sh01">
+          <br>
+          <h1>Select Account</h1><br>
+          <span>
+            sl.user@example.com
+          </span>
+          <span data-active="true">
+            vedang@example.com
+          </span >
+          <br>
+          <span data-btn="true">
+              Add Account
+          </span>
+         <br>
+      </div>
+      <div id="ovly" onclick="close_nav_main()"></div>
+     <div id="navMain">
+        <div class="profile-c5da6562-c21d-4479-9949-d623145470d4">
+            <img class="img-1423sdf4524sdf6534" src="https://blob.sololearn.com/avatars/40d12ee1-d2c3-47d2-ba17-88bfe650148e.jpg"/>
+            <span>VEDANG</span>
+            <span class="profile-email">vedang@example.com</span>
+        </div>
+         <br>
+         <div class="options-cdf75541-c929-45f4-8578-e76ce9f626ad">
+            <span> <i class="fas fa-wrench"></i>&nbsp;&nbsp;&nbsp; Settings</span>
+            <span onclick="changeTheme()"> <i class="fas fa-tshirt"></i>&nbsp;&nbsp;&nbsp; Change Theme</span>
+            <span class="nav-close" onclick="close_nav_main()"> <i class="fas fa-times"></i>&nbsp;&nbsp;&nbsp; Close</span>
+         </div>
+     </div>
+    <div id="ctnt2">
+      <header>
+      <div id="sh02">
+        <div class="header1" id="hdr">
+          <h1 id="head">Inbox</h1>
+          <i id="i03" onclick="userInfo()" class="fas fa-user-circle"></i>
+        </div>  
+        <nav id="nav">
+          <span style="float: left;" onclick="open_nav_main()"> 
+            <i id="i01" class="fas fa-bars"></i>
+          </span>           
+          <input onfocus='search()' onclick="search()" oninput='searchr(this)' onblur="searchb()" id="inpnv" placeholder="Search here..." type="search"/>            
+           <span id="s01">        
+             <i id="i02" onclick="userInfo()" class="fas fa-user-circle"></i>
+            </span>
+        </nav>
+        </div>
+        </header>
+        <div id="btnbar">
+            <button onclick="pri()" data-current="1">Primary</button>
+            <button onclick="scl()" data-current="0">Social</button>
+            <button onclick="pro()" data-current="0">Promotion</button>
+        </div>
+        <main id="main123"></main>
+        <div id="b1c2f1d405d24e8a-84f31543c8713f41">
+            <i class="fas fa-paper-plane"></i>
+        </div>
+        </div>
+    	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+body{
+  font-family: Arial;
+}
+
+.hcont{
+  text-align: center;
+}
+h2{
+  font-family: Arial;
+  margin: 4px auto;
+}
+
+h4{
+  margin-top:2px;
+  margin-bottom:1px;
+  margin-left: 12px;
+}
+
+input[type=button] {
+  padding: 4px 16px;
+  margin: 3px 0;
+  margin-bottom: 12px;
+  width: 80%;
+  
+  border-radius: 5px;
+  
+  background-color: lightgreen;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+textarea{
+  border-radius: 5px;
+}
+textarea#inp{
+  border: 2px solid cyan;
+}
+textarea#out{
+  border: 2px solid green;
+}
+
+
+hr{
+  margin-top: 40px;
+}
+

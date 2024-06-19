@@ -1,0 +1,16 @@
+p {
+ margin-top: 230px;
+    width: 350px;
+    border: 1px black solid;
+    /*position: fixed;*/
+}
+span {
+    background: green;
+    color: white;
+    
+    position: relative;
+    top: 150px;
+    //left: 50px;
+    //right:0;
+    left: 60%;
+}

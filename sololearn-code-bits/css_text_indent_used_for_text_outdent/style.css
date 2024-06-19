@@ -1,0 +1,12 @@
+.contn{
+  /*padding: 25px;/**/
+  /*padding: auto auto auto 25px;/**/
+  /*padding: initial initial initial 25px;/**/
+  padding-left: 25px;/*the only working configuration*/
+  border: thin solid yellowgreen;
+}
+p {
+    text-indent: -20px;
+    /*text-indent: 60px;*/
+    /*border: thin dashed coral; crimson;*/
+}

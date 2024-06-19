@@ -1,0 +1,6 @@
+p.position_fixed {
+    position: fixed;
+    top: 30px;
+    right: 5px;
+    color: red;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>JavaScript Progress Bar-2 SVG</title>
+<style>
+body {
+  margin-top: 0;
+  padding-top:10px;
+}
+
+#progress-block {
+  width: 100%;
+  background-color: white; /*#ddd;*/
+  margin: 0 0 0 0; /*auto;*/
+}
+
+/*
+{
+  width: 100%;
+  height: 5px;
+  border-radius: 0px 3px 3px 0px;  
+}*/
+</style>
+</head>
+
+<body>
+<!--h1>JavaScript Progress Bar</h1-->
+
+<div id="progress-block">
+  <div id="progress-bar"></div>
+</div>
+
+<svg id="progress-bar">
+  <!--rect width="100%" height="25" fill="#997700"-->
+  <rect id="rect1" x="0" y="0" width="100%" height="5"
+  fill="green">
+    <animate attributeName="width" start="100%" to="0" dur="3s" fill=freeze>
+    </animate>
+  </rect>
+</svg>
+
+<br>
+<button id="btn">Start ProgressLine</button> 
+
+<div id='logger'>___</div>
+
+<script>
+let btn = document.getElementById("btn");
+
+let pbar = document.getElementById("progress-bar");
+let rect1 = document.getElementById("rect1");
+    
+function restartProgressBar() {
+    //
+    console.log('restartProgressBar()');
+    rect1.width="100%"; //300;
+}//eo runProgressLine
+
+
+//window.addEventListener('DOMContentLoaded', runProgressLine);
+btn.addEventListener('click',restartProgressBar);
+
+</script>
+
+</body>
+</html>

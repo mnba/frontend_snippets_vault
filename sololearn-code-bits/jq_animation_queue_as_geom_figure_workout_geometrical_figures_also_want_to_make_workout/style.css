@@ -1,0 +1,50 @@
+/*first color for title*/
+h4.title{
+  font-style: italic;
+  color: #1EB2A6;
+}
+/*unused: 3rd color. 3 colors for one title was too motley, turned this off */
+h4 .funny-title1{
+  color: #B590CA; 
+}
+/*second color for title*/
+h4 .funny-title2{
+  color: #F67575;
+}
+
+#obj1 {
+  /*position and form */
+  position: absolute;
+  border-radius: 50%;
+  height:80px;
+  width:80px;
+  
+  /*colors*/
+  background: orange;
+  opacity: 0.5;
+  color: white;
+  border: 3px solid goldenrod; /*chocolate;*/
+  
+  /* center the text:*/
+  text-align: center;
+  /* vertically centering! tough problem for moving block */
+  /*-display: table-cell;*/
+  /*vertical-align: middle; //would work for otge5 cases, but here it requires `display: table-cell`, while our positioning is done via position. Verdict: incompartible.*/
+  line-height: 80px; /*calc(height); /*vertical-centering option 1*/ /*This finally works! */
+  /*padding: 10px 10px;*/
+}
+
+.label{
+  /*vertical-align: middle;*/
+  /*transform: translate(-50%, -50%);*/
+}
+
+/* Receipts are taken from:
+
+How to Vertically Center Text with CSS: 9 Options
+https://www.w3docs.com/snippets/css/how-to-vertically-center-text-with-css.html#table-display
+
+ ↑This link is just encyclopaedical on the topic.
+
+ Another link: https://stackoverflow.com/questions/16629561/why-is-vertical-align-middle-not-working-on-my-span-or-div
+*/

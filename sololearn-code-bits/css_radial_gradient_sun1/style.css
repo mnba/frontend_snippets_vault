@@ -1,0 +1,6 @@
+.sun1 {
+    height: 350px;
+    width: 350px;
+    color: #555;
+    background: radial-gradient(orange 33%, yellow 35%, rgba(255,255,255,1.0) 67%); 
+}

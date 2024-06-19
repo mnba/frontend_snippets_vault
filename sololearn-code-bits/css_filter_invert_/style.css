@@ -1,0 +1,13 @@
+.filtered {
+  filter: invert(70%);
+}
+
+.filtered2     {
+  filter: invert(70%);
+}
+.filtered3 {
+  filter: invert(100%);
+}
+.filtered4 {
+  filter: invert(30%);
+}

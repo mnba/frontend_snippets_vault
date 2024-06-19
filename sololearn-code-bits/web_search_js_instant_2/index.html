@@ -1,0 +1,96 @@
+<!-- Created by Madhav -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search engine</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+<link rel="stylesheet" href="trial.css">
+<script src="trial.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merienda|Slabo+27px" rel="stylesheet">
+</head>
+
+<body>
+    <div id="info">
+        <button class="icon" id="see" onclick="see()"><i class="fas fa-info"></i></button>
+        <button class="icon" id="nosee" onclick="nosee()"><i class="fas fa-times"></i></button>
+        <div id="hta">
+            <h3>HOW TO ADD NEW ELEMENT</h3>
+            <div class="scroll">
+                <b>1. </b><i>Press ADD</i><br>
+                <br> <img onclick="modal(0)" src="https://file.fm/thumb_show.php?i=cvhbkjnx" /><br><br>
+                <b>2. </b><i>Fill all the three fields <br>Press ENTER to submit <br>Press Exit to go back</i><br>
+                <br>
+                <img onclick="modal(1)" src="https://file.fm/thumb_show.php?i=xkpca7s9" />
+            </div><br>
+            <h3>HOW DELETE AN ELEMENT</h3>
+            <div class="scroll">
+                <b>1. </b><i>Search the element that you want to REMOVE<br>Either by NAME,PROFESSION or Age</i><br>
+                <br> <img onclick="modal(2)" src="https://file.fm/thumb_show.php?i=8uzfs6wt" /><br><br>
+                <b>2. </b><i>Press DELETE to REMOVE</i><br>
+                <br>
+                <img onclick="modal(3)" src="https://file.fm/thumb_show.php?i=m8kvez99" />
+            </div>
+        </div>
+    </div>
+    <div id="ad">
+        <div class="border">ADDITION</div>
+        <br> <br>
+        <b><i class="fas fa-id-badge"></i> Name :</b><br>
+        <input type="text" id="name" class="box" />
+        <br><br>
+        <b><i class="fas fa-briefcase"></i> Profession :</b><br>
+        <input type="text" id="pro" class="box" />
+        <br> <br>
+        <b><i class="fas fa-child"></i> Age :</b><br>
+        <input type="text" id="age" class="box" /><br><br>
+
+
+        <div class="function1"><button onclick="enter()">Enter</button>
+            <button onclick="exit()">Exit</button>
+        </div>
+    </div>
+    
+    <a href="https://www.sololearn.com/learn/13420/?ref=app"><h2>SEARCH ENGINE</h2></a>
+
+    <div class="search-box">
+        <input type="text" id="keyword" autocomplete="off" placeholder="Type to search" />
+        <div id="btn" onclick="search()">
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+
+    <div class="function">
+        <div class="fun" onclick="ad()">ADD</div>
+        <div class="fun" onclick="del()">DELETE</div>
+    </div>
+
+    <div id="output"></div>
+
+    <audio id="click">
+        <source src="https://dl-web.dropbox.com/s/2pzgfyss56j9c4e/Click.mp3?dl=0" type="audio/mp3">
+
+    </audio>
+    <div id="modal">
+
+        <div class="close" onclick="document.getElementById('modal').style.visibility='hidden',document.getElementById('image_modal').style.animation= 'none';">&times;</div>
+
+        <img id="image_modal" />
+    </div>
+
+    <script>
+        function modal(i) {
+            var img = document.getElementsByTagName('img')[i]; document.getElementById('image_modal').src = img.src;
+            document.getElementById('image_modal').style.animation = 'zoom 1s ease'; document.getElementById('modal').style.visibility = 'visible'
+        }
+    </script>
+
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+
+</html>

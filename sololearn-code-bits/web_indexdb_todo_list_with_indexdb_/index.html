@@ -1,0 +1,36 @@
+<!-- Created by Marco Maida -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body onload="startBD();">
+    <div id="container">
+        <header class="cabecera">
+            <h1 class="title">ToDoList</h1>
+        </header>
+        <main>
+            <section class="form">
+                
+                <input type="text" id="texto">
+                <button type="button" onclick="add()" class="guardar">Guardar</button>
+                <button type="button" onclick="borrarTodo()" class="borrar">Borrar Todo</button>
+            </section>
+            <hr>
+            <section class="lista">
+                <h3>Actualmente no tienes cosas por hacer</h3>
+            </section>
+        </main>
+    </div>
+    <div id="details" class="details">
+        
+    </div>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

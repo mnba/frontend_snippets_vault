@@ -1,0 +1,48 @@
+.empty-div {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    margin: 30px;
+    padding: 10px;
+    border: 1px solid black;
+    
+    perspective: 200px; //?
+}
+
+.green-div {
+    padding: 60px;
+    position: absolute;
+    background-color: green;
+    border: 1px solid white;
+    
+    /*transform: rotateX(45deg); */
+    /**/
+    animation-name: animX2;
+    animation-duration: 1.3s;
+    animation-timing-function: ease-in; //linear;
+    /**/
+    transform: rotateX(45deg);
+}
+
+@keyframes animX2{
+    from {transform: rotateX(0);}
+    to {transform: rotateX(45deg);}
+}
+
+/*
+perspective:;
+CSS perspective property
+https://www.w3schools.com/cssref/css3_pr_perspective.asp
+perspective-origin:;
+https://www.w3schools.com/cssref/css3_pr_perspective-origin.asp
+
+Default value:     50% 50%
+
+CSS tutorial: CSS 3D Transforms
+https://www.w3schools.com/css/css3_3dtransforms.asp
+
+---
+https://developer.mozilla.org/en-US/docs/Web/CSS/perspective 
+The perspective CSS property determines the distance between the z=0 plane and the user in order to give a 3D-positioned element some perspective. Each 3D element with z>0 becomes larger; each 3D-element with z<0 becomes smaller. The strength of the effect is determined by the value of this property.
+
+*/

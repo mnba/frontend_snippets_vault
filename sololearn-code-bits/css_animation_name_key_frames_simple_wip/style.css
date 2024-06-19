@@ -1,0 +1,15 @@
+div {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    
+    animation-name: colorchange;
+    animation-duration: 1.5s;
+}
+
+@keyframes colorchange {
+    0% {background-color: pink; }
+    50% {background-color: green; }
+    80% {background-color: blue; }
+    100% {background-color: pink; } 
+}

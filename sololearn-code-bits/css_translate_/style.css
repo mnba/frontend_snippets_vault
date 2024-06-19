@@ -1,0 +1,84 @@
+/* Taken from codebit by SalahDEV */
+
+/*Global styles */
+* {
+    margin:0;
+    padding:0;
+}
+html{
+    height:100%;
+}
+body{
+    background:linear-gradient(65deg,hsl(60,80%,60%),hsl(30,80%,60%));
+}
+div{
+}
+
+/*Transform Style */
+/*rotate()
+scale()
+translate()
+skew()
+transform-origin
+*/
+div {
+    height:54px;
+    width:54px;
+    border-radius:5px;
+    margin-left:15px;
+    margin-top:7px;
+    margin-bottom:7px;
+    transition:3s;
+    border:2px solid hsl(0,0%,95%);
+    box-shadow:0 0 5px rgba(0,0,0,0.3);
+}
+
+/*Transformation types for blocks */
+.rotate{
+    background-color:hsl(0,80%,60%);
+}
+.rotate:hover{
+    transform:rotate(360deg);
+}
+
+.scale{
+    background-color:hsl(30,80%,60%);
+}
+.scale:hover{
+    transform:scale(0.5,0.5);
+}
+
+.skew{
+    background-color:hsl(60,80%,60%);
+}
+.skew:hover{
+    transform:skew(-20deg,-20deg);
+}
+
+.translate{
+    background-color:hsl(90,80%,60%);
+}
+.translate:hover{
+    transform:translate(270px,0);
+}
+
+.origin{
+    background-color:hsl(180,80%,60%);
+    margin-top:18px;
+    transform-origin:100% 100%;
+}
+.origin:hover{
+    transform:rotate(90deg);  
+}
+
+
+/*Text: h2 style */
+h2{
+    font-family:Arial;
+    color:hsl(0,100%,15%);
+    margin:5px;
+}
+h2::first-letter{
+    color:hsl(0,100%,25%);
+    text-transform:uppercase;
+}

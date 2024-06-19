@@ -1,0 +1,9 @@
+body, div, ul, li {
+    padding: 5px;
+    margin: 15px;
+}
+
+p {
+    border: 1px solid black;
+    padding: 5px;
+}

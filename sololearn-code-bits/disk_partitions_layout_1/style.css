@@ -1,0 +1,43 @@
+body {}
+
+.container {
+  width: 100%;
+  display: flex;
+  
+  //margin: 0;
+  border: 1px solid pink;
+  border-right-color: red;
+  
+  width: 400px; //OK 180px; //OK!250px; //400px; //300px; //600px;
+  overflow-x: scroll;//!
+}
+.disk{
+    display: inline-block;
+    flex: 1 1 auto;
+    border: 4px dashed darkgrey;
+    border-left-color: #333;
+    border-left-style: solid;
+    border-top-style: solid;
+    margin: 0px 0px 1px 0px;    
+    min-width: min-content; //!! //--70px;100px;
+    width: 100px;
+}
+.p0{
+  max-width: max-content;
+}
+.p1{
+    width: 300px;
+    background-color: ;
+}
+.p2{
+    //width: 100px;
+}
+.p3{
+    width: 200px;
+}
+.p4{
+    //width: 100px;
+}
+.p5{
+    //width: 100px;
+}

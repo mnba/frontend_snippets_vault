@@ -1,0 +1,145 @@
+/**vert-center.css */
+body{
+  font-family: Geneva, Verdana, Arial, Helvetica, sans-serif;
+  /*'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', */
+}
+
+h1.title{
+  text-align: center;
+  font:  bold small-caps 24px/1 "Fira Sans", serif;
+}
+.subtitle {
+  font: normal 18px Geneva, Verdana, Arial, Helvetica, sans-serif;
+  /*letter-spacing: -0.085em;*/
+}
+.end-text {
+  font: small-caps bold 24px/1 sans-serif;
+  font-family: monospace;
+}
+
+/*.url-list-text, */
+#url-list-text {
+  font-family: monospace;
+}
+
+hr {
+  width: 70%;
+  text-align: left; /*this doesn't work, as it doesn't replace align="left" in html code*/
+}
+
+#vert-center>p,
+body>p {
+   border-left: solid 4px darkblue; /*#123456; /*DarkBlue*/
+   padding-left: 5px;
+}
+/** "p .sub-p" selector fails to identify that node, because 
+     nested p tags are flattened in browser DOM.
+     that is a known quirk of the <p> HTML element, called automatic <p> tag omission,
+     when within <p> enconuntered a block element, tha current <p> tag finished, 
+     adding virtual closing </p> tag.
+ */
+.sub-point {
+  margin-left: 25px;
+}
+.sub-sub-point {
+  margin-left: 50px;
+}
+
+/**
+#123456 ==    Deep-Sea Blue color
+ taken from: 
+HTML color codes and names
+https://www.computerhope.com/htmcolor.htm#color-codes
+
+HTML Color Names
+https://www.w3schools.com/colors/colors_names.asp
+*/
+
+/* Collapsibles, Implementation taken from: 
+Implementing A Pure CSS Collapsible | DigitalOcean
+https://www.digitalocean.com/community/tutorials/css-collapsible
+ adopted for 2 collapsible HTMLElement version 
+*/ 
+/* Collapsible 1, 2 */
+.wrap-collabsible {
+  margin-bottom: 1.2rem 0;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.lbl-toggle, 
+.lbl-toggle2 {
+  display: block;
+
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+
+  padding: 1rem;
+
+  color: #5620b9;
+  background: #915bf5;
+
+  cursor: pointer;
+
+  border-radius: 7px;
+  transition: all 0.25s ease-out;
+}
+
+.lbl-toggle:hover, 
+.lbl-toggle2:hover {
+  color: #411c86;
+}
+
+.lbl-toggle::before, 
+.lbl-toggle2::before {
+  content: ' ';
+  display: inline-block;
+
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid currentColor;
+  vertical-align: middle;
+  margin-right: .7rem;
+  transform: translateY(-2px);
+
+  transition: transform .2s ease-out;
+}
+
+.toggle:checked + .lbl-toggle::before, 
+.toggle2:checked + .lbl-toggle2::before {
+  transform: rotate(90deg) translateX(-3px);
+}
+
+.collapsible-content,
+.collapsible-content2 {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content,
+.toggle2:checked + .lbl-toggle2 + .collapsible-content2 {
+  max-height: initial; /*was: 100vh;*/
+}
+
+.toggle:checked + .lbl-toggle,
+.toggle2:checked + .lbl-toggle2 {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.collapsible-content .content-inner, 
+.collapsible-content2 .content-inner2 {
+  background: rgba(66, 78, 250, 0.2);
+  border-bottom: 1px solid rgba(66, 124, 250, 0.45);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: .5rem 1rem;
+}
+
+/* /Collapsibles 1,2 */

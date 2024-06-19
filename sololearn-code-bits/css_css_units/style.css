@@ -1,0 +1,52 @@
+/** CSS Units */
+body {
+    
+}
+/**
+Difference between em and rem and other tags:
+
+EM: Relative to the parent element
+REM: Relative to the root element (<html> tag)
+%: Relative to the parent element
+VW: Relative to the viewport’s width
+VH: Relative to the viewport’s height
+
+Unlike "px" (pixels) fixed/absolute sizes, relative units like %, EM, and REM are better suited to responsive design and also help meet accessibility standards. Relative units scale better on different devices because they can scale up and down according to another element’s size. 
+In most browsers, the default font size is 16px. 
+
+Details:
+1em = 16px (1 * 16)
+1rem = 16px
+100% = 16px
+
+Let’s consider an example of a mobile screen viewport that is 480px x 800px. 
+Now:
+1 VW = 1% of the viewport’s width (or 4.8px)
+50 VW = 50% of the viewport’s width (or 240px)
+
+1 VH = 1% of the viewport’s height (or 8px)
+50 VH = 50% of the viewport’s height (or 400px)
+
+---
+The formula 
+target ÷ context = result 
+is used to convert the fixed (absolute) widths of elements on a page, normally expressed in pixels, to relative widths, widths expressed as a proportion of their container, normally expressed as a percentage. 
+This allows us to create a webpage with a fluid grid design, opposed to the original fixed width design. The advantage of this, is that as a browsers width changes size (or a website is viewed on a screen with a different resolution) the elements on a page should scale appropriately to keep its design proportional to the original.
+
+---
+This is a required step of Responsive Web Design (RWD), which normally takes three steps:
+
+1. Fluid Images - Use CSS Rule 
+img{ max-width:100%; }
+. This ensures images will fill their parent element. 
+
+2. Fluid Grid - Page elements set as relative widths using 
+target ÷ context = result 
+to ensure they scale appropriately. 
+
+3. Media Queries - To create "breakpoints" eich enable the change the layout of the page change to suit better for larger/smaller screen sizes. 
+---
+
+*/
+
+

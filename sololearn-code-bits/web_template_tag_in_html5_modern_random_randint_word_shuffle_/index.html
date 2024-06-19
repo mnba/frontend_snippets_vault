@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Template tag+JS</title>
+    </head>
+    <body>
+<h2 class='title-main'>&lt;Template&gt; is a new HTML tag: Explaining it here</h2>
+See the HTML-page code for more details.<br>
+See the table. The rows in this table are added by template html-code for row, using pure HTML5.<br>
+<!-- template tag and place for embedding it -->
+<template id="productrow"> 
+  <tr> 
+    <td class="record"></td> 
+    <td></td> 
+  </tr> 
+</template>
+<!-- end of template -->
+
+<!-- place for embedding template -->
+<table id="producttable"> <!--border="1px"--> 
+  <thead> 
+    <tr> 
+      <td>UPC_Code</td> 
+      <td>Product_Name</td> 
+    </tr> 
+  </thead> 
+  
+  <tbody> 
+    <!-- existing data could optionally be included here --> 
+  </tbody> 
+</table> 
+<!-- end of template items container --> 
+
+<div class="btnrow">
+  <button id="clearbtn">Clear all</button>
+  <button id="addbtn">Add new row using JS&&lt;template&gt;</button>
+</div>
+
+<!-- end of test&learn html -->
+
+<p><p>
+<hr>
+<div class="explantn">
+<strong>Inspired by:</strong> <br>
+MA: I have taken the original version of this from: <br>
+&lt;template&gt;: The Content Template element - HTML: HyperText Markup Language | MDN  <br>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template</a> <br>
+<p>
+And then I added dynamic behavior with buttons. 
+<p>
+See also: <br>
+* Web components: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot">&lt;slot&gt;</a> <br>
+(and historical: &lt;shadow&gt;)<br> 
+* <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots">Using templates and slots</a>
+
+<div class="expl-quote">
+<h2>Using templates and slots</h2> 
+
+This article explains how you can use the &lt;template&gt; and &lt;slot&gt; elements to create a flexible template that can then be used to populate the shadow DOM of a web component.
+
+<h3> The truth about templates</h3>
+When you have to reuse the same markup structures repeatedly on a web page, it makes sense to use some kind of a template rather than repeating the same structure over and over again. This was possible before, but it is made a lot easier by the HTML &lt;template&gt; element (which is well-supported in modern browsers). This element and its contents are not rendered in the DOM, but it can still be referenced using JavaScript.
+
+Let's look at a trivial quick example:
+(...)  &gt;&gt;<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots">Using templates and slots</a> <p>
+</div>
+
+</div><!--/.explsnatn-->
+
+
+<script>
+// JavaScript code which will add the data, the rows into the table 
+//console.log("start.");
+
+// Test to see if the browser supports the HTML template element by checking 
+// for the presence of the template element's content attribute. 
+if (!('content' in document.createElement('template')) ) { 
+  // Find another way to add the rows to the table 
+  // because 
+  // the HTML <template> element is not supported. 
+  console.error("Error: HTML template element is not supported.");
+  //-return;//--break?!//?what instead?//
+}
+
+else {
+  // Get the table.tbody element from HTML 
+  // Instantiate the row with the template 
+  const tbody = document.querySelector("#producttable >tbody"); 
+  const template = document.querySelector('#productrow'); 
+
+// Clone the new row and insert it into the table 
+  const clone = template.content.cloneNode(true); 
+
+  let td = clone.querySelectorAll("td");
+  td[0].textContent = "12345";
+  td[1].textContent = "Random Product Sample Name";
+  
+  tbody.appendChild(clone); 
+
+// Clone the 2nd new row and insert it into the table 
+  const clone2 = template.content.cloneNode(true); 
+  
+  td = clone2.querySelectorAll("td");
+  td[0].textContent = "0384928528";
+  td[1].textContent = "Acme Smyakmee 0.2kg";
+  
+  tbody.appendChild(clone2); 
+  
+  //done:
+  //console.log("Done: Added 2 item-rows.");
+  
+  //Handle Add-button-click 
+function onAddBtn(e){
+  const row_instance = template.content.cloneNode(true); 
+  
+  let td = row_instance.querySelectorAll("td");
+  //Math.pow(Math.random(), 1.8) - proper way to smoothly map the upper 
+  const randnum = Math.round( Math.pow(Math.random(), 1.8) * 1e5);
+  //Math.random()* 0.4e5 );
+  
+  td[0].textContent = randnum.toString(); 
+    //"333";
+  td[1].textContent = generateRandomWordPhrase();
+    //"444TextAcme Kidney Beans 2";
+  tbody.appendChild(row_instance); 
+  
+  //console.log("Added item-row.");
+}
+
+function onClearBtn(){
+  // from: https://stackoverflow.com/a/65413839/647597
+  //tbody.replaceChildren(); //2021+
+  const aNode = tbody;
+  while (aNode.firstChild) { 
+    aNode.removeChild(aNode.lastChild); 
+  }
+  
+  //console.log("removed all rows.");
+}
+
+const addbtn= document.getElementById("addbtn");
+addbtn.addEventListener("click", onAddBtn);
+
+const clearbtn= document.getElementById("clearbtn");
+clearbtn.addEventListener("click", onClearBtn);
+
+} //eo else ; eo code
+
+</script>
+
+
+    	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+h1{
+  color: blue;
+  font-weight: bold;
+}
+
+.div1 {
+  border: 2px outset red;
+  text-align: center;
+  background-color: yellow;
+  font-family: Handlee, cursive;
+}
+   
+table {
+  border: 2px dotted darkblue;
+}
+
+th {
+  border: 2px dashed black;
+} /*аляповатый и перегруженный стиль дизайна */
+
+td {
+  border: 1px solid black;
+}
+
+.discuss-cell{
+  font-weight: bold;
+  color: white;
+  background-color: orange;
+}

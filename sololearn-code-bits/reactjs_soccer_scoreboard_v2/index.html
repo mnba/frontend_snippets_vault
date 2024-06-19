@@ -1,0 +1,68 @@
+<!--
+    Author: M.A.
+    React.js Counter app Version 2
+    orig author was: Shimax, dates: 2020-05-10;2020-06-11 
+    +new feature: Counter reset button
+    M.A.: date: 2020-08-26
+    added CSS decoration: layout and colors, 
+    added second counter and second row of buttons for second counter.
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="utf-8">
+ <title>Counter App</title>
+ <!-- Script tags: include React -->
+ <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+ <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+ <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+   
+</head>
+
+<body>
+ <div id="app"></div>
+ 
+ <script type="text/babel">
+ const Count = () => {
+    
+   let [count1, setCount1] = React.useState(0);
+   let [count2, setCount2] = React.useState(0);
+      
+   const increment1= () => setCount1(count1 +1);
+   //-let nf=()=>{};//, increment2=nf, decrement1=nf, decrement2=nf, reset1=nf, reset2 = nf;
+   const decpos = (n) => n>0 ? n-1 : 0;
+   const decrement1= () => setCount1( decpos(count1));
+   const reset1 = () => setCount1(0);
+      
+   //???>let [count2, setCount2] = React.useState(0);
+   const increment2= () => setCount2(count2 +1);
+   const decrement2= () => setCount2(count2 -1);
+   const reset2 = ()=> {setCount1(0); setCount2(0); }
+     
+   return (
+        <div className="panel1">
+          <div className="cnt-text">Current Score {count1} : {count2} 
+          </div>
+          <span className="btn-row"> 
+            <button className="btn" onClick={increment1}>Increment</button>
+            <button className="btn" onClick={decrement1}>Decrement</button>
+            <button className="btn" onClick={reset1}>Reset</button>
+          </span>
+          <br/>
+          <span className="btn-row"> 
+            <button className="btn" onClick={increment2}>Increment</button>
+            <button className="btn" onClick={decrement2}>Decrement</button>
+            <button className="btn" onClick={reset2}>Reset</button>
+          </span>
+        </div>            
+      );
+    }
+     
+    ReactDOM.render(<Count/>, 
+                    document.getElementById("app"))
+ </script>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

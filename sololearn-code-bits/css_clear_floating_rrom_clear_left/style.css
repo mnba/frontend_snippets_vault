@@ -1,0 +1,8 @@
+.pic-aside {
+    float: left;
+}
+
+.clean-p-left {
+    /* clear-left from floating */
+    clear: left;
+}

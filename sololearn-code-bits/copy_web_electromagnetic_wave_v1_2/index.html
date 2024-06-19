@@ -1,0 +1,26 @@
+<!-- Created by Rull Deef 🐺 -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>electromagnetic wave</title>
+    </head>
+    <body>
+        <canvas></canvas>
+        <a href='https://en.m.wikipedia.org/wiki/Electromagnetic_radiation'>em waves on wiki</a>
+        <input type=checkbox id=show-electric checked>
+        <label for=show-electric style='color:yellow'>
+          show electric</label><br>
+        <input type=checkbox id=show-magnetic checked>
+        <label for=show-magnetic style='color:lightblue'>
+          show magnetic</label><br>
+        <input type=checkbox id=show-polar checked>
+        <label for=show-polar style='color:pink'>
+          show polorised wave</label><br>
+        <input type=checkbox id=rotate checked>
+        <label for=rotate>rotate view</label><br>
+        <span>phase difference:<br><input type=range min=0 max=240 value=0 id=phase oninput=resize()></span>
+    	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</body>
+</html>

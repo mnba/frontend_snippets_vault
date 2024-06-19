@@ -1,0 +1,12 @@
+h2.inline, h3.inline {
+  display: inline;
+}
+
+.h2-inline {
+  display: inline;
+  /*Extracted these params from vanilla H2 tag values of Firefox */
+  font-family: serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+}

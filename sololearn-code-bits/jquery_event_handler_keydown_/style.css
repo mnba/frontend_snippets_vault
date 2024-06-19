@@ -1,0 +1,11 @@
+#msg {
+  color: blue;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#bigbox{
+  height: 100vh;
+  border: 1px dashed darkgrey;
+  overflow-y: scroll;
+}
